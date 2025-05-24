@@ -187,7 +187,6 @@ exclude:
   - readme_preview/
   - vendor
   - _pages/poll.html
-  - _posts/*
 keep_files:
   - CNAME
   - .nojekyll
