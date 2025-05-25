@@ -2,7 +2,7 @@
 layout: post
 title: The Beginning of my Spark Adventure
 date: 2025-5-23 22:18:00
-description: this is what included images could look like
+description: setup part 1
 tags: spark rpi
 categories: coding-project
 thumbnail: assets/img/9.jpg
