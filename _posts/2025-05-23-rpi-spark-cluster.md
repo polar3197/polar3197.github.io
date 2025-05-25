@@ -8,44 +8,54 @@ categories: coding-project
 thumbnail: assets/img/9.jpg
 featured: true
 ---
+**Overview**
+This post is the beginning of a series documenting my progress, brainstorming and fumbles in setting up a distributed network for data-processing, model-finetuning and performance-logging. 
 
-This is a post tracking the first steps I took in setting up my Raspberry Pi Spark Cluster.
+This project was inspired by conversations with Matei Zaharia while I was in his operating systems class at UC Berkeley.
 
-I hadn't worked much with RPis, Spark, WiFi routers, SSH or Docker before this set-up and I learned a lot.
+The concepts/tools I am interested in getting hands-on with in this project are,
+* Distributed systems
+* SSH
+* Apache Spark (PySpark)
+* Docker
+* Webscraping (potentially switching to camera as cts data feed)
+* HuggingFace finetuning
+* CI/CD
+If time,
+* custom kernel-drivers for displays attached to the Raspberry Pis (RPi)
 
-The first step involved getting an Archer AX21 router and two RPi-4Bs. I chose these as the basis for my distributed systems network because they are cheap and allow for incremental scaling of the system.
+This post outlines two preliminary steps in the project:
+1. Equipment
+2. Setting up SSH for my RPis
+---
+**1. Equipment**
+- For my experimental purposes, I decided two **Raspberry Pi 4Bs** w/ 4GB would suffice as the worker nodes. 
+- For faster/more reliable message passing, I wired my RPis through through Ethernet using an **Archer AX21** router.
+- These choices were cheap and still allow for incremental scaling of the system.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/rpis.jpg" class="img-fluid rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/rpis.jpg" class="img-fluid w-50 rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
     A simple, elegant caption looks good between image rows, after each row, or doesn't have to be there at all.
 </div>
 
-Images can be made zoomable.
-Simply add `data-zoomable` to `<img>` tags that you want to make zoomable.
+**2. Set up the RPis**
+Description of microSD, making name/password, enabling SSH.
 
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/8.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/10.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
-    </div>
-</div>
+**3. Setting Up SSH**
+To set up an SSH connection you need just need your RPi's IP address. Because I am using an Archer router, I could monitor connections and find my RPi's IP address using the Tether app: e.g. 192.168.0.X.
 
-The rest of the images in this post are all zoomable, arranged into different mini-galleries.
+To connect to the shell, run
+```zsh
+ssh name@IP
+```
+and enter your chosen rpi-password when prompted.
 
-<div class="row mt-3">
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/11.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/12.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
-    </div>
-    <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid path="assets/img/7.jpg" class="img-fluid rounded z-depth-1" zoomable=true %}
-    </div>
-</div>
+For quicker access I recommend setting up an SSH authentication key in your terminal,
+```zsh
+ssh-keygen -f ~/.ssh/rpi1_key
+```
+where "-f" indicates the file to store the key in. Then copy the public key into the 
