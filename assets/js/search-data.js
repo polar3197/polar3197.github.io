@@ -27,7 +27,7 @@ ninja.data = [{
       
         title: "The Beginning of my Spark Adventure",
       
-      description: "this is what included images could look like",
+      description: "setup part 1",
       section: "Posts",
       handler: () => {
         
