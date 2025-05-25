@@ -26,12 +26,7 @@ The concepts/tools I am interested in getting hands-on with in this project are,
 If time,
 * custom kernel-drivers for displays attached to the Raspberry Pis (RPi)
 
-This post outlines two preliminary steps in the project:
-1. Equipment
-2. Setting up SSH for my RPis
----
-
-### 1. Equipment
+### 1. Getting equipment
 
 - For my experimental purposes, I decided two **Raspberry Pi 4Bs** w/ 4GB would suffice as the worker nodes. 
 - For faster/more reliable message passing, I wired my RPis through through Ethernet using an **Archer AX21** router.
@@ -39,7 +34,7 @@ This post outlines two preliminary steps in the project:
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/rpis.jpg" class="img-fluid d-block mx-auto w-70 rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/rpis.jpg" class="img-fluid d-block mx-auto w-50 rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
@@ -49,7 +44,7 @@ This post outlines two preliminary steps in the project:
 ### 2. Set up the RPis
 Description of microSD, making name/password, enabling SSH.
 
-### 3. Setting Up SSH
+### 3. Setting Up SSH into RPis
 To set up an SSH connection you need just need your RPi's IP address. Because I am using an Archer router, I could monitor connections and find my RPi's IP address using the Tether app: e.g. 192.168.0.X.
 
 To connect to the shell, run
