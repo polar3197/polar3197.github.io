@@ -8,11 +8,13 @@ categories: coding-project
 thumbnail: assets/img/9.jpg
 featured: true
 ---
-**Overview**
+### Overview
+
 This post is the beginning of a series documenting my progress, brainstorming and fumbles in setting up a distributed network for data-processing, model-finetuning and performance-logging. 
 
 This project was inspired by conversations with Matei Zaharia while I was in his operating systems class at UC Berkeley.
 
+### Goals
 The concepts/tools I am interested in getting hands-on with in this project are,
 * Distributed systems
 * SSH
@@ -28,24 +30,26 @@ This post outlines two preliminary steps in the project:
 1. Equipment
 2. Setting up SSH for my RPis
 ---
-**1. Equipment**
+
+### 1. Equipment
+
 - For my experimental purposes, I decided two **Raspberry Pi 4Bs** w/ 4GB would suffice as the worker nodes. 
 - For faster/more reliable message passing, I wired my RPis through through Ethernet using an **Archer AX21** router.
 - These choices were cheap and still allow for incremental scaling of the system.
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/rpis.jpg" class="img-fluid w-50 rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/rpis.jpg" class="img-fluid d-block mx-auto w-70 rounded z-depth-1" %}
     </div>
 </div>
 <div class="caption">
     A simple, elegant caption looks good between image rows, after each row, or doesn't have to be there at all.
 </div>
 
-**2. Set up the RPis**
+### 2. Set up the RPis
 Description of microSD, making name/password, enabling SSH.
 
-**3. Setting Up SSH**
+### 3. Setting Up SSH
 To set up an SSH connection you need just need your RPi's IP address. Because I am using an Archer router, I could monitor connections and find my RPi's IP address using the Tether app: e.g. 192.168.0.X.
 
 To connect to the shell, run
