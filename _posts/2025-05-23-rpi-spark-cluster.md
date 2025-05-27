@@ -5,8 +5,8 @@ date: 2025-5-23 22:18:00
 description: setup part 1
 tags: spark rpi
 categories: coding-project
-thumbnail: assets/img/9.jpg
-featured: true
+thumbnail: assets/img/rpis.jpg
+featured: false
 ---
 ### Overview
 

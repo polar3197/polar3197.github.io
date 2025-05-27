@@ -3,6 +3,8 @@ layout: post
 title: a meditation on education in the age of AI
 date: 2015-03-15 16:40:16
 description: ai does not break higher education, but rather it removes the veil from a system already failing
+thumbnail: purg.png
+featured: false
 ---
 
 #### Hipster list
