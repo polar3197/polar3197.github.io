@@ -15,3 +15,19 @@
 }
 
 @import "gallery";
+
+/* Override the blog title bar */
+.header-bar {
+  text-align: left;
+  padding-left: 1rem;
+
+  h1 {
+    font-size: 2rem;
+    color: var(--global-text-color); // replaces the green
+    margin-bottom: 0.5rem;
+  }
+
+  h2 {
+    display: none; // hides the subtitle if empty
+  }
+}
