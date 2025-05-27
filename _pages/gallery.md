@@ -14,7 +14,7 @@ nav_order: 2
   </div>
 
   <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/cowboy-james.png' | relative_url }}" alt="Kitchen Cowboy" style="width: 250px;"/>
+    <img src="{{ '/assets/img/paintings/kitchen-cowboy.png' | relative_url }}" alt="Kitchen Cowboy" style="width: 250px;"/>
     <p class="caption">kitchen cowboy</p>
   </div>
 
@@ -24,7 +24,12 @@ nav_order: 2
   </div>
 
   <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/bart.png' | relative_url }}" alt="yellow line" style="width: 320px;"/>
+    <img src="{{ '/assets/img/paintings/screenager.png' | relative_url }}" alt="screenager" style="width: 320px;"/>
+    <p class="caption">screenager</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/bart.jpg' | relative_url }}" alt="yellow line" style="width: 320px;"/>
     <p class="caption">yellow-line</p>
   </div>
 
