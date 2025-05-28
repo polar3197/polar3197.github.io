@@ -14,7 +14,7 @@ nav_order: 2
   </div>
 
   <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/kitchen-cowboy.png' | relative_url }}" alt="Kitchen Cowboy" style="width: 250px;"/>
+    <img src="{{ '/assets/img/paintings/kitchen-cowboy.png' | relative_url }}" alt="Kitchen Cowboy" style="width: 320px;"/>
     <p class="caption">kitchen cowboy</p>
   </div>
 
