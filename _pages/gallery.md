@@ -48,14 +48,15 @@ nav_order: 2
     <p class="caption">Redrocks, CA</p>
   </div>
 
+  <div class="gallery-item special-wide">
+    <img src="{{ '/assets/img/paintings/pastures.png' | relative_url }}" alt="pastures" style="width: 100%; max-width: 1000px;" />
+    <p class="caption">Route 1, CA</p>
+  </div>
+
   <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/anza-borrego.png' | relative_url }}" alt="anza borego" style="width: 320px;"/>
     <p class="caption">Anza Borego, CA</p>
   </div>
 
-  <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/pastures.png' | relative_url }}" alt="pastures" style="width: 320px;"/>
-    <p class="caption">Route 1, CA</p>
-  </div>
 
 </div>
