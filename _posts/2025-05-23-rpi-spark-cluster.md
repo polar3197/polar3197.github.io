@@ -41,16 +41,25 @@ The concepts/tools I am interested in getting hands-on with in this project are,
 </div>
 
 ### 2. Set up the RPis
-Description of microSD, making name/password, enabling SSH.
+You will need a microSD card to install the Debian OS onto the RPi. While doing this, choose to customize the OS.
+<div class="row mt-3">
+    <div class="col-sm mt-3 mt-md-0">
+        {% include figure.liquid loading="eager" path="assets/img/rpi-os-setup.png" class="img-fluid d-block mx-auto w-50 rounded z-depth-1" %}
+    </div>
+</div>
+
+This will allow you to choose a username, an RPi specific name and a password.
+
+Lastly, go to "options" and click "enable SSH".
 
 ### 3. Setting Up SSH into RPis
-To set up an SSH connection you need just need your RPi's IP address. Because I am using an Archer router, I could monitor connections and find my RPi's IP address using the Tether app: e.g. 192.168.0.X.
+To set up an SSH connection you will need your pi-name, username, password and the IP address of the RPi on your local network. Because I am using an Archer router, I could monitor WiFi connections and find my RPi's IP address using the Tether app.
 
 To connect to the shell, run
 ```zsh
 ssh name@IP
 ```
-and enter your chosen rpi-password when prompted.
+and enter the password you chose when setting up the RPi OS when prompted.
 
 For quicker access I recommend setting up an SSH authentication key in your terminal,
 ```zsh
