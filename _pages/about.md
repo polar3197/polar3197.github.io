@@ -16,7 +16,6 @@ latest_posts:
 ---
 
 Hi, I'm **Charlie Cooper**. I recently graduated from **UC Berkeley** with a B.A. in Mathematics and a B.A. in Computer Science.  
-My work spans **ML projects**, creative **coding experiments**, and **painting**.
 
 ---
 
