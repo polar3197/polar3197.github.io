@@ -5,8 +5,8 @@ permalink: /
 
 profile:
   align: right
-  image: prof_pic.png
-  image_circular: false # crops the image to make it circular
+  image: sun_selfie.png
+  image_circular: true # crops the image to make it circular
 
 latest_posts:
   enabled: false 
