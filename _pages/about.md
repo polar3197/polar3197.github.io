@@ -30,8 +30,8 @@ Background:
 
 Interests:
 
-- I am currently planning a marathon semi-circling the North Bay and spanning two bridges. 
-- I am releasing a series of narrative scenes for a short story I've named "Not Set in Stone" in sporadic installations.
+- Running! I am currently planning a marathon semi-circling the North Bay and spanning two bridges. 
+- Writing! I am sporadically releasing a series of narrative scenes for a short story I've named "Not Set in Stone".
 
 ---
 
