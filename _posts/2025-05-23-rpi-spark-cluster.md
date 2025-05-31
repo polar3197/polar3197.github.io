@@ -21,10 +21,9 @@ The concepts/tools I am interested in getting hands-on with in this project are,
 * Apache Spark (PySpark)
 * Docker
 * Webscraping (potentially switching to camera as cts data feed)
-* HuggingFace finetuning
-* CI/CD
-If time,
-* custom kernel-drivers for displays attached to the Raspberry Pis (RPi)
+* HuggingFace finetuning (using EC2 cloud machines)
+* CI/CD (either with Jenkins or GitHub Actions)
+
 
 ### 1. Getting equipment
 
@@ -57,4 +56,20 @@ For quicker access I recommend setting up an SSH authentication key in your term
 ```zsh
 ssh-keygen -f ~/.ssh/rpi1_key
 ```
-where "-f" indicates the file to store the key in. Then copy the public key into the 
+where "-f" indicates the file to store the key in. Then copy the public key into the shell of the RPi,
+```zsh
+scp ~/.ssh/rpi1_key.pub username@<rpi-IP>:/
+```
+The destination for the public key on the RPi is not critical.
+
+Then, on your local machine, edit ~/.ssh/config by adding
+```zsh
+Host pi-name                                                                       
+     HostName <rpi-IP>                                                       
+     User username                                                               
+     IdentityFile ~/.ssh/rpi1_key 
+```
+And now you can ssh into your raspberry pi without a password by running
+```zsh
+ssh pi-name
+```
