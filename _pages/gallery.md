@@ -58,5 +58,10 @@ nav_order: 2
     <p class="caption">Route 1, CA</p>
   </div>
 
+  <div class="gallery-item special-wide">
+    <img src="{{ '/assets/img/paintings/sf-pano.png' | relative_url }}" alt="pastures" style="width: 100%; max-width: 1000px;" />
+    <p class="caption">Route 1, CA</p>
+  </div>
+
 
 </div>
