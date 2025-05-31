@@ -5,7 +5,7 @@ permalink: /
 
 profile:
   align: right
-  image: sun_selfie.png
+  image: assets/img/sun_selfie.png
   image_circular: true # crops the image to make it circular
 
 latest_posts:
