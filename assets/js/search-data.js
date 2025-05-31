@@ -34,17 +34,6 @@ ninja.data = [{
           window.location.href = "/blog/2025/rpi-spark-cluster/";
         
       },
-    },{id: "post-a-meditation-on-education-in-the-age-of-ai",
-      
-        title: "a meditation on education in the age of AI",
-      
-      description: "ai does not break higher education, but rather it removes the veil from a system already failing",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/2015/meditations-on-ai-in-education/";
-        
-      },
     },{id: "projects-project-2",
           title: 'project 2',
           description: "a project with a background image and giscus comments",
