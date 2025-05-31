@@ -1,11 +1,20 @@
 .gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  justify-items: center;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.gallery-item {
+  flex: 0 1 calc(33.33% - 20px); /* 3-column layout */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .gallery-item {
+    flex: 0 1 100%; /* 1-column layout on smaller screens */
+  }
 }
 
 .special-wide {
