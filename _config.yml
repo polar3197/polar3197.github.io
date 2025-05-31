@@ -5,7 +5,7 @@
 title: blank  # the website title (if blank, full name will be used instead)
 first_name: Charlie 
 last_name: Cooper
-subtitle: This is my website for ML projects, woodworking and some occasional paintings. I hope you enjoy. 
+subtitle: I'm Charlie Cooper. I recently graduated from UC Berkeley with a B.A. in Math and a B.A. in Computer Science. I am currently planning a self-made marathon semi-circling the North Bay.  
 contact_note: >
   You can even add a little note about which of these is the best way to reach you.
 description: > # the ">" symbol means to ignore newlines until "footer_text:"

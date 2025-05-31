@@ -10,57 +10,57 @@ nav_order: 2
 
   <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/derby.png' | relative_url }}" alt="Derby" style="width: 300px;"/>
-    <p class="caption">derby</p>
+    <p class="caption">derby (canvas-board)</p>
   </div>
 
   <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/kitchen-cowboy.png' | relative_url }}" alt="Kitchen Cowboy" style="width: 320px;"/>
-    <p class="caption">kitchen cowboy</p>
+    <p class="caption">kitchen cowboy (canvas)</p>
   </div>
 
   <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/self-portrait.png' | relative_url }}" alt="JOMO" style="width: 320px;"/>
-    <p class="caption">JOMO</p>
+    <p class="caption">JOMO (plywood)</p>
   </div>
 
   <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/screenager.png' | relative_url }}" alt="screenager" style="width: 320px;"/>
-    <p class="caption">screenager</p>
+    <p class="caption">screenager (canvas)</p>
   </div>
 
   <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/bart.jpg' | relative_url }}" alt="yellow line" style="width: 320px;"/>
-    <p class="caption">yellow-line</p>
+    <p class="caption">yellow-line (plywood)</p>
   </div>
 
   <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/rich-spirit.png' | relative_url }}" alt="rich spirit" style="width: 320px;"/>
-    <p class="caption">rich spirit</p>
+    <p class="caption">rich spirit (plywood)</p>
   </div>
 
   <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/fourth-of-july.png' | relative_url }}" alt="fourth of july" style="width: 320px;"/>
-    <p class="caption">fourth of July</p>
+    <p class="caption">fourth of July (canvas)</p>
   </div>
 
   <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/desert-girl.png' | relative_url }}" alt="redrocks, CA" style="width: 320px;"/>
-    <p class="caption">Redrocks, CA</p>
+    <p class="caption">Redrocks, CA (canvas)</p>
   </div>
 
   <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/anza-borrego.png' | relative_url }}" alt="anza borego" style="width: 320px;"/>
-    <p class="caption">Anza Borego, CA</p>
+    <p class="caption">Anza Borego, CA (canvas)</p>
   </div>
 
   <div class="gallery-item special-wide">
     <img src="{{ '/assets/img/paintings/pastures.png' | relative_url }}" alt="pastures" style="width: 100%; max-width: 1000px;" />
-    <p class="caption">Route 1, CA</p>
+    <p class="caption">Route 1, CA (plywood)</p>
   </div>
 
   <div class="gallery-item special-wide">
     <img src="{{ '/assets/img/paintings/sf-pano.png' | relative_url }}" alt="pastures" style="width: 100%; max-width: 1000px;" />
-    <p class="caption">Route 1, CA</p>
+    <p class="caption">SF pano (redwood)</p>
   </div>
 
 
