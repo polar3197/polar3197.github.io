@@ -23,29 +23,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/gallery/";
           },
-        },{id: "post-",
-      
-        title: "",
-      
-      description: "",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/2025/2025-06-02-picl-2/";
-        
-      },
-    },{id: "post-",
-      
-        title: "",
-      
-      description: "",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/2025/2025-05-23-rpi-spark-cluster/";
-        
-      },
-    },{id: "post-i-love-tmux",
+        },{id: "post-i-love-tmux",
       
         title: "I love tmux",
       
@@ -54,6 +32,28 @@ ninja.data = [{
       handler: () => {
         
           window.location.href = "/blog/2025/tmux/";
+        
+      },
+    },{id: "post-first-hurdle-of-my-spark-adventure",
+      
+        title: "First Hurdle of My Spark Adventure",
+      
+      description: "setup part 2: Docker! Docker-Compose! PySpark!",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/picl-2/";
+        
+      },
+    },{id: "post-beginning-of-my-spark-adventure",
+      
+        title: "Beginning of My Spark Adventure",
+      
+      description: "setup part 1: Ethernet! IP addresses! SSH!",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/rpi-spark-cluster/";
         
       },
     },{id: "projects-project-2",
