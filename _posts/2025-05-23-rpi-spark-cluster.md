@@ -36,9 +36,10 @@ The concepts/tools I am interested in getting hands-on with in this project are,
         {% include figure.liquid loading="eager" path="assets/img/rpis.jpg" class="img-fluid d-block mx-auto w-50 rounded z-depth-1" %}
     </div>
 </div>
-<div class="caption">
+
+<!-- <div class="caption">
     A simple, elegant caption looks good between image rows, after each row, or doesn't have to be there at all.
-</div>
+</div> -->
 
 ### 2. Set up the RPis
 You will need a microSD card to install the Debian OS onto the RPi. While doing this, choose to customize the OS.
