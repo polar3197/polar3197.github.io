@@ -1,8 +1,8 @@
 ---
 layout: post
-title: The Beginning of my Spark Adventure
+title: Beginning of My Spark Adventure
 date: 2025-5-23 22:18:00
-description: setup part 1
+description: setup part 1: Ethernet! IP addresses! SSH! 
 tags: spark rpi
 categories: coding-project
 thumbnail: assets/img/rpis.jpg
