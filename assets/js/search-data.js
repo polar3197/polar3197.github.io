@@ -23,15 +23,37 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/gallery/";
           },
-        },{id: "post-the-beginning-of-my-spark-adventure",
+        },{id: "post-",
       
-        title: "The Beginning of my Spark Adventure",
+        title: "",
       
-      description: "setup part 1",
+      description: "",
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/2025/rpi-spark-cluster/";
+          window.location.href = "/blog/2025/2025-06-02-picl-2/";
+        
+      },
+    },{id: "post-",
+      
+        title: "",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/2025-05-23-rpi-spark-cluster/";
+        
+      },
+    },{id: "post-i-love-tmux",
+      
+        title: "I love tmux",
+      
+      description: "and I&#39;m such a newb at it",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/tmux/";
         
       },
     },{id: "projects-project-2",
