@@ -15,12 +15,12 @@ nav_order: 2
 
   <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/garber-1.png' | relative_url }}" alt="garber-1" style="width: 320px;"/>
-    <p class="caption" down the street, Summer (canvas)</p>
+    <p class="caption">down the street, Summer (canvas)</p>
   </div>
 
    <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/garber-2.png' | relative_url }}" alt=garber-2" style="width: 320px;"/>
-    <p class="caption"down the street, Winter (canvas)</p>
+    <p class="caption">down the street, Winter (canvas)</p>
   </div>
 
   <div class="gallery-item">
@@ -64,8 +64,8 @@ nav_order: 2
   </div>
 
   <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/anza-borrego.png' | relative_url }}" alt="anza borego" style="width: 320px;"/>
-    <p class="caption" Humble Sea cans (canvas)</p>
+    <img src="{{ '/assets/img/paintings/garbage.png' | relative_url }}" alt="anza borego" style="width: 320px;"/>
+    <p class="caption"> Humble Sea cans (canvas)</p>
   </div>
 
   <div class="gallery-item special-wide"> 
