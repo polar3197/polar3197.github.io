@@ -19,7 +19,7 @@ nav_order: 2
   </div>
 
    <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/garber-2.png' | relative_url }}" alt=garber-2" style="width: 320px;"/>
+    <img src="{{ '/assets/img/paintings/garber-2.png' | relative_url }}" alt="garber-2" style="width: 320px;"/>
     <p class="caption">down the street, Winter (canvas)</p>
   </div>
 
