@@ -14,8 +14,10 @@ This post is the beginning of a series documenting my progress, brainstorming an
 
 This project was inspired by conversations with Matei Zaharia while I was in his operating systems class at UC Berkeley.
 
+[GitHub Project Repo](https://github.com/polar3197/rpi-spark-cluster).
+
 ### Goals
-The concepts/tools I am interested in getting hands-on with in this project are,
+The concepts/tools I'm getting hands-on with in this project:
 * Distributed systems
 * SSH
 * Apache Spark (PySpark)
@@ -27,7 +29,7 @@ The concepts/tools I am interested in getting hands-on with in this project are,
 
 ### 1. Getting equipment
 
-- For my experimental purposes, I decided two **Raspberry Pi 4Bs** w/ 4GB would suffice as the worker nodes. 
+- For my experimental purposes, I decided two **Raspberry Pi 4Bs** w/ 4GB RAM would suffice as the worker nodes. 
 - For faster/more reliable message passing, I wired my RPis through through Ethernet using an **Archer AX21** router.
 - These choices were cheap and still allow for incremental scaling of the system.
 
