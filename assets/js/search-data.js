@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/gallery/";
           },
-        },{id: "post-i-love-tmux",
+        },{id: "post-part-2-2",
+      
+        title: "Part 2.2",
+      
+      description: "Percy&#39;s Rebellion",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/percys-rebellion/";
+        
+      },
+    },{id: "post-i-love-tmux",
       
         title: "I love tmux",
       
@@ -43,17 +54,6 @@ ninja.data = [{
       handler: () => {
         
           window.location.href = "/blog/2025/picl-2/";
-        
-      },
-    },{id: "post-part-2-2",
-      
-        title: "Part 2.2",
-      
-      description: "Percy&#39;s Rebellion",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/2025/percys-rebellion/";
         
       },
     },{id: "post-beginning-of-my-spark-adventure",
