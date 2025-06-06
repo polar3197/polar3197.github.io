@@ -69,7 +69,7 @@ nav_order: 2
   </div>
 
   <div class="gallery-item wide"> 
-    <img src="{{ '/assets/img/paintings/sf-pano.png' | relative_url }}" alt="pastures" style="width: 100%;"" />
+    <img src="{{ '/assets/img/paintings/sf-pano.png' | relative_url }}" alt="pastures" style="width: 100%;" />
     <p class="caption">SF pano (redwood)</p>
   </div>
 
