@@ -1,7 +1,7 @@
 ---
 layout: post
-title: Part 2.2
-description: "Percy's Rebellion"
+title: Percy's Rebellion
+description: part 2, scene 7
 thumbnail: assets/img/sis.png
 featured: false
 ---
@@ -36,9 +36,11 @@ But he knew where to begin and it took him about three cigarettes to get through
 
 "Well you know how Percy hates the landlord. He's been coming into the house unannounced to show your empty room and everytime Percy maddogs him and when Rob says 'Oh hi Percy!' Percy grumbles and forces out a little thin smile and squints really hard at him. Percy calls him an aristocrat as if Percy is some good old working class hero — I mean he's sitting on the fucking couch reading Baudelaire.  The way Percy talks about Rob, you'd think Percy came from some long line of disenfrachised farmers and factory workers, and Rob came from some equally long line of landowners. He goes on and on after Rob leaves like, 'Rob is an opp, he just comes in here without saying anything, walks in my room and shit. He never puts any work into the house either. And then he retreats to his little manor up on the hill with all his bags of cash." Which is actually pretty funny to watch, especially considering Percy's dishes from a week and a half ago are still in the sink. Anyways, about two months ago Percy was going off about how — what did he say — oh yeah, he said 'Rob thinks he can sneak by like he's some stand up guy. He thinks if he's a democrat or something then he's one of us, but him calling Trump evil is like one serial killer condemning another'. All of thisstarted because Percy forgot to pay his rent and had to pay overdue charges for like four-hundred dollars. 
 
-Percy told Rob he wouldn't pay it and somehow even got Rob to cut it down to two-hundred. But of course after that, Percy got this little glint in his eye and started talking about how Rob has no real power and how all he cares about is money and getting it easily so if you put up too much of a fight Rob won't do shit. He even started talking to me about how we could jointly demand a lower rent, which I almost went along with cause, you know, I mean I work here amlost everyday and two-thirds of the money I make fourteen-thousand goes to rent." Sal stopped short and said, "Oh man I almost forgot, you've got to see this letter Percy wrote to Rob. Thank God he asked me to mail it because Percy might've actually gone to jail," Sal ran inside and came back with a ripped envelope and pulled out the letter, "Just listen,
+Percy told Rob he wouldn't pay it and somehow even got Rob to cut it down to two-hundred. But of course after that, Percy got this little glint in his eye and started talking about how Rob has no real power and how all he cares about is money and getting it easily so if you put up too much of a fight Rob won't do shit. He even started talking to me about how we could jointly demand a lower rent, which I almost went along with cause, you know, I mean I work here amlost everyday and two-thirds of the money I make fourteen-hundred goes to rent." Sal stopped short and said, "Oh man I almost forgot, you've got to see this letter Percy wrote to Rob. Thank God he asked me to mail it because Percy might've actually gone to jail," Sal ran inside and came back with a ripped envelope and pulled out the letter, "Just listen,
 
-*The tenants have organized themselves into a body, and resolved not ot pay any more rent until they can be redressed of their grievances. The tenants now assume the right of doing to their landlord as he has for a long time done with them, viz: as they please. You need not think this to be children's play. If you come out in your official capacity I would not pledge for your safe return.*
+*To the Landlord,*
+
+*The tenants have organized themselves into a body, and resolved not to pay any more rent until they can be redressed of their grievances. The tenants now assume the right of doing to their landlord as he has for a long time done with them, viz: as they please. You need not think this to be children's play. If you come out in your official capacity I would not pledge for your safe return.*
 
 *A Tenant.*
 
@@ -48,13 +50,13 @@ I showed that letter to Percy and he waved it off. He changed the locks on the d
 
 Sal pulled out a fourth cigarette and lit it.
 
-"He sounds like he almost won the good fight," I said laughing imagining Percy scowling over Baudelaire on the couch, "when are you gunna tell him you betrayed the working class?"
+"He sounds like he almost won the good fight," I said laughing imagining Percy scowling over Baudelaire on the couch. I found it kinda crazy Sal willingly described himself as a scab, especially when I'd never seen Percy get so in a tizzy like that about anything before, "when are you gunna tell Percy you betrayed the working class?"
 
 Sal scowled at me, "Fuck if I know. I'm gunna move out as soon as I can. It's just tricky with the lease," he paused, "speaking of which, how did you get out of it? Didn't Rob ever demand you come back and pay?"
 
 "I really don't know," I said, "That's the benefit of smashing your phone to pieces. You could try that."
 
-"No."
+"You should really reach back out to him. Or maybe not, I don't know. I just think it's gunna catch up to you," He paused, "No. I'll figure it without breaking laws and shit. I'm capable of that."
 
 
 
