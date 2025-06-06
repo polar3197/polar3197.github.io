@@ -9,7 +9,7 @@ thumbnail: assets/img/sis.png
 featured: false
 ---
 
-
+I would meet Sal every now and then after I ran into him at Karma Cafe.
 
 
 
