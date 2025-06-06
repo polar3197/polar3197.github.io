@@ -22,7 +22,7 @@ Sure enough he put his face in his hand and then opened his eyes wide with a hea
 
 "You fucker, I thought you'd found a girl or something. Hey are you still talking to Estelle? Shit I'm sorry, you probably don't wanna talk about that, here come out back and we'll have a smoke." He left his apron hanging behind the bar and said something through a small window to an old man who responded "sure".
 
-The back door led to a shitty little parking lot. It was pretty much boxed in on all six sides. Below us the asphalt was all run bare to the rocks by rain and probably snow and tires; on two of the four sides we re four or five story buildings; behind us was the flat beige wall of Karma Cafe; then there was a square of blue sky above and the entrance to the secret little parkinglot blocked by a tall wire fence. There was a single folding chair which Sal offered me, and he lit a cigarette and handed me one and the lighter.
+The back door led to a shitty little parking lot. It was pretty much boxed in on all six sides. Below us the asphalt was all run bare to the rocks by rain and probably snow and tires; on two of the four sides were four or five story buildings; behind us was the flat beige wall of Karma Cafe; then there was a square of blue sky above and the entrance to the secret little parkinglot blocked by a tall wire fence. There was a single folding chair which Sal offered me, and he lit a cigarette and handed me one and the lighter.
 
 "So you're still smoking, thats nice to see," I said.
 
