@@ -68,13 +68,13 @@ nav_order: 2
     <p class="caption"> Humble Sea cans (canvas)</p>
   </div>
 
-  <div class="gallery-item special-wide"> 
-    <img src="{{ '/assets/img/paintings/sf-pano.png' | relative_url }}" alt="pastures" style="width: 100%; max-width: 1000px;" />
+  <div class="gallery-item wide"> 
+    <img src="{{ '/assets/img/paintings/sf-pano.png' | relative_url }}" alt="pastures" style="width: 100%;"" />
     <p class="caption">SF pano (redwood)</p>
   </div>
 
-  <div class="gallery-item special-wide">
-    <img src="{{ '/assets/img/paintings/pastures.png' | relative_url }}" alt="pastures" style="width: 100%; max-width: 1000px;" />
+  <div class="gallery-item wide">
+    <img src="{{ '/assets/img/paintings/pastures.png' | relative_url }}" alt="pastures" style="width: 100%;" />
     <p class="caption">Route 1, CA (plywood)</p>
   </div>
 

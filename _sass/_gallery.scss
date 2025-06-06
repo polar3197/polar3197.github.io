@@ -17,14 +17,8 @@
   }
 }
 
-.special-wide {
-  grid-column: 1 / -1; /* Span entire row */
-  text-align: center;
-
-  img {
-    width: 100%;
-    max-width: 1000px;
-  }
+.gallery-item.wide {
+  flex: 0 1 100%;
 }
 
 .gallery-item {
