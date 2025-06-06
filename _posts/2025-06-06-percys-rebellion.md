@@ -1,10 +1,7 @@
 ---
 layout: post
 title: Part 2.2
-date: 2025-05-23 22:18:00
 description: "Percy's Rebellion"
-tags: 
-categories: story-collection
 thumbnail: assets/img/sis.png
 featured: false
 ---
@@ -35,10 +32,29 @@ The back door led to a shitty little parking lot. It was pretty much boxed in on
 
 "Don't even get me started on Percy," he said, "I mean shit where do I even begin."
 
-But he knew where to begin and it took him about 4 cigarettes to get through it.
+But he knew where to begin and it took him about three cigarettes to get through it.
 
-"Well you know he hates our landlord, Rene. He calls him an aristocrat as if he's some good old working class lad. He still hasn't gotten a job — but thats besides the point. It's like Percy believes he comes from some long line of disenfrachised and Rene comes from some equally long line of landowners. Anyways, about a month ago Percy was going off about how — what did he say — oh yeah, he said 'Rene thinks he can sneak by like he's some stand up guy. He thinks if he's a democrat or something then he's one of us' I told Percy to get a job
+"Well you know how Percy hates the landlord. He's been coming into the house unannounced to show your empty room and everytime Percy maddogs him and when Rob says 'Oh hi Percy!' Percy grumbles and forces out a little thin smile and squints really hard at him. Percy calls him an aristocrat as if Percy is some good old working class hero — I mean he's sitting on the fucking couch reading Baudelaire.  The way Percy talks about Rob, you'd think Percy came from some long line of disenfrachised farmers and factory workers, and Rob came from some equally long line of landowners. He goes on and on after Rob leaves like, 'Rob is an opp, he just comes in here without saying anything, walks in my room and shit. He never puts any work into the house either. And then he retreats to his little manor up on the hill with all his bags of cash." Which is actually pretty funny to watch, especially considering Percy's dishes from a week and a half ago are still in the sink. Anyways, about two months ago Percy was going off about how — what did he say — oh yeah, he said 'Rob thinks he can sneak by like he's some stand up guy. He thinks if he's a democrat or something then he's one of us, but him calling Trump evil is like one serial killer condemning another'. All of thisstarted because Percy forgot to pay his rent and had to pay overdue charges for like four-hundred dollars. 
 
+Percy told Rob he wouldn't pay it and somehow even got Rob to cut it down to two-hundred. But of course after that, Percy got this little glint in his eye and started talking about how Rob has no real power and how all he cares about is money and getting it easily so if you put up too much of a fight Rob won't do shit. He even started talking to me about how we could jointly demand a lower rent, which I almost went along with cause, you know, I mean I work here amlost everyday and two-thirds of the money I make fourteen-thousand goes to rent." Sal stopped short and said, "Oh man I almost forgot, you've got to see this letter Percy wrote to Rob. Thank God he asked me to mail it because Percy might've actually gone to jail," Sal ran inside and came back with a ripped envelope and pulled out the letter, "Just listen,
+
+*The tenants have organized themselves into a body, and resolved not ot pay any more rent until they can be redressed of their grievances. The tenants now assume the right of doing to their landlord as he has for a long time done with them, viz: as they please. You need not think this to be children's play. If you come out in your official capacity I would not pledge for your safe return.*
+
+*A Tenant.*
+
+He gave me the letter to mail and I kept it, obviously. Well, getting no response from Rob, Percy took it pretty far, cause not only did he not send the two-hendred, but he also only sent half of the money for the following months rent. And guess how I found that out? Because Rob sent a formal letter to the house saying if we continued to break contract with our lease he would evict us.
+
+I showed that letter to Percy and he waved it off. He changed the locks on the doors and told me that even if Rob did try to have us evicted, he would crumple at any sign of physical inconvenience because he is a 'weak spined aristocrat'. So obviously I thought he'd gone insane and I just sent the difference of Percy's rent to Rob with an apology letter. But now each month Percy thinks he only needs to send in half his rent. And he went on unemployment too so he's resting on his laurels and I had to start pulling doubles gig jobs just to pay for it. It's hard to fucking live with him when he starts shit talking Rob or philosophizing about the human condition or aesthetics or some shit."
+
+Sal pulled out a fourth cigarette and lit it.
+
+"He sounds like he almost won the good fight," I said laughing imagining Percy scowling over Baudelaire on the couch, "when are you gunna tell him you betrayed the working class?"
+
+Sal scowled at me, "Fuck if I know. I'm gunna move out as soon as I can. It's just tricky with the lease," he paused, "speaking of which, how did you get out of it? Didn't Rob ever demand you come back and pay?"
+
+"I really don't know," I said, "That's the benefit of smashing your phone to pieces. You could try that."
+
+"No."
 
 
 
