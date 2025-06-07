@@ -23,11 +23,11 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/gallery/";
           },
-        },{id: "post-part-2-2",
+        },{id: "post-percy-39-s-rebellion",
       
-        title: "Part 2.2",
+        title: "Percy&#39;s Rebellion",
       
-      description: "Percy&#39;s Rebellion",
+      description: "part 2, scene 7",
       section: "Posts",
       handler: () => {
         
