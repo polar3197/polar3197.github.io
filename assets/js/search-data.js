@@ -23,9 +23,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/gallery/";
           },
-        },{id: "post-rosy-hills",
+        },{id: "post-pink-hills",
       
-        title: "Rosy Hills",
+        title: "Pink Hills",
       
       description: "part 1, scene 1",
       section: "Posts",
