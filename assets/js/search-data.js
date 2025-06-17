@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/gallery/";
           },
-        },{id: "post-percy-39-s-rebellion",
+        },{id: "post-rosy-hills",
+      
+        title: "Rosy Hills",
+      
+      description: "part 1, scene 1",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/rosy-hills/";
+        
+      },
+    },{id: "post-percy-39-s-rebellion",
       
         title: "Percy&#39;s Rebellion",
       
@@ -49,7 +60,7 @@ ninja.data = [{
       
         title: "First Hurdle of My Spark Adventure",
       
-      description: "setup part 2: Docker! Docker-Compose! PySpark!",
+      description: "setup part 2: Docker! Docker-Compose!",
       section: "Posts",
       handler: () => {
         
