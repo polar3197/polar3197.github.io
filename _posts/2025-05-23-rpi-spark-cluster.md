@@ -6,7 +6,7 @@ description: "setup part 1: Ethernet! IP addresses! SSH!"
 tags: spark rpi
 categories: coding-project
 thumbnail: assets/img/rpis.jpg
-featured: false
+featured: true
 ---
 ### Overview
 
