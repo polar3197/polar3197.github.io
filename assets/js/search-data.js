@@ -23,7 +23,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/gallery/";
           },
-        },{id: "post-pink-hills",
+        },{id: "post-dice",
+      
+        title: "Dice",
+      
+      description: "part 1, scene 2",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/Dice/";
+        
+      },
+    },{id: "post-pink-hills",
       
         title: "Pink Hills",
       
