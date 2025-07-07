@@ -6,14 +6,14 @@ nav: true
 nav_order: 1
 pagination:
   enabled: true
-  collection: noncreative
+  collection: posts
   permalink: /page/:num/
   per_page: 5
   sort_field: date
   sort_reverse: true
   trail:
-    before: 1 # The number of links before the current page
-    after: 3 # The number of links after the current page
+    before: 1
+    after: 3
 ---
 
 <div class="post">
@@ -103,7 +103,11 @@ pagination:
 
   <ul class="post-list">
 
-    {% assign postlist = paginator.posts %}
+    {% if page.pagination.enabled %}
+      {% assign postlist = paginator.posts | reject: "categories", "creative" %}
+    {% else %}
+      {% assign postlist = site.posts | reject: "categories", "creative" %}
+    {% endif %}
 
     {% for post in postlist %}
 
