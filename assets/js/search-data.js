@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/creative/";
           },
-        },{id: "post-dice",
+        },{id: "post-second-hurdle-of-my-spark-adventure-spark-executors",
+      
+        title: "Second Hurdle of My Spark Adventure: Spark executors",
+      
+      description: "setup part 2: Spark! IP! Executors! Drivers!",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/three";
+        
+      },
+    },{id: "post-dice",
       
         title: "Dice",
       
