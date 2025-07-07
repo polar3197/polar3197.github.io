@@ -103,13 +103,7 @@ pagination:
 
   <ul class="post-list">
 
-    {% if page.pagination.enabled %}
-      {% assign postlist = paginator.posts %}
-    {% else %}
-      {% assign postlist = site.posts %}
-    {% endif %}
-
-    {% assign postlist = raw_posts | reject: "categories", "creative" %}
+    {% assign postlist = paginator.posts %}
 
     {% for post in postlist %}
 
