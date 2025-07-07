@@ -9,6 +9,21 @@ nav_order: 2
 <div class="gallery">
 
   <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/tp-1.png' | relative_url }}" alt="tp-1" style="width: 300px;"/>
+    <p class="caption">tp-1 (pine)</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/tp-2.png' | relative_url }}" alt="tp-2" style="width: 300px;"/>
+    <p class="caption">tp-2 (pine)</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/tp-3.png' | relative_url }}" alt="tp-1" style="width: 300px;"/>
+    <p class="caption">tp-3 (pine)</p>
+  </div>
+
+  <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/derby.png' | relative_url }}" alt="Derby" style="width: 300px;"/>
     <p class="caption">derby (canvas)</p>
   </div>
