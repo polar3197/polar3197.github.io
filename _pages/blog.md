@@ -104,9 +104,9 @@ pagination:
   <ul class="post-list">
 
     {% if page.pagination.enabled %}
-      {% assign postlist = paginator.posts | reject: "categories", "creative" %}
+      {% assign postlist = paginator.posts | where: "noncreative", true %}
     {% else %}
-      {% assign postlist = site.posts | reject: "categories", "creative" %}
+      {% assign postlist = site.posts | where: "noncreative", true %}
     {% endif %}
 
     {% for post in postlist %}
