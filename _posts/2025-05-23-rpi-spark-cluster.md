@@ -4,7 +4,7 @@ title: Beginning of My Spark Adventure
 date: 2025-05-23 22:18:00
 description: "setup part 1: Ethernet! IP addresses! SSH!"
 tags: spark rpi
-categories: coding-project
+categories: tech
 thumbnail: assets/img/rpis.jpg
 featured: true
 ---
