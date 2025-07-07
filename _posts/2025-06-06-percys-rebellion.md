@@ -4,6 +4,7 @@ title: Percy's Rebellion
 description: part 2, scene 7
 thumbnail: assets/img/sis.png
 featured: false
+categories: [creative]
 ---
 
 Sal was there in the window with a brown apron on and his hair pulled back into a manbun. The large gold letters on the glass said "Karma Cafe". I went in and bought a coffee. He looked real serious at me where I'd expected a grin or something. All the same he released the milk frothing cup and rounded the counter to give me a big hug.

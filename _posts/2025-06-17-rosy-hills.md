@@ -4,6 +4,7 @@ title: Pink Hills
 description: part 1, scene 1
 thumbnail: assets/img/sis.png
 featured: false
+categories: [creative]
 ---
 
 Whoever knows hope – has felt it run, tickling through their veins, has watched it from the side of their eye so as not to scare it, has become mute so as not to determine its materialization before it is ready and therefore degrage it, whoever has known this knows the silence of the boys on the railway flat, the bags packed and assembled, the pink sun on the pavement, the distraction of one: gesticulating and naming times; another shuffling and nail biting; a third, holding some three books in hand listening to the first one's times.
