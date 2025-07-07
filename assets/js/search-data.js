@@ -82,18 +82,29 @@ ninja.data = [{
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/2025/picl-2/";
+          window.location.href = "/blog/two";
         
       },
-    },{id: "post-beginning-of-my-spark-adventure",
+    },{id: "post-rpi-setup",
       
-        title: "Beginning of My Spark Adventure",
+        title: "RPi Setup",
       
       description: "setup part 1: Ethernet! IP addresses! SSH!",
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/2025/rpi-spark-cluster/";
+          window.location.href = "/blog/one";
+        
+      },
+    },{id: "post-my-spark-adventure",
+      
+        title: "My Spark Adventure",
+      
+      description: "project overview",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/overview";
         
       },
     },{id: "projects-project-2",
