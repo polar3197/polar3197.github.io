@@ -23,6 +23,20 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/gallery/";
           },
+        },{id: "nav-tech-blog",
+          title: "Tech Blog",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/tech/";
+          },
+        },{id: "nav-creative-writing",
+          title: "Creative Writing",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/creative/";
+          },
         },{id: "post-dice",
       
         title: "Dice",
