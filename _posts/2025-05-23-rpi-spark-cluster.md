@@ -11,12 +11,12 @@ thumbnail: assets/img/rpis.jpg
 featured: true
 ---
 ### Overview
+This project was inspired by conversations with Matei Zaharia while I was in his operating systems class at UC Berkeley. [GitHub Project Repo](https://github.com/polar3197/rpi-spark-cluster).
 
-This post is the beginning of a series documenting my progress, brainstorming and fumbles in setting up a distributed network for data-processing, model-finetuning and performance-logging. 
-
-This project was inspired by conversations with Matei Zaharia while I was in his operating systems class at UC Berkeley.
-
-[GitHub Project Repo](https://github.com/polar3197/rpi-spark-cluster).
+### Post Table of Contents
+- [Part 1: Setup — Ethernet, IPs, SSH](/blog/one)
+- [Part 2: Docker Conatainers](/blog/two)
+- [Part 3: Configuring Spark workers, coordinator and executors](/blog/three)
 
 ### Goals
 The concepts/tools I'm getting hands-on with in this project:
@@ -24,14 +24,9 @@ The concepts/tools I'm getting hands-on with in this project:
 * SSH
 * Apache Spark (PySpark)
 * Docker
-* Webscraping (potentially switching to camera as cts data feed)
-* HuggingFace finetuning (using EC2 cloud machines)
-* CI/CD (either with Jenkins or GitHub Actions)
-
-### Post Table of Contents
-- [Part 1: Setup — Ethernet, IPs, SSH](/blog/one)
-- [Part 2: Docker Conatainers](/blog/two)
-- [Part 3: Configuring Spark workers, coordinator and executors](/blog/three)
+* Webscraping and data processing
+* Apache Airflow
+* CI/CD
 
 
 
