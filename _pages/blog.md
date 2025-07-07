@@ -109,6 +109,8 @@ pagination:
       {% assign postlist = site.posts %}
     {% endif %}
 
+    {% assign postlist = raw_posts | reject: "categories", "creative" %}
+
     {% for post in postlist %}
 
     {% if post.external_source == blank %}
