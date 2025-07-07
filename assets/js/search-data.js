@@ -74,9 +74,9 @@ ninja.data = [{
           window.location.href = "/blog/2025/tmux/";
         
       },
-    },{id: "post-first-hurdle-of-my-spark-adventure",
+    },{id: "post-first-hurdle-of-my-spark-adventure-docker-containers",
       
-        title: "First Hurdle of My Spark Adventure",
+        title: "First Hurdle of My Spark Adventure: Docker containers",
       
       description: "setup part 2: Docker! Docker-Compose!",
       section: "Posts",
