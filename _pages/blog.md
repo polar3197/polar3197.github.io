@@ -9,8 +9,8 @@ pagination:
   collection: posts
   permalink: /page/:num/
   per_page: 20
-  sort_field: date
-  sort_reverse: true
+  sort_field: order
+  sort_reverse: false
   trail:
     before: 1
     after: 3

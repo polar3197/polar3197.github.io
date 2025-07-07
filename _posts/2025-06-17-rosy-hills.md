@@ -4,6 +4,7 @@ title: Pink Hills
 description: part 1, scene 1
 thumbnail: assets/img/sis.png
 featured: false
+order: 1
 categories: [creative]
 ---
 

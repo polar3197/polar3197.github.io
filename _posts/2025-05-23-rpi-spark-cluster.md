@@ -7,6 +7,7 @@ description: "project overview"
 tags: spark rpi
 categories: tech
 noncreative: true
+order: 1
 thumbnail: assets/img/rpis.jpg
 featured: true
 ---
