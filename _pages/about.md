@@ -30,8 +30,9 @@ Background:
 
 Interests:
 
-- Running! I am currently planning a marathon semi-circling the North Bay and spanning two bridges. 
-- Writing! I am sporadically releasing a series of narrative scenes for a interwoven collection of short stories I've named "Set in Stone".
+- Running! I am currently planning a marathon semi-circling the North Bay and spanning two bridges. [On pause -- busted knee]
+- Writing! I am sporadically releasing a series of narrative scenes for a interwoven collection of short stories, which you can find under 'creative writing'.
+- Painting! I like to paint in acrylic on scrap wood. I am currently doing a series of telephone poles, which you can find under 'gallery'.
 
 ---
 
