@@ -31,7 +31,7 @@ ninja.data = [{
             window.location.href = "/tech/";
           },
         },{id: "nav-creative-writing",
-          title: "Creative Writing",
+          title: "creative writing",
           description: "",
           section: "Navigation",
           handler: () => {
