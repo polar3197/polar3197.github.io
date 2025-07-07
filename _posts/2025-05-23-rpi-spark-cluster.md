@@ -28,5 +28,29 @@ The concepts/tools I'm getting hands-on with in this project:
 * Apache Airflow
 * CI/CD
 
+### Filetree
+```
+├── README.md
+├── compose.yml
+├── conf
+│   └── spark-env.sh
+├── master
+│   ├── Dockerfile
+│   └── start-master.sh
+├── scripts
+│   ├── git-autopilot.sh
+│   ├── pyspark.sh
+│   └── start_spark_cluster.sh
+├── spark
+│   ├── bin
+│   ├── include
+│   ├── lib
+│   ├── pyvenv.cfg
+│   └── share
+└── worker
+    ├── Dockerfile
+    └── start-worker.sh
+```
+
 
 
