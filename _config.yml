@@ -148,7 +148,7 @@ collections:
     permalink: /:collection/:title/
   noncreative:
     output: true
-    permalink: /noncreative/:path/
+    permalink: /blog/:path/
 
 # -----------------------------------------------------------------------------
 # Jekyll settings

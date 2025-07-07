@@ -5,6 +5,7 @@ date: 2025-05-23 22:18:00
 description: "setup part 1: Ethernet! IP addresses! SSH!"
 tags: spark rpi
 categories: tech
+noncreative: true
 thumbnail: assets/img/rpis.jpg
 featured: false
 ---
@@ -85,8 +86,4 @@ And now you can ssh into your raspberry pi without a password by running
 ```zsh
 ssh pi-name
 ```
-
-
-
-
 
