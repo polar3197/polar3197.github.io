@@ -146,6 +146,9 @@ collections:
   projects:
     output: false 
     permalink: /:collection/:title/
+  noncreative:
+    output: true
+    permalink: /noncreative/:path/
 
 # -----------------------------------------------------------------------------
 # Jekyll settings
