@@ -56,7 +56,7 @@ ninja.data = [{
       
         title: "Inspirations",
       
-      description: "part 1, scene &gt;4",
+      description: "part 1, scene ?",
       section: "Posts",
       handler: () => {
         
@@ -98,9 +98,9 @@ ninja.data = [{
       },
     },{id: "post-bird-body-girl-soul",
       
-        title: "Bird body, girl soul",
+        title: "Bird Body, Girl Soul",
       
-      description: "part 1, scene &gt;4",
+      description: "part 1, scene ?",
       section: "Posts",
       handler: () => {
         
@@ -111,7 +111,7 @@ ninja.data = [{
       
         title: "A Poem for Cognac",
       
-      description: "part 1, scene &gt;4",
+      description: "part 1, scene ?",
       section: "Posts",
       handler: () => {
         
