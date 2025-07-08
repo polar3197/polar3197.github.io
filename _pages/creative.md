@@ -8,7 +8,7 @@ category: creative
 ---
 
 <ul class="post-list">
-  {% assign creative_posts = site.posts | where_exp: "post", "post.categories contains 'creative'" %}
+  {% assign creative_posts = site.posts | where_exp: "post", "post.categories contains 'creative'" | sort: "order" %}
   {% for post in creative_posts %}
     <li>
       <h3><a class="post-title" href="{{ post.url | relative_url }}">{{ post.title }}</a></h3>
