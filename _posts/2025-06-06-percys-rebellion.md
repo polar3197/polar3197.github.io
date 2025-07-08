@@ -4,7 +4,7 @@ title: Percy's Rebellion
 description: part 2, scene 7
 thumbnail: assets/img/sis.png
 featured: false
-order: 3
+order: 10
 categories: [creative]
 ---
 
