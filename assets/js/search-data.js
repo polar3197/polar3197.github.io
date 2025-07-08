@@ -41,6 +41,83 @@ ninja.data = [{
           window.location.href = "/blog/three";
         
       },
+    },{id: "post-so-silly",
+      
+        title: "So silly",
+      
+      description: "part 2, scene 1",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/percy-monologue/";
+        
+      },
+    },{id: "post-inspirations",
+      
+        title: "Inspirations",
+      
+      description: "part 1, scene &gt;4",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/inspirations/";
+        
+      },
+    },{id: "post-second-virginity-third-virginity",
+      
+        title: "Second Virginity, Third Virginity",
+      
+      description: "part 2, scene 4",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/erla-2/";
+        
+      },
+    },{id: "post-second-love",
+      
+        title: "Second Love",
+      
+      description: "part 2, scene 2",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/erla-1/";
+        
+      },
+    },{id: "post-donna-gentile",
+      
+        title: "Donna Gentile",
+      
+      description: "part 2, scene 3",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/donna-gentile/";
+        
+      },
+    },{id: "post-bird-body-girl-soul",
+      
+        title: "Bird body, girl soul",
+      
+      description: "part 1, scene &gt;4",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/dead-bird/";
+        
+      },
+    },{id: "post-a-poem-for-cognac",
+      
+        title: "A Poem for Cognac",
+      
+      description: "part 1, scene &gt;4",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/cognac/";
+        
+      },
     },{id: "post-dice",
       
         title: "Dice",
