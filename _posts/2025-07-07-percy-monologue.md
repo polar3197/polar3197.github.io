@@ -4,7 +4,7 @@ title: So silly
 description: part 2, scene 1
 thumbnail: assets/img/sis.png
 featured: false
-order: 7
+order: 10
 categories: [creative]
 ---
 
