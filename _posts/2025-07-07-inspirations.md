@@ -4,7 +4,7 @@ title: Inspirations
 description: part 1, scene ?
 thumbnail: assets/img/sis.png
 featured: false
-order: 7
+order: 6
 categories: [creative]
 ---
 
