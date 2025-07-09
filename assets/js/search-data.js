@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/creative/";
           },
-        },{id: "post-a-raw-force",
+        },{id: "post-nowhere-notime",
+      
+        title: "Nowhere, Notime",
+      
+      description: "part 1, scene 2",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/nowhere/";
+        
+      },
+    },{id: "post-a-raw-force",
       
         title: "A Raw Force",
       
