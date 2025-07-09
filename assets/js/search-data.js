@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/creative/";
           },
-        },{id: "post-second-hurdle-of-my-spark-adventure-spark-executors",
+        },{id: "post-a-raw-force",
+      
+        title: "A Raw Force",
+      
+      description: "part 1, scene 2",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/night-walk-1/";
+        
+      },
+    },{id: "post-second-hurdle-of-my-spark-adventure-spark-executors",
       
         title: "Second Hurdle of My Spark Adventure: Spark executors",
       
@@ -122,7 +133,7 @@ ninja.data = [{
       
         title: "Dice",
       
-      description: "part 1, scene 2",
+      description: "part 1, scene 3",
       section: "Posts",
       handler: () => {
         
