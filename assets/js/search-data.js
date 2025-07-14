@@ -63,9 +63,9 @@ ninja.data = [{
           window.location.href = "/blog/2025/can't-argue/";
         
       },
-    },{id: "post-second-hurdle-of-my-spark-adventure-spark-executors",
+    },{id: "post-second-hurdle-of-my-spark-adventure-spark",
       
-        title: "Second Hurdle of My Spark Adventure: Spark executors",
+        title: "Second Hurdle of My Spark Adventure: Spark",
       
       description: "setup part 2: Spark! IP! Executors! Drivers!",
       section: "Posts",
