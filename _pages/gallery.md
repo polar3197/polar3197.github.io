@@ -19,7 +19,7 @@ nav_order: 2
   </div>
 
   <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/tp-3.png' | relative_url }}" alt="tp-1" style="width: 300px;"/>
+    <img src="{{ '/assets/img/paintings/tp-3-2.png' | relative_url }}" alt="tp-3" style="width: 300px;"/>
     <p class="caption">tp-3 (pine)</p>
   </div>
 
