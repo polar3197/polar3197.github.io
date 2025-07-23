@@ -39,6 +39,16 @@ nav_order: 2
   </div>
 
   <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/klimpt-college.png' | relative_url }}" alt="Summer Tree" style="width: 300px;"/>
+    <p class="caption">Summer Tree (plywood)</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/brody.png' | relative_url }}" alt="Brody" style="width: 300px;"/>
+    <p class="caption">Brody (plywood)</p>
+  </div>
+
+  <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/kitchen-cowboy.png' | relative_url }}" alt="Kitchen Cowboy" style="width: 320px;"/>
     <p class="caption">kitchen cowboy (canvas)</p>
   </div>
