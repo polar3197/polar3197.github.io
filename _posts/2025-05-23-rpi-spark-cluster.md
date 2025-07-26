@@ -8,7 +8,7 @@ tags: spark rpi
 categories: tech
 noncreative: true
 order: 1
-thumbnail: assets/img/rpis.jpg
+thumbnail: assets/img/spark-icon.png
 featured: true
 ---
 ### Overview
