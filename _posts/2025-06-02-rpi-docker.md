@@ -7,7 +7,7 @@ description: "setup part 2: Docker! Docker-Compose!"
 tags: spark rpi
 noncreative: true
 order: 4
-thumbnail: 
+thumbnail: assets/img/docker_containers.jpeg
 featured: false
 ---
 ### Overview
