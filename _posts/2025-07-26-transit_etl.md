@@ -33,19 +33,36 @@ The structure is as follows, and it is conceived around two constraints:
 1. To limit cost overhead, I don't want a constant EC2 instance running;
 2. To cut out unneccessary IO to S3 buckets (hence use of MinIO)
 
-Extract: 
-    - RPi_1 (Caddy) fetches from SFMTA API, every ten minutes, and stores it as parquet file in local MinIO S3 bucket (s3a://local_bucket) on a USB attached to Caddy.
-    - RPi_2 (Quentin) fetches weather data, every hour, and stores it in 's3a://local_bucket' over the LAN.
-Transform: 
-    - At the end of every day a Spark job will be triggered on my [RPi Spark Cluster](/blog/overview), that:
-        a. joins real-time MUNI data with weather data and MUNI static arrival estimates,
-        b. tokenizes the resulting data,
-        c. writes that day's data to S3 bucket 's3a://model_training_data'
-    - Local bucket is then cleared, keeping 
-Load:
-    - Future work includes loading tokenized data into a classification pipeline (e.g., scikit-learn or PySpark ML).
+- **Extract**:
+  
+  - RPi_1 (Caddy) fetches from SFMTA API every ten minutes and stores it as a Parquet file in a local MinIO S3 bucket (`s3a://local_bucket`) on a USB attached to Caddy.
+  - RPi_2 (Quentin) fetches weather data every hour and stores it in `s3a://local_bucket` over the LAN.
+
+- **Transform**:
+
+  - At the end of every day, a Spark job is triggered on my [RPi Spark Cluster](/blog/overview) that:
+    - Joins real-time MUNI data with weather data and MUNI static arrival estimates.
+    - Tokenizes the resulting data.
+    - Writes that day's data to S3 bucket `s3a://model_training_data`.
+  - The local bucket is then cleared.
+
+- **Load**:
+
+  - Future work includes loading tokenized data into a classification pipeline (e.g., scikit-learn or PySpark ML).
 
 ## Stages
 1. Enabling Spark-Cluster IO with S3 buckets (done, to be written up);
 2. Configuring MinIO bucket on USB storage device;
 3. Configuring cron jobs for fetch and transform/push (potentially jump straight to Airflow).
+
+
+
+
+
+
+
+
+
+
+
+
