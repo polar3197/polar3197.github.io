@@ -23,11 +23,9 @@ This project was inspired by conversations with Matei Zaharia while I was in his
 The concepts/tools I'm getting hands-on with in this project:
 * Distributed systems
 * SSH
-* Apache Spark (PySpark)
 * Docker
-* Webscraping and data processing
-* Apache Airflow
-* CI/CD
+* Apache Spark (PySpark)
+
 
 ### Filetree
 ```

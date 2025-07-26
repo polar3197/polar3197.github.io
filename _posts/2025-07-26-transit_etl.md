@@ -13,9 +13,9 @@ featured: true
 ---
 
 ## Motivation
-There is a rich amount of data collected and published in real-time by San Francisco's MTA through its GTFS API. This data is great for building my first ML pipe-line/application, it is rich and personal, as I am a regular boarder of SFMTA public transportation.
+There is a real-time stream of rich data collected and published by San Francisco's MTA through a GTFS API. I use SFMTA a lot and so I started playing with using my Raspberry Pis for data collection to see what is available. I am now moving to analyze trends in the data with state of the art models. 
 
-In this project I aim to put my Raspberry Pi Spark-cluster to work to fetch, enrich and tokenize this data to train an ML classification model.
+The best part is that I can employ my [RPi Spark Cluster](/blog/overview) to handle the data processing.
 
 ## Goals
 * Reduce cloud costs by pushing as much computation as possible to edge devices.
