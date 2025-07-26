@@ -8,7 +8,7 @@ tags: spark rpi
 categories: tech
 noncreative: true
 order: 2
-thumbnail: assets/img/muni2.jpeg
+thumbnail: assets/img/muni2.jpg
 featured: true
 ---
 
