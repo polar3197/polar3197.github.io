@@ -206,6 +206,17 @@ ninja.data = [{
           window.location.href = "/blog/two";
         
       },
+    },{id: "post-muni-transit-ml-pipeline-overview",
+      
+        title: "MUNI Transit ML Pipeline Overview",
+      
+      description: "Making use of continuous transit data",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/muni-overview";
+        
+      },
     },{id: "post-rpi-setup",
       
         title: "RPi Setup",
