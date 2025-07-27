@@ -239,6 +239,39 @@ ninja.data = [{
           window.location.href = "/blog/overview";
         
       },
+    },{id: "post-unlucky",
+      
+        title: "Unlucky",
+      
+      description: "part 2, scene ?",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/unlucky/";
+        
+      },
+    },{id: "post-how-to-love",
+      
+        title: "How to love",
+      
+      description: "a reflection",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/plants/";
+        
+      },
+    },{id: "post-collected-percy-lines",
+      
+        title: "collected percy lines",
+      
+      description: "a reflection",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2024/unsorted_percy_lines/";
+        
+      },
     },{id: "projects-project-2",
           title: 'project 2',
           description: "a project with a background image and giscus comments",
