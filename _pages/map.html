@@ -29,24 +29,30 @@ nav_order: 5
   }).addTo(map);
 
   let vehicleMarkers = [];
-  
+
   function updateVehicles() {
-    // Remove existing markers
+    // Remove existing markers from the map
     vehicleMarkers.forEach(marker => map.removeLayer(marker));
+    // Clear the array so it only contains current markers
+    vehicleMarkers = [];
 
     fetch("http://192.168.0.143:8000/hot-data")
-        .then(response => response.json())
-        .then(data => {
-          console.log(data);
-          data.forEach(vehicle => {
-            L.marker([vehicle.latitude, vehicle.longitude])
-              .addTo(map)
-              .bindPopup("Vehicle " + vehicle.vehicle_id);
-          });
-        })
-        .catch(error => console.error("Error fetching data:", error));
+      .then(response => response.json())
+      .then(data => {
+        data.forEach(vehicle => {
+          // Create a marker and add to the map
+          const marker = L.marker([vehicle.latitude, vehicle.longitude])
+            .addTo(map)
+            .bindPopup("Vehicle " + vehicle.vehicle_id);
+
+          // Store the marker so we can remove it next update
+          vehicleMarkers.push(marker);
+        });
+      })
+      .catch(error => console.error("Error fetching data:", error));
   }
 
-  // Start polling every 5 seconds
+  // Call once immediately, then every 5 seconds
+  updateVehicles();
   setInterval(updateVehicles, 5000);
 </script>
