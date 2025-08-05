@@ -30,8 +30,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/creative/";
           },
-        },{id: "nav-map-of-sfmta-muni-busses-live-to-30s",
-          title: "Map of SFMTA MUNI Busses (live to 30s)",
+        },{id: "nav-map",
+          title: "map",
           description: "",
           section: "Navigation",
           handler: () => {
