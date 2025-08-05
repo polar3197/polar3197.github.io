@@ -5,13 +5,12 @@
   L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
-
-  let vehicleMarkers = [];
   
   function updateVehicles() {
     // Remove existing markers
     vehicleMarkers.forEach(marker => map.removeLayer(marker));
-
+    let vehicleMarkers = [];
+    
     fetch("http://192.168.0.143:8000/hot-data")
         .then(response => response.json())
         .then(data => {
