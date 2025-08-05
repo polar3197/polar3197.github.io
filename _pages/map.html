@@ -37,6 +37,23 @@ nav_order: 5
     attribution: '&copy; OpenStreetMap contributors'
   }).addTo(map);
 
+  function getOccupancyColor(vehicle) {
+    if (!vehicle.route_id) {
+      return "white";
+    }
+
+    switch (vehicle.occupancy_status) {
+      case 0:
+        return "lightgreen";
+      case 1:
+        return "yellow";
+      case 2:
+        return "lightcoral"; // or "lightred" if you have a custom color
+      default:
+        return "lightgray";  // fallback for undefined or unexpected values
+    }
+  }
+
   let vehicleMarkers = [];
 
   function updateVehicles() {
@@ -53,10 +70,12 @@ nav_order: 5
       .then(response => response.json())
       .then(data => {
         data.forEach(vehicle => {
+          const color = getOccupancyColor(vehicle);
+
           // Create a marker and add to the map
           const labelIcon = L.divIcon({
             className: 'vehicle-label',
-            html: `<div>${vehicle.route_id || 'OOS'}</div>`,
+            html: `<div style="background-color:${color}; padding: 2px 4px; border-radius: 4px;">${vehicle.route_id || 'OOS'}</div>`,
             iconSize: null
           });
           const marker = L.marker([vehicle.latitude, vehicle.longitude], { icon: labelIcon }).addTo(map);
