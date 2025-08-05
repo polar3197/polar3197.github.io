@@ -52,7 +52,18 @@ nav_order: 5
       .catch(error => console.error("Error fetching data:", error));
   }
 
-  // Call once immediately, then every 30 seconds
+  let pollInterval;
+
+  document.addEventListener("visibilitychange", () => {
+    if (document.hidden) {
+      clearInterval(pollInterval);
+    } else {
+      updateVehicles();  // optional immediate update
+      pollInterval = setInterval(updateVehicles, 30000);
+    }
+  });
+
+  // Start polling on load
   updateVehicles();
-  setInterval(updateVehicles, 30000);
+  pollInterval = setInterval(updateVehicles, 30000);
 </script>
