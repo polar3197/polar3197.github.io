@@ -26,8 +26,6 @@ The best part is that I can employ my [RPi Spark Cluster](/blog/overview) to han
 
 * Build toward a reproducible, self-contained training pipeline using Spark and scikit-learn.
 
-* (Aspirational) Publish a fast, lightweight [Leaflet.js](https://leafletjs.com/) map on my website showing live MUNI locations and classification model inferences.
-
 ## Structure
 The structure is as follows, and it is conceived around two constraints:
 1. To limit cost overhead, I don't want a constant EC2 instance running;
