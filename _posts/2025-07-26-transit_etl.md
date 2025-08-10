@@ -20,12 +20,6 @@ The best part is that I can employ my [RPi Spark Cluster](/blog/overview) to han
 ## Goals
 * Reduce cloud costs by pushing as much computation as possible to edge devices.
 
-* Keep cloud S3 usage limited to enriched, ML-ready data.
-
-* Learn orchestration tools like Apache Airflow to replace cron-based triggering and better manage dependencies between ingest and transform jobs.
-
-* Build toward a reproducible, self-contained training pipeline using Spark and scikit-learn.
-
 ## Structure
 The structure is as follows, and it is conceived around two constraints:
 1. To limit cost overhead, I don't want a constant EC2 instance running;
@@ -33,16 +27,17 @@ The structure is as follows, and it is conceived around two constraints:
 
 - **Extract**:
   
-  - RPi_1 (Caddy) fetches from SFMTA API every ten minutes and stores it as a Parquet file in a local MinIO S3 bucket (`s3a://local_bucket`) on a USB attached to Caddy.
-  - RPi_2 (Quentin) fetches weather data every hour and stores it in `s3a://local_bucket` over the LAN.
+  - RPi_1 (Caddy) fetches from SFMTA API,
+    - every 60s updates /mnt/ssd/hot_muni_data/muni_data.son, to be served on Dockerized FastAPI server,
+    - every 180s, ships the json to Quentin who stores it with weather data in /mnt/ssd/raw/vehicles.
+  - RPi_2 (Quentin) fetches weather data every 30 minutes and stores on 128GB ssd at /mnt/ssd/raw/weather.
 
 - **Transform**:
 
   - At the end of every day, a Spark job is triggered on my [RPi Spark Cluster](/blog/overview) that:
     - Joins real-time MUNI data with weather data and MUNI static arrival estimates.
     - Tokenizes the resulting data.
-    - Writes that day's data to S3 bucket `s3a://model_training_data`.
-  - The local bucket is then cleared.
+    - Writes that day's data to /mnt/ssd/processed on Quentin's ssd.
 
 - **Load**:
 
