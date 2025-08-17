@@ -70,7 +70,7 @@ legend.addTo(map);
             html: `<div style="background-color:${color}; padding: 2px 4px; border-radius: 4px;">${vehicle.route_id || 'OOS'}</div>`,
             iconSize: null
           });
-          const marker = L.marker([vehicle.latitude, vehicle.longitude], { icon: labelIcon }).addTo(map);
+          const marker = L.marker([vehicle.lat, vehicle.lon], { icon: labelIcon }).addTo(map);
           vehicleMarkers.push(marker);
         });
       })
