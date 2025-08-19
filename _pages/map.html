@@ -47,6 +47,17 @@ nav_order: 5
   SFMTA MUNI Busses - Live to 60s
 </h2>
 
+<form>
+  <div>
+    <label for="rid">show route(s)</label>
+    <input type="text" id="rid" name="rid_list" placeholder="1, 5, 38R, N, ...">
+  </div>
+  <div>
+    <input type="submit" value="submit" onclick="applyRouteFilter(); return false">
+    <input type="reset" value="show all" onclick="clearFilters(); return false">
+  </div>
+</form>
+
 <div id="map"></div>
 
 <script>
@@ -76,7 +87,12 @@ nav_order: 5
   };
   // ========================
 
-legend.addTo(map);
+  legend.addTo(map);
+
+  // ====== Global Filter State ======
+  let filtered = false;
+  let filtered_route_ids = [];
+  // ==================================
 
   function getOccupancyColor(vehicle) {
     switch (vehicle.occupancy) {
@@ -111,6 +127,14 @@ legend.addTo(map);
       .then(data => {
         data.forEach(vehicle => {
           if (!vehicle.route_id) return;
+
+          // Apply filtering if enabled
+          if (filtered && filtered_route_ids.length > 0) {
+            if (!filtered_route_ids.includes(String(vehicle.route_id))) {
+              return; // Skip this vehicle
+            }
+          }
+
           const color = getOccupancyColor(vehicle);
 
           // Create a marker and add to the map
@@ -124,6 +148,38 @@ legend.addTo(map);
         });
       })
       .catch(error => console.error("Error fetching data:", error));
+  }
+
+  // ====== Filter Functions ======
+  function applyRouteFilter() {
+    const input = document.getElementById('rid').value.trim(); // Changed to 'rid'
+    
+    if (!input) {
+      // Clear filter if input is empty
+      filtered = false;
+      filtered_route_ids = [];
+    } else {
+      // Parse comma-separated values
+      const routeNumbers = input.split(',')
+        .map(num => num.trim())
+        .filter(num => num !== '');
+      
+      if (routeNumbers.length > 0) {
+        filtered = true;
+        filtered_route_ids = routeNumbers;
+        console.log('Filtering enabled for routes:', filtered_route_ids);
+      }
+    }
+    
+    // Update the map immediately
+    updateVehicles();
+  }
+
+  function clearFilters() { // Added 's' to match your function name
+    filtered = false;
+    filtered_route_ids = [];
+    document.getElementById('rid').value = '';
+    updateVehicles();
   }
 
   let pollInterval;
