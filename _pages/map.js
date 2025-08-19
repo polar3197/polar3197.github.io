@@ -161,8 +161,8 @@ function applyTypeFilter() {
 }
 
 function clearFilters() {
-    filtered = false;
-    filtered_list = [];
+    route_filtered = false;
+    route_filtered_list = [];
     updateVehicles();
 }
 
