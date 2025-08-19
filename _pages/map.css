@@ -1,0 +1,49 @@
+form {
+    margin: auto 18em auto 16em;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;  /* Pushes left and right apart */
+    align-items: center;             /* Vertically centers everything */
+    width: 100%;
+}
+
+.form-left {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.form-right {
+    font-weight: bold;
+}
+
+/* hashtag selects div with matching 'id' val -- ids are unique */
+#map {
+    /* position sets map frame w/in page */
+    height: 600px;
+    width: 900px;
+    /* margin args: top, right, bottom, left */
+    margin: 1em auto 0 auto;
+}
+
+/* dot selects div with matching 'class' val -- classes are not unique */
+.legend {
+    background: white;
+    padding: 5px;
+    line-height: 10px;
+    color: #333;
+    font-size: 12px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    border-radius: 5px;
+}
+
+.vehicle-label {
+    background: white;
+    border: 1px solid gray;
+    padding: 2px 4px;
+    border-radius: 16px;
+    font-size: 12px;
+    white-space: nowrap;
+}
