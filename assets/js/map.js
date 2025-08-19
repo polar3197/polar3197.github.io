@@ -17,6 +17,12 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenStreetMap contributors'
 }).addTo(map);
 
+// HEADY THEME LOL
+// L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
+//     attribution: '© OpenStreetMap, © OpenTopoMap',
+//     maxZoom: 17
+// }).addTo(map);
+
 // ===== LEGEND =====  
     // L.control create UI overlay on map
 const legend = L.control({ position: 'topright' });
