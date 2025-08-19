@@ -23,10 +23,6 @@ nav_order: 5
     margin-top: 1em;
   }
 
-  /* form {
-    margin-left: 2in; /* or use margin-left: 144px; (2 inches ≈ 144px) */
-  }*/ 
-
   .vehicle-label {
     background: white;
     border: 1px solid gray;
@@ -92,11 +88,6 @@ nav_order: 5
   // ========================
 
   legend.addTo(map);
-
-  // ====== Global Filter State ======
-let filtered = false;
-let filtered_route_ids = [];
-// ==================================
 
   function getOccupancyColor(vehicle) {
     switch (vehicle.occupancy) {
