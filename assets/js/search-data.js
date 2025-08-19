@@ -37,13 +37,6 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/map/";
           },
-        },{id: "nav-map",
-          title: "map",
-          description: "",
-          section: "Navigation",
-          handler: () => {
-            window.location.href = "/map/";
-          },
         },{id: "post-nowhere-notime",
       
         title: "Nowhere, Notime",
