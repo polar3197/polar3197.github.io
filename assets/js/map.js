@@ -10,7 +10,7 @@ let num_active_vehicles = 0;
 // ===== MAP SETUP =====
     // L is Leaflet object imported with the js code for Leaflet
     // 'map' determines in which HTML element id the map should appear
-const map = L.map('map').setView([37.7749, -122.447], 12.5);
+const map = L.map('map').setView([37.7749, -122.447], 12);
     // tileLayer is the style of map, more options available at 
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     // attribution is just giving credit to the source
@@ -169,6 +169,7 @@ function applyTypeFilter() {
 function clearFilters() {
     route_filtered = false;
     route_filtered_list = [];
+    document.getElementById('rid').value = '';
     updateVehicles();
 }
 
