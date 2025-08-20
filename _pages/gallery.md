@@ -29,23 +29,23 @@ nav_order: 2
   </div>
 
   <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/tp-5.png' | relative_url }}" alt="tp-5" style="width: 300px;"/>
+    <p class="caption">tp-5 (plywood)</p>
+  </div>
+
+  <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/rich-spirit.png' | relative_url }}" alt="rich spirit" style="width: 320px;"/>
     <p class="caption">rich spirit (plywood)</p>
   </div>
 
   <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/klimpt-college.png' | relative_url }}" alt="Summer Tree" style="width: 300px;"/>
-    <p class="caption">Summer Tree (plywood)</p>
-  </div>
-
-  <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/brody.png' | relative_url }}" alt="Brody" style="width: 300px;"/>
-    <p class="caption">Brody (plywood)</p>
+    <img src="{{ '/assets/img/paintings/garber-2.png' | relative_url }}" alt="garber-2" style="width: 320px;"/>
+    <p class="caption">down the street, Winter (canvas)</p>
   </div>
 
   <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/derby.png' | relative_url }}" alt="Derby" style="width: 300px;"/>
-    <p class="caption">derby (canvas)</p>
+    <p class="caption">down the street, Fall (canvas)</p>
   </div>
 
   <div class="gallery-item">
@@ -53,9 +53,9 @@ nav_order: 2
     <p class="caption">down the street, Summer (canvas)</p>
   </div>
 
-   <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/garber-2.png' | relative_url }}" alt="garber-2" style="width: 320px;"/>
-    <p class="caption">down the street, Winter (canvas)</p>
+  <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/brody.png' | relative_url }}" alt="Brody" style="width: 300px;"/>
+    <p class="caption">Brody (plywood)</p>
   </div>
 
   <div class="gallery-item">
@@ -76,6 +76,11 @@ nav_order: 2
   <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/bart.jpg' | relative_url }}" alt="yellow line" style="width: 320px;"/>
     <p class="caption">yellow-line (plywood)</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/klimpt-college.png' | relative_url }}" alt="Summer Tree" style="width: 300px;"/>
+    <p class="caption">Summer Tree (plywood)</p>
   </div>
 
   <div class="gallery-item">
