@@ -3,10 +3,11 @@ form {
 }
 
 .form-row {
-    display: flex;
-    justify-content: space-between;  /* Pushes left and right apart */
-    align-items: center;             /* Vertically centers everything */
+    display: flex !important;           /* Force flexbox */
+    justify-content: space-between;
+    align-items: center;
     width: 100%;
+    flex-wrap: wrap; 
 }
 
 .form-left {
@@ -17,6 +18,18 @@ form {
 
 .form-right {
     font-weight: bold;
+}
+
+/* Mobile: stack form elements */
+@media (max-width: 768px) {
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .form-left {
+        justify-content: center;
+    }
 }
 
 /* hashtag selects div with matching 'id' val -- ids are unique */
