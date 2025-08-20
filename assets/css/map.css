@@ -21,11 +21,19 @@ form {
 
 /* hashtag selects div with matching 'id' val -- ids are unique */
 #map {
-    /* position sets map frame w/in page */
-    height: 600px;
-    width: 900px;
-    /* margin args: top, right, bottom, left */
-    margin: 1em auto 0 auto;
+    height: 600px;          /* Keep height in pixels */
+    width: 100%;            /* Use 100% instead of 900px */
+    max-width: 900px;       /* Limit maximum width */
+    margin: 1em auto 0 auto; /* Keep centering */
+}
+
+/* For mobile, make it even more responsive */
+@media (max-width: 768px) {
+    #map {
+        height: 300px;      /* Shorter on mobile */
+        width: 95%;         /* Leave some margin */
+        margin: 1em auto;
+    }
 }
 
 /* dot selects div with matching 'class' val -- classes are not unique */
