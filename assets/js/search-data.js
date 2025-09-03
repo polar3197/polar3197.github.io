@@ -37,7 +37,40 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/map/";
           },
-        },{id: "post-nowhere-notime",
+        },{id: "post-muni-postgresql",
+      
+        title: "MUNI: PostgreSQL",
+      
+      description: "Building database for analytics",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/kafka";
+        
+      },
+    },{id: "post-muni-kafka",
+      
+        title: "MUNI: Kafka",
+      
+      description: "Setting up SFMTA MUNI API stream with Kafka",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/kafka";
+        
+      },
+    },{id: "post-muni-docker-containers",
+      
+        title: "MUNI: Docker Containers",
+      
+      description: "Building pipeline redundancy",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/kafka";
+        
+      },
+    },{id: "post-nowhere-notime",
       
         title: "Nowhere, Notime",
       
