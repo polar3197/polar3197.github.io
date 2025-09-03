@@ -1,33 +1,23 @@
 ---
-layout: page
+layout: map
 title: map
 permalink: /map/
 nav: true
 nav_order: 5
 ---
 
-<!-- <!DOCTYPE html>
-
-<html lang="en">
-<head> -->
-<!-- imports leaflet.js styles -->
+<!-- Leaflet CSS and JS -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
     crossorigin=""/>
-<!-- imports js for leaflet -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin=""></script>
 
-<!-- imports styles from map.css -->
+<!-- Your map styles -->
 <link rel="stylesheet" href="../assets/css/map.css">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta charset="UTF-8">
-<title>SFMTA MUNI Map</title>
-</head>
-<body>
-<!-- set page header title -->
+<!-- The header div will be filled by your JavaScript -->
 <div class="header">
     <h2 style="text-align: center; margin-bottom: 0.5em;">
         SFMTA MUNI Buses - Live to 60s
@@ -37,8 +27,6 @@ nav_order: 5
 <div class="map-list-container">
     <div id="map"></div>
     <div class="bus-info-container">
-        
-        <!-- "flexbox" defined in css file for this formatting -->
         <div class="bic-1">
             <form>
                 <label for="rid">show route(s)</label>
@@ -52,13 +40,11 @@ nav_order: 5
             <div>Routes active: <span id="route-count">0</span></div>
         </div>
         <div class="route-list">
-            <!-- filled in by muni.js in the updateVehicles() function-->
+            <!-- filled in by map.js in the updateVehicles() function-->
         </div>
     </div>
-    </div>
 </div>
-<!-- import map.js, which implements map -->
+
+<!-- Your map JavaScript -->
 <script src="../assets/js/map.js"></script>
 <div style="height: 12em;"></div>
-<!-- </body>
-</html> -->

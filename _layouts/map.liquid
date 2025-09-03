@@ -1,0 +1,250 @@
+---
+layout: default
+---
+
+{% assign year = page.date | date: '%Y' %}
+{% assign tags = '' %}
+{% assign categories = page.categories | join: '' %}
+
+{% if page._styles %}
+  <style>
+    {{ page._styles }}
+  </style>
+{% endif %}
+
+{% assign url_beginning = page.url | slice: 0, 6 %}
+
+<div class="map-container">
+  <div class="map-header">
+    <div class="map-title-section">
+      <h1 class="map-title">{{ page.title }}</h1>
+      
+      <div class="map-meta">
+        <span class="map-date">Created in {{ page.date | date: '%B %d, %Y' }}</span>
+        {% if page.author %}<span class="map-author">by {{ page.author }}</span>{% endif %}
+        {% if page.last_updated %}<span class="map-updated">, last updated in {{ page.last_updated | date: '%B %d, %Y' }}</span>{% endif %}
+        {% if page.meta %}<span class="map-additional-meta">• {{ page.meta }}</span>{% endif %}
+      </div>
+      
+      <div class="map-taxonomy">
+        {% if url_beginning == '/blog/' %}
+          <span class="map-year-tag">{{ year }}</span>
+        {% else %}
+          <span class="map-year">{{ year }}</span>
+        {% endif %}
+        
+        {% if tags != '' %}
+          <span class="taxonomy-separator">·</span>
+          {% for tag in page.tags %}
+            {% if url_beginning == '/blog/' %}
+              <a href="{{ '/blog/tag/' | append: tag | relative_url }}" class="map-tag">{{ tag }}</a>
+            {% else %}
+              <span class="map-tag">{{ tag }}</span>
+            {% endif %}
+            {% unless forloop.last %}
+              <span class="tag-separator">,</span>
+            {% endunless %}
+          {% endfor %}
+        {% endif %}
+        
+        {% if categories != '' %}
+          <span class="taxonomy-separator">·</span>
+          {% for category in page.categories %}
+            {% if url_beginning == '/blog/' %}
+              <a href="{{ '/blog/category/' | append: category | relative_url }}" class="map-category">{{ category -}}</a>
+            {% else %}
+              <span class="map-category">{{ category }}</span>
+            {% endif %}
+            {% unless forloop.last %}
+              <span class="category-separator">,</span>
+            {% endunless %}
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+  </div>
+
+  {% if page.toc and page.toc.beginning %}
+    <div class="map-toc">
+      <nav class="table-of-contents">
+        {% toc %}
+      </nav>
+    </div>
+  {% endif %}
+
+  <div class="map-content">
+    {{ content }}
+  </div>
+</div>
+
+{% if page.citation %}
+  {% include citation.liquid %}
+{% endif %}
+
+{% if page.related_publications %}
+  <div class="map-references">
+    <h2>References</h2>
+    <div class="references-content">
+      {% bibliography --group_by none --cited_in_order %}
+    </div>
+  </div>
+{% endif %}
+
+{% if site.related_blog_posts and site.related_blog_posts.enabled %}
+  {% if page.related_posts == null or page.related_posts %}
+    {% include related_posts.liquid %}
+  {% endif %}
+{% endif %}
+
+{% if site.disqus_shortname and page.disqus_comments %}
+  {% include disqus.liquid %}
+{% endif %}
+
+{% if site.giscus and page.giscus_comments %}
+  {% include giscus.liquid %}
+{% endif %}
+
+<style>
+  /* Layout-specific styles that don't interfere with your existing map.css */
+  .map-container {
+    max-width: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .map-header {
+    background: #f8f9fa;
+    padding: 1.5rem 1rem;
+    border-bottom: 1px solid #dee2e6;
+    margin-bottom: 0;
+  }
+  
+  .map-title-section {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .map-title {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+  }
+  
+  .map-meta {
+    color: #6c757d;
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .map-meta span {
+    margin-right: 0.5rem;
+  }
+  
+  .map-taxonomy {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+  }
+  
+  .map-year, .map-year-tag {
+    background: #007bff;
+    color: white;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    text-decoration: none;
+  }
+  
+  .map-tag, .map-category {
+    background: #28a745;
+    color: white;
+    padding: 0.2rem 0.4rem;
+    border-radius: 0.2rem;
+    text-decoration: none;
+    font-size: 0.8rem;
+  }
+  
+  .map-tag:hover, .map-category:hover {
+    opacity: 0.8;
+  }
+  
+  .taxonomy-separator {
+    color: #6c757d;
+  }
+  
+  .map-toc {
+    background: #ffffff;
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+  }
+  
+  .map-toc .table-of-contents {
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  /* Content area - let your existing CSS handle the map layout */
+  .map-content {
+    padding: 0;
+    width: 100%;
+    position: relative;
+  }
+  
+  /* Don't override your existing map CSS - just ensure no layout constraints */
+  .map-content .map-list-container {
+    /* Your existing map.css handles this completely */
+  }
+  
+  .map-references {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  
+  .map-references h2 {
+    border-bottom: 2px solid #dee2e6;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Mobile adjustments that don't conflict with your map.css */
+  @media (max-width: 768px) {
+    .map-header {
+      padding: 1rem 0.5rem;
+    }
+    
+    .map-title {
+      font-size: 1.8rem;
+    }
+    
+    .map-taxonomy {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.25rem;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .map-header {
+      padding: 0.75rem 0.25rem;
+    }
+    
+    .map-title {
+      font-size: 1.6rem;
+    }
+    
+    .map-meta {
+      font-size: 0.8rem;
+    }
+  }
+  
+  /* Ensure no Jekyll container constraints override your map layout */
+  body.map-page .container {
+    max-width: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+</style>
