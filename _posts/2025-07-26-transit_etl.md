@@ -17,6 +17,11 @@ There is a real-time stream of rich data collected and published by San Francisc
 
 [Github Repo](https://github.com/polar3197/muni-map)
 
+## Project Table of Contents
+* [Continuous data integration](/blog/kafka)
+* [Containerization](/blog/docker)
+* [Database interaction](/blog/postgres)
+
 ## Deliverable Goals
 * Display live map of vehicle locations in SF
 * Collect records of vehicles every 60s in order to train ML models

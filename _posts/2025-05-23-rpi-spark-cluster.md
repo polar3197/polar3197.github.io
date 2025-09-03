@@ -9,7 +9,7 @@ categories: tech
 noncreative: true
 order: 1
 thumbnail: assets/img/spark-icon.png
-featured: true
+featured: false
 ---
 ### Overview
 This project was inspired by conversations with Matei Zaharia while I was in his operating systems class at UC Berkeley. [GitHub Project Repo](https://github.com/polar3197/rpi-spark-cluster).
