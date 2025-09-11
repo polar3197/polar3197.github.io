@@ -14,7 +14,7 @@ The first time I’d gone to her room, I sat on the floor with my back against t
 
 “I made that for him and planned on giving it to him until he didn’t show up on our anniversary.” 
 
-The next time I went to her room it wasn’t on the dresser anymore.
+The next time I went to her room it wasn’t on the dresser.
 
 “You took your boyfriend down?”
 
@@ -38,11 +38,15 @@ I told her I hoped I would always care to remember knowing Estelle.
 
 She didn’t respond.
 
-She came closer to show me how some pattern in her knitting changed and made a distinct weave across where she said the sweater would wrap around her waist. She was warm and her shoulder leaned against mine.
+"What are you knitting?"
+
+She came closer to show me how some pattern changed and made a distinct weave across where she said the sweater would wrap around her waist. She was warm and her shoulder leaned against mine.
 The next morning, I asked Seymor what he was whittling for, he ignored my question as he often did, and told me, instead, that love never dies. He said even kissing someone besides the one you love will create an internal state of such upheaval and chaos that it will leave your heart better off dead. He could’ve said that for a million reasons, or purely out of his own insanity. I wondered if he knew about last night. He said it’d been eight months since Maria’s mother had died. 
 
 “What’re you gonna do with all those sticks?” I asked.
 
 “Pile them up over there,” he pointed at what looked like eight months of naked whittled sticks.
 
-It snowed that night in sheets with a terrible wind and I asked myself, over and over until we fell asleep, if my heart was better off dead. Either way it was warm there with Maria. In the morning I sat with Erla and drank my coffee. I asked her how to know if your heart is dead. She told me I was talking nonsense because when your heart dies it stops pumping blood and you die and there’s no point in trying to know anything then.
+It snowed that night in sheets with a terrible wind. It was cold in the attic where my twin bed was. I climbed down the ladder into the kitchen, where it was dark, and found my way, by way of the warm light creeping from under her door, to Maria's room. That night I asked myself over and over until we fell asleep if my heart was better off dead. Either way it was warm. 
+
+In the morning I sat with Erla and drank my coffee. I asked her how to know if your heart is dead. She told me I was talking nonsense because when your heart dies it stops pumping blood and you die and there’s no point in trying to know anything then.
