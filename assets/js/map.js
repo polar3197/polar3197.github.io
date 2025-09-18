@@ -91,7 +91,7 @@ function updateVehicles() {
         const date = new Date(curr_time)
         // Update the html route list
         let header_html = `
-            <h2 style="text-align: center; margin-bottom: 0.5em;">
+            <h2 style="text-align: center; margin: 0; padding: 0;">
                 SFMTA MUNI Buses - updated @ ${date.toLocaleString()}
             </h2>
         `;
