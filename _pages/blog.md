@@ -64,12 +64,13 @@ pagination:
   <button class="filter-btn" data-filter="general-tech">
     <i class="fas fa-code"></i> General Tech
   </button>
-  <button class="filter-btn" data-filter="creative-writing">
-    <i class="fas fa-feather-alt"></i> Creative Writing
+  <button class="filter-btn" data-filter="thoughts-on-painting">
+    <i class="fas fa-palette"></i> Thoughts on Painting
+  </button>
+  <button class="filter-btn" data-filter="thoughts-on-writing">
+    <i class="fas fa-pen-fancy"></i> Thoughts on Writing
   </button>
 </div>
-
-<div class="filter-count" id="filter-count"></div>
 
 {% assign featured_posts = site.posts | where: "featured", "true" %}
 {% if featured_posts.size > 0 %}
@@ -233,11 +234,27 @@ pagination:
 </div>
 
 <style>
+/* Smaller blog title with less padding */
+.header-bar h1 {
+  font-size: 2.5rem !important;
+  margin-bottom: 0.5rem !important;
+  padding: 0 !important;
+}
+
+.header-bar h2 {
+  margin-bottom: 1rem !important;
+}
+
+.header-bar {
+  margin-bottom: 1.5rem !important;
+  padding: 1rem 0 !important;
+}
+
 .blog-filter-buttons {
   display: flex;
   flex-wrap: wrap;
   gap: 0.75rem;
-  margin: 2rem 0;
+  margin: 1.5rem 0;
   padding: 1rem 0;
   border-bottom: 1px solid var(--global-divider-color);
   justify-content: center;
@@ -265,14 +282,6 @@ pagination:
   transform: translateY(-2px);
 }
 
-.filter-count {
-  text-align: center;
-  color: var(--global-text-color-light);
-  font-style: italic;
-  margin-bottom: 1rem;
-  font-size: 0.9rem;
-}
-
 .regular-post-item.hidden,
 .featured-post-item.hidden {
   display: none !important;
@@ -287,6 +296,10 @@ pagination:
     font-size: 0.8rem;
     padding: 0.5rem 1rem;
   }
+  
+  .header-bar h1 {
+    font-size: 2rem !important;
+  }
 }
 </style>
 
@@ -295,19 +308,11 @@ document.addEventListener('DOMContentLoaded', function() {
   const filterButtons = document.querySelectorAll('.filter-btn');
   const regularPostItems = document.querySelectorAll('.regular-post-item');
   const featuredPostItems = document.querySelectorAll('.featured-post-item');
-  const filterCount = document.getElementById('filter-count');
   const paginationContainer = document.getElementById('pagination-container');
   const postList = document.getElementById('regular-posts');
   const allPostsData = document.querySelectorAll('.all-posts-data');
   
   let isFiltered = false;
-  
-  function updateCount() {
-    const visibleRegular = document.querySelectorAll('.regular-post-item:not(.hidden)').length;
-    const visibleFeatured = document.querySelectorAll('.featured-post-item:not(.hidden)').length;
-    const total = visibleRegular + visibleFeatured;
-    filterCount.textContent = `Showing ${total} post${total !== 1 ? 's' : ''}`;
-  }
   
   function createPostElement(postData) {
     const li = document.createElement('li');
@@ -408,16 +413,10 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         });
       }
-      
-      updateCount();
     });
   });
-  
-  // Initialize count
-  updateCount();
 });
 </script>
-
 
 
 <!-- ---
