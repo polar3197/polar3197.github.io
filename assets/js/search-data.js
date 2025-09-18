@@ -37,26 +37,15 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/map/";
           },
-        },{id: "post-muni-postgresql",
+        },{id: "post-muni-web-app-architecture",
       
-        title: "MUNI: PostgreSQL",
+        title: "MUNI Web-app Architecture",
       
       description: "Building database for analytics",
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/kafka";
-        
-      },
-    },{id: "post-muni-kafka",
-      
-        title: "MUNI: Kafka",
-      
-      description: "Setting up SFMTA MUNI API stream with Kafka",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/kafka";
+          window.location.href = "/blog/muni/infra";
         
       },
     },{id: "post-muni-docker-containers",
