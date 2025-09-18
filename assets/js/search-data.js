@@ -48,15 +48,15 @@ ninja.data = [{
           window.location.href = "/blog/muni/infra";
         
       },
-    },{id: "post-muni-docker-containers",
+    },{id: "post-muni-intelligent-route-selection",
       
-        title: "MUNI: Docker Containers",
+        title: "MUNI Intelligent Route Selection",
       
-      description: "Building pipeline redundancy",
+      description: "How to suggest most accurate routes on MUNI",
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/kafka";
+          window.location.href = "/blog/muni/func/irs";
         
       },
     },{id: "post-nowhere-notime",
