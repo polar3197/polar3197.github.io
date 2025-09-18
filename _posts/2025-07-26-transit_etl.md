@@ -1,6 +1,6 @@
 ---
 layout: post
-title: MUNI Transit ML Pipeline Overview
+title: MUNI Transit Analytics/Visualization Web-app
 permalink: /blog/muni-overview
 date: 2025-05-23 22:18:00
 description: "Making use of continuous transit data"
@@ -13,14 +13,13 @@ featured: true
 ---
 
 ## Overview
-San Francisco's Municipal Transportation Agency (SFMTA) serves realtime data on their vehicles through a GTFS API. I love public transportation and want to see it used to the fullest of its ability. To that end, this project creates a realtime visualization and analytics platform that serves the SFMTA data in a more transparent and accessible way than what can be found on the city's web apps or other maps providers.
+San Francisco's Municipal Transportation Agency (SFMTA) serves realtime data on their vehicles through a GTFS API. I love public transportation and want to see it used to the fullest of its ability. To that end, this project creates a realtime visualization and analytics platform that serves the SFMTA data in a more transparent and accessible way than what can be found on the city's web apps or other map providers.
 
 [Github Repo](https://github.com/polar3197/muni-map)
 
 ## Project Table of Contents
-* [Continuous data integration](/blog/kafka)
-* [Containerization](/blog/docker)
-* [Database interaction](/blog/postgres)
+* [Functionality Features](/blog/muni/func)
+* [Data Infrastructure](/blog/muni/infra)
 
 ## Deliverable Goals
 * Display live map of vehicle locations in SF
@@ -28,9 +27,16 @@ San Francisco's Municipal Transportation Agency (SFMTA) serves realtime data on 
 * Build graph representations of routes that have weighted edges based on travel time. This would enable route suggestion via graph traversal algorithms.
 
 ## Learning Goals
+
+First priority:
+
 * Docker: more advanced use of Docker containers for each part of the data pipeline
+* Database management in PostgreSQL: building efficient schema to allow quick and smooth delivery of analytics
+
+Excited about, but non-essential
+
 * Kafka: streaming of MUNI API polls so one consumer can use the data for live map and one for historical records
-* PostgreSQL: building efficient schema to allow quick and smooth delivery of analytics
+
 
 
 

@@ -7,6 +7,7 @@ description: "project overview"
 tags: spark rpi
 categories: tech
 noncreative: true
+published: false
 order: 1
 thumbnail: assets/img/spark-icon.png
 featured: false
