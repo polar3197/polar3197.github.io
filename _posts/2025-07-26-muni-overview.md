@@ -1,7 +1,7 @@
 ---
 layout: post
 title: MUNI Transit Analytics/Visualization Web-app
-permalink: /blog/muni-overview
+permalink: /blog/muni-overview/
 date: 2025-05-23 22:18:00
 description: "Making use of continuous transit data"
 tags: web-app swe rpi

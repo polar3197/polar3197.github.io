@@ -1,7 +1,7 @@
 ---
 layout: post
 title: MUNI Transit Functionality
-permalink: /blog/muni-func
+permalink: /blog/muni-func/
 date: 2025-05-23 22:18:00
 description: "What my web-app will enable"
 tags: objectives
