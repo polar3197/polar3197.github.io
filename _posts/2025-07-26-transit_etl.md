@@ -5,7 +5,7 @@ permalink: /blog/muni-overview
 date: 2025-05-23 22:18:00
 description: "Making use of continuous transit data"
 tags: web-app swe rpi
-categories: tech
+categories: [muni-project]
 noncreative: true
 order: 2
 thumbnail: assets/img/muni2.jpg
