@@ -320,6 +320,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const tags = postData.getAttribute('data-tags').split(' ').filter(tag => tag.length > 0);
     const categories = postData.getAttribute('data-categories').split(' ').filter(cat => cat.length > 0);
     const thumbnail = postData.getAttribute('data-thumbnail');
+    const redirect = postData.getAttribute('data-redirect');
     
     let tagsHtml = '';
     if (tags.length > 0) {
@@ -340,12 +341,28 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     const externalSource = postData.getAttribute('data-external-source');
-    const externalHtml = externalSource ? `&nbsp; &middot; &nbsp; ${externalSource}` : '';
+    const externalHtml = externalSource && externalSource !== 'null' && externalSource !== '' ? `&nbsp; &middot; &nbsp; ${externalSource}` : '';
+    
+    // Handle different link types
+    let linkHtml = '';
+    if (!redirect || redirect === 'null' || redirect === '') {
+      linkHtml = `<a class="post-title" href="${postData.getAttribute('data-url')}">${postData.getAttribute('data-title')}</a>`;
+    } else if (redirect.includes('://')) {
+      linkHtml = `<a class="post-title" href="${redirect}" target="_blank">${postData.getAttribute('data-title')}</a>
+                  <svg width="2rem" height="2rem" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M17 13.5v6H5v-12h6m3-3h6v6m0-6-9 9" class="icon_svg-stroke" stroke="#999" stroke-width="1.5" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>`;
+    } else {
+      linkHtml = `<a class="post-title" href="${redirect}">${postData.getAttribute('data-title')}</a>`;
+    }
+    
+    // Check if thumbnail exists and is not empty/null
+    const hasThumbnail = thumbnail && thumbnail !== 'null' && thumbnail !== '' && thumbnail.trim() !== '';
     
     li.innerHTML = `
-      ${thumbnail ? '<div class="row"><div class="col-sm-9">' : ''}
+      ${hasThumbnail ? '<div class="row"><div class="col-sm-9">' : ''}
       <h3>
-        <a class="post-title" href="${postData.getAttribute('data-url')}">${postData.getAttribute('data-title')}</a>
+        ${linkHtml}
       </h3>
       <p>${postData.getAttribute('data-description')}</p>
       <p class="post-meta">
@@ -360,7 +377,7 @@ document.addEventListener('DOMContentLoaded', function() {
         ${tagsHtml}
         ${categoriesHtml}
       </p>
-      ${thumbnail ? `</div><div class="col-sm-3"><img class="card-img" src="${thumbnail}" style="object-fit: cover; height: 90%" alt="image"></div></div>` : ''}
+      ${hasThumbnail ? `</div><div class="col-sm-3"><img class="card-img" src="${thumbnail}" style="object-fit: cover; height: 90%" alt="image"></div></div>` : ''}
     `;
     
     return li;
