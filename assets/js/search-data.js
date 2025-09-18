@@ -103,17 +103,6 @@ ninja.data = [{
           window.location.href = "/blog/2025/can't-argue/";
         
       },
-    },{id: "post-second-hurdle-of-my-spark-adventure-spark",
-      
-        title: "Second Hurdle of My Spark Adventure: Spark",
-      
-      description: "setup part 2: Spark! IP! Executors! Drivers!",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/three";
-        
-      },
     },{id: "post-so-silly",
       
         title: "So silly",
@@ -235,48 +224,15 @@ ninja.data = [{
           window.location.href = "/blog/2025/tmux/";
         
       },
-    },{id: "post-first-hurdle-of-my-spark-adventure-docker-containers",
+    },{id: "post-muni-transit-analytics-visualization-web-app",
       
-        title: "First Hurdle of My Spark Adventure: Docker containers",
-      
-      description: "setup part 2: Docker! Docker-Compose!",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/two";
-        
-      },
-    },{id: "post-muni-transit-ml-pipeline-overview",
-      
-        title: "MUNI Transit ML Pipeline Overview",
+        title: "MUNI Transit Analytics/Visualization Web-app",
       
       description: "Making use of continuous transit data",
       section: "Posts",
       handler: () => {
         
           window.location.href = "/blog/muni-overview";
-        
-      },
-    },{id: "post-rpi-setup",
-      
-        title: "RPi Setup",
-      
-      description: "setup part 1: Ethernet! IP addresses! SSH!",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/one";
-        
-      },
-    },{id: "post-my-spark-adventure",
-      
-        title: "My Spark Adventure",
-      
-      description: "project overview",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/overview";
         
       },
     },{id: "post-unlucky",
