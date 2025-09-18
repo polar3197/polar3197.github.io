@@ -37,18 +37,7 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/map/";
           },
-        },{id: "post-muni-web-app-architecture",
-      
-        title: "MUNI Web-app Architecture",
-      
-      description: "Building database for analytics",
-      section: "Posts",
-      handler: () => {
-        
-          window.location.href = "/blog/muni/infra";
-        
-      },
-    },{id: "post-muni-intelligent-route-selection",
+        },{id: "post-muni-intelligent-route-selection",
       
         title: "MUNI Intelligent Route Selection",
       
@@ -57,6 +46,17 @@ ninja.data = [{
       handler: () => {
         
           window.location.href = "/blog/muni/func/irs";
+        
+      },
+    },{id: "post-muni-web-app-architecture",
+      
+        title: "MUNI Web-app Architecture",
+      
+      description: "Building database for analytics",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/muni/infra";
         
       },
     },{id: "post-nowhere-notime",
