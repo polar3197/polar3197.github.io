@@ -64,11 +64,8 @@ pagination:
   <button class="filter-btn" data-filter="general-tech">
     <i class="fas fa-code"></i> General Tech
   </button>
-  <button class="filter-btn" data-filter="thoughts-on-painting">
-    <i class="fas fa-palette"></i> Thoughts on Painting
-  </button>
-  <button class="filter-btn" data-filter="thoughts-on-writing">
-    <i class="fas fa-pen-fancy"></i> Thoughts on Writing
+  <button class="filter-btn" data-filter="thoughts">
+    <i class="fas fa-lightbulb"></i> Thoughts
   </button>
 </div>
 
