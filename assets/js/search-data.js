@@ -52,7 +52,7 @@ ninja.data = [{
       
         title: "MUNI Web-app Architecture",
       
-      description: "Building database for analytics",
+      description: "How the thing runs",
       section: "Posts",
       handler: () => {
         
