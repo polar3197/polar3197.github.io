@@ -122,25 +122,25 @@ pagination:
       {% assign postlist = site.posts | where: "noncreative", true %}
     {% endif %}
 
-    <!-- Hidden complete post list for filtering -->
-    {% assign all_posts = site.posts | where: "noncreative", true %}
-    {% for post in all_posts %}
-      {% assign post_tags = post.tags | join: ' ' | downcase %}
-      {% assign post_categories = post.categories | join: ' ' | downcase %}
-      <div class="all-posts-data" style="display: none;" 
-           data-url="{{ post.url | relative_url }}"
-           data-title="{{ post.title }}"
-           data-description="{{ post.description }}"
-           data-date="{{ post.date | date: '%B %d, %Y' }}"
-           data-year="{{ post.date | date: '%Y' }}"
-           data-tags="{{ post_tags }}"
-           data-categories="{{ post_categories }}"
-           data-redirect="{{ post.redirect }}"
-           data-external-source="{{ post.external_source }}"
-           data-thumbnail="{{ post.thumbnail }}"
-           data-read-time="{% if post.external_source == blank %}{{ post.content | number_of_words | divided_by: 180 | plus: 1 }}{% else %}{{ post.feed_content | strip_html | number_of_words | divided_by: 180 | plus: 1 }}{% endif %}">
-      </div>
-    {% endfor %}
+  <!-- Hidden complete post list for filtering -->
+  {% assign all_posts = site.posts | where: "noncreative", true %}
+  {% for post in all_posts %}
+    {% assign post_tags = post.tags | join: ' ' | downcase %}
+    {% assign post_categories = post.categories | join: ' ' | downcase %}
+    <div class="all-posts-data" style="display: none;" 
+        data-url="{{ post.url | relative_url }}"
+        data-title="{{ post.title }}"
+        data-description="{{ post.description }}"
+        data-date="{{ post.date | date: '%B %d, %Y' }}"
+        data-year="{{ post.date | date: '%Y' }}"
+        data-tags="{{ post_tags }}"
+        data-categories="{{ post_categories }}"
+        data-redirect="{{ post.redirect }}"
+        data-external-source="{{ post.external_source }}"
+        data-thumbnail="{% if post.thumbnail %}{{ post.thumbnail | relative_url }}{% endif %}"
+        data-read-time="{% if post.external_source == blank %}{{ post.content | number_of_words | divided_by: 180 | plus: 1 }}{% else %}{{ post.feed_content | strip_html | number_of_words | divided_by: 180 | plus: 1 }}{% endif %}">
+    </div>
+  {% endfor %}
 
     {% for post in postlist %}
 
