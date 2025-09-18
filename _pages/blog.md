@@ -432,7 +432,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 
-
 <!-- ---
 layout: default
 permalink: /blog/

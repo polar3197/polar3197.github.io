@@ -21,7 +21,7 @@ San Francisco's Municipal Transportation Agency (SFMTA) serves realtime data on 
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">
-        {% include figure.liquid loading="eager" path="assets/img/map.png" class="img-fluid d-block mx-auto w-50 rounded z-depth-1" %}
+        {% include figure.liquid loading="eager" path="assets/img/map.png" class="img-fluid d-block mx-auto  rounded z-depth-1" %}
     </div>
 </div>
 
