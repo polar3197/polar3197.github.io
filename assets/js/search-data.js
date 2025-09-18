@@ -45,7 +45,7 @@ ninja.data = [{
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/muni-func-irs";
+          window.location.href = "/blog/muni-func-irs/";
         
       },
     },{id: "post-muni-web-app-architecture",
@@ -56,7 +56,7 @@ ninja.data = [{
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/muni-infra";
+          window.location.href = "/blog/muni-infra/";
         
       },
     },{id: "post-nowhere-notime",
@@ -221,7 +221,7 @@ ninja.data = [{
       section: "Posts",
       handler: () => {
         
-          window.location.href = "/blog/muni-overview";
+          window.location.href = "/blog/muni-overview/";
         
       },
     },{id: "post-unlucky",
