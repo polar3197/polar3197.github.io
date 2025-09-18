@@ -15,7 +15,7 @@ latest_posts:
 
 ---
 
-I'm Charlie Cooper. I recently graduated from UC Berkeley with a B.A. in Mathematics and a B.A. in Computer Science.  
+I'm Charlie Cooper. I graduated from UC Berkeley, in 2025, with a B.A. in Mathematics and a B.A. in Computer Science.  
 
 ---
 
@@ -24,14 +24,14 @@ Background:
 - Former research assistant at the UC Berkeley Computational Cognitive Science Lab with Professor Bill Thompson
 - Former autonomous flight intern at Joby Aviation
 - Fred Robley Shakespeare Scholar at Cabrillo Community College
-- I'm currently teaching myself about distributed systems and distributed ML training/inference on a raspberry-pi spark-cluster. You can track my progress in my **blog** !
+- I'm currently teaching myself about database management, API maintenance and ML for Intelligent Transit Systems (ITS). You can track my progress in my **blog**!
 
 ---
 
 Interests:
 
 - Running! I am currently planning a marathon semi-circling the North Bay and spanning two bridges. [On pause -- busted knee]
-- Writing! I am sporadically releasing a series of narrative scenes for a interwoven collection of short stories, which you can find under **creative writing**.
+- Writing! I am writing a novel that draws inspiration from Faulkner, Thomas Mann and J.D. Salinger. It is composed of scenes and I am working dilligently to avoid my natural tendancy to write like Sherwood Anderson. You can find snippets in **creative writing**.
 - Painting! I like to paint in acrylic on scrap wood. I am currently doing a series of telephone poles, which you can find under **gallery**.
 
 ---

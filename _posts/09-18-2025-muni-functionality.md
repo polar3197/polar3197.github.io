@@ -12,7 +12,7 @@ thumbnail: assets/img/muni2.jpg
 featured: false
 ---
 
-## Planned Functionality for Web App
+## High Priority Functionality
 * [Live map of vehicle locations in SF](/blog/muni/func/map) (Javascript, CSS, HTML, FastAPI, Leaflet.js)
 * [Intelligent route selection](/blog/muni/func/irs) (Graphs, GNNs)
 * [LLM + RAG interface with PostgreSQL database](/blog/muni/func/rag)  (PostgreSQL, pgvector, OpenAI API)
