@@ -1,7 +1,7 @@
 ---
 layout: post
 title: PostgreSQL Database Setup
-permalink: /blog/muni-infra-ds
+permalink: /blog/muni-infra-ds/
 date: 2025-09-03
 description: "How the thing runs"
 tags: design
