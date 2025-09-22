@@ -16,8 +16,8 @@ featured: false
 San Francisco's Municipal Transportation Agency (SFMTA) serves realtime data on their vehicles through a GTFS API. I love public transportation and want to see it used to the fullest of its ability. To that end, this project creates a realtime visualization and analytics platform that serves the SFMTA data in a more transparent and accessible way than what can be found on the city's web apps or other map providers.
 
 ## Project Table of Contents
-* [What can it do](/blog/muni-func)
-* [Project architecture](/blog/muni-infra)
+* [What can it do](/blog/muni-func/)
+* [Project architecture](/blog/muni-infra/)
 
 <div class="row mt-3">
     <div class="col-sm mt-3 mt-md-0">

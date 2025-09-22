@@ -15,7 +15,7 @@ latest_posts:
 
 ---
 
-I'm Charlie Cooper. I graduated from UC Berkeley, in 2025, with a B.A. in Mathematics and a B.A. in Computer Science.  
+I'm Charlie Cooper. I graduated from UC Berkeley in 2025 with a B.A. in Mathematics and a B.A. in Computer Science.  
 
 ---
 
