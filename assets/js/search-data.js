@@ -37,7 +37,29 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/map/";
           },
-        },{id: "post-muni-intelligent-route-selection",
+        },{id: "post-muni-map",
+      
+        title: "MUNI Map",
+      
+      description: "What should the map do?",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/muni-func-map/";
+        
+      },
+    },{id: "post-postgresql-database-setup",
+      
+        title: "PostgreSQL Database Setup",
+      
+      description: "How the thing runs",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/muni-infra-ds/";
+        
+      },
+    },{id: "post-muni-intelligent-route-selection",
       
         title: "MUNI Intelligent Route Selection",
       
@@ -211,6 +233,17 @@ ninja.data = [{
       handler: () => {
         
           window.location.href = "/blog/2025/tmux/";
+        
+      },
+    },{id: "post-muni-transit-functionality",
+      
+        title: "MUNI Transit Functionality",
+      
+      description: "What my web-app will enable",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/muni-func/";
         
       },
     },{id: "post-muni-transit-analytics-visualization-web-app",
