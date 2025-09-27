@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/map/";
           },
-        },{id: "post-muni-map",
+        },{id: "post-subtext",
+      
+        title: "Subtext",
+      
+      description: "part 2, scene 3",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/subtext/";
+        
+      },
+    },{id: "post-muni-map",
       
         title: "MUNI Map",
       
