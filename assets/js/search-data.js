@@ -37,7 +37,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/map/";
           },
-        },{id: "post-subtext",
+        },{id: "post-youth-is-wasted-time",
+      
+        title: "Youth is Wasted Time",
+      
+      description: "part 1, scene ?",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/youth/";
+        
+      },
+    },{id: "post-subtext",
       
         title: "Subtext",
       
@@ -46,6 +57,17 @@ ninja.data = [{
       handler: () => {
         
           window.location.href = "/blog/2025/subtext/";
+        
+      },
+    },{id: "post-graphrag-on-vehicle-database-for-route-selection",
+      
+        title: "GraphRAG on vehicle database for route selection",
+      
+      description: "The biggest challenge and the most exciting feature",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/muni-func-rag/";
         
       },
     },{id: "post-muni-map",
