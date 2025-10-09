@@ -108,7 +108,7 @@ function updateVehicles() {
     // clears routes to display
     routeCounts = {};
     // grab json object from API
-    fetch("https://catherine-morris-qty-ist.trycloudflare.com/vehicles/current", {
+    fetch("https://iowa-opponents-sessions-bike.trycloudflare.com/vehicles/current", {
         // tell auto-fetch it can skip ngrok's verification header
         headers: {
             "ngrok-skip-browser-warning": "true"
