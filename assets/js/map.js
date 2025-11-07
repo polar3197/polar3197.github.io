@@ -1,274 +1,358 @@
-// ===== GLOBAL VARS =====
-let route_filtered = false;
-let route_filtered_list = [];
-let type_filtered = false;
-let type_filtered_list = [];
-let num_active_vehicles = 0;
-let routeCounts = {};
+// Wait for DOM and Leaflet to be ready
+window.addEventListener('load', function() {
+    // ===== GLOBAL VARS =====
+    let route_filtered = false;
+    let route_filtered_list = [];
+    let routeCounts = {};
+    let vehicleMarkers = [];
+    let stopMarkers = [];
+    let showingStops = false;
 
-// ===== MAP SETUP =====
-    // L is Leaflet object imported with the js code for Leaflet
-    // 'map' determines in which HTML element id the map should appear
-const map = L.map('map').setView([37.7749, -122.447], 12);
-    // tileLayer is the style of map, more options available at 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    // attribution is just giving credit to the source
-    attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+    // ===== MAP SETUP =====
+    const map = L.map('map').setView([37.7749, -122.447], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
 
-// HEADY THEME LOL
-// L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-//     attribution: '© OpenStreetMap, © OpenTopoMap',
-//     maxZoom: 17
-// }).addTo(map);
+    // ===== LEGEND =====
+    const legend = L.control({ position: 'topright' });
+    legend.onAdd = function () {
+        const div = L.DomUtil.create('div', 'legend');
+        const labels = [
+            {color: 'lightblue', text: 'Empty'},
+            {color: 'lightgreen', text: 'Few Riders'},
+            {color: 'yellow', text: 'Several'},
+            {color: 'lightcoral', text: 'Many Riders'},
+        ];
+        
+        div.innerHTML = '<h4>OCCUPANCY</h4>' + labels.map(item => 
+            `<div class="legend-item">
+                <div class="legend-color" style="background:${item.color}"></div>
+                <span>${item.text}</span>
+            </div>`
+        ).join('');
+        
+        return div;
+    };
+    legend.addTo(map);
 
-// ===== LEGEND =====  
-    // L.control create UI overlay on map
-const legend = L.control({ position: 'topright' });
-    // onAdd is run once the UI control is placed on the map
-    // 'map' is the const map from above -- defines which map to add to
-legend.onAdd = function (map) {
-    // how Leaflet creates <div class="info legend"></div>
-    const legend_div = L.DomUtil.create('div', 'info legend');
-
-    // define colors for legend -- will be used in for loop to build HTML
-    const labels = [
-        {color: 'lightblue', text: 'Empty'},
-        {color: 'lightgreen', text: 'Few Riders'},
-        {color: 'yellow', text: 'Several Riders'},
-        {color: 'lightcoral', text: 'Many Riders'},
-    ];
-
-    // innerHTML allows you to set HTML for inside the element -- in this legend_div
-    legend_div.innerHTML = labels.map(item => {
-        return `<div><span style="background:${item.color}; width: 16px; height: 16px; display:inline-block; margin-right:5px; border:1px solid #ccc;"></span>${item.text}</div>`;
-    }).join('');
-
-    return legend_div;
-};
-legend.addTo(map);
-
-// // Route 38 Geary - Orange line
-// L.geoJSON({"type":"LineString","coordinates": [[-122.39527,37.7899],[-122.39569,37.78965],[-122.3967,37.79047],[-122.39817,37.79162],[-122.39828,37.79172],[-122.39916,37.79102],[-122.39949,37.79075],[-122.40008,37.79031],[-122.40049,37.78999],[-122.40139,37.78927],[-122.40208,37.78873],[-122.40245,37.78844],[-122.40292,37.78809],[-122.4035,37.78797],[-122.40366,37.78793],[-122.40505,37.78777],[-122.40658,37.78757],[-122.4066,37.78757],[-122.40824,37.78736],[-122.40839,37.78733],[-122.40989,37.78715],[-122.41153,37.78694],[-122.41167,37.78692],[-122.41235,37.78684],[-122.41317,37.78673],[-122.41333,37.7867],[-122.41482,37.78652],[-122.41498,37.78649],[-122.41646,37.78632],[-122.4181,37.78611],[-122.41826,37.78607],[-122.41975,37.7859],[-122.42141,37.78569],[-122.42158,37.78566],[-122.42304,37.78549],[-122.42356,37.78542],[-122.42383,37.78539],[-122.42415,37.78539],[-122.42445,37.7854],[-122.42457,37.78541],[-122.4247,37.78534],[-122.42508,37.78529],[-122.42645,37.78516],[-122.42781,37.78497],[-122.428,37.78496],[-122.42963,37.78476],[-122.43103,37.78459],[-122.43122,37.78457],[-122.43293,37.78436],[-122.43306,37.78434],[-122.43376,37.78427],[-122.43457,37.78416],[-122.43775,37.78372],[-122.43786,37.78372],[-122.43805,37.78367],[-122.43833,37.78356],[-122.43865,37.78344],[-122.439,37.78337],[-122.4393,37.78332],[-122.43937,37.78331],[-122.43949,37.78331],[-122.44115,37.78313],[-122.44281,37.78289],[-122.44297,37.78287],[-122.44572,37.78252],[-122.4467,37.78247],[-122.44752,37.78243],[-122.44813,37.78237],[-122.44996,37.78213],[-122.4501,37.78212],[-122.45113,37.78199],[-122.45216,37.78186],[-122.45304,37.78173],[-122.45318,37.78172],[-122.45419,37.7816],[-122.45529,37.78146],[-122.45554,37.78144],[-122.45565,37.78142],[-122.45631,37.78139],[-122.45645,37.78137],[-122.45664,37.78137],[-122.45775,37.78132],[-122.45887,37.78126],[-122.45893,37.78125],[-122.46001,37.78122],[-122.46107,37.78117],[-122.46128,37.78114],[-122.46215,37.78112],[-122.46322,37.78108],[-122.4641,37.78103],[-122.46429,37.78102],[-122.46537,37.78097],[-122.46644,37.78093],[-122.4675,37.78088],[-122.46762,37.78087],[-122.46858,37.78083],[-122.46964,37.78077],[-122.47073,37.78073],[-122.47179,37.78069],[-122.47232,37.78066],[-122.47278,37.78063],[-122.47286,37.78063],[-122.474,37.78058],[-122.4751,37.78053],[-122.47602,37.78047],[-122.47618,37.78048],[-122.47725,37.78044],[-122.47832,37.78039],[-122.4794,37.78034],[-122.47958,37.78032],[-122.48046,37.78028],[-122.48153,37.78023],[-122.48173,37.78021],[-122.4826,37.78019],[-122.48368,37.78015],[-122.4846,37.7801],[-122.48475,37.7801],[-122.48582,37.78004],[-122.48689,37.78],[-122.48778,37.77994],[-122.48796,37.77995],[-122.48903,37.7799],[-122.48995,37.77983],[-122.49011,37.77984],[-122.49118,37.7798],[-122.49224,37.77975],[-122.49331,37.77969],[-122.49342,37.77968],[-122.49439,37.77965],[-122.49545,37.7796],[-122.49638,37.77955],[-122.49654,37.77956],[-122.4976,37.77951],[-122.49868,37.77946],[-122.49974,37.77941],[-122.50065,37.77935],[-122.50082,37.77936],[-122.50094,37.77943],[-122.5019,37.77952],[-122.50283,37.77959],[-122.50298,37.77961],[-122.50308,37.78106],[-122.5031,37.78118],[-122.50314,37.78133],[-122.50321,37.7814],[-122.50336,37.78144],[-122.50359,37.78149],[-122.50374,37.78153],[-122.50415,37.78174],[-122.5046,37.78198],[-122.50473,37.78201],[-122.50493,37.78203],[-122.50524,37.78204],[-122.50565,37.78207],[-122.50585,37.78202],[-122.50657,37.78207],[-122.50712,37.78209],[-122.50726,37.78211],[-122.5074,37.78216],[-122.5075,37.78219],[-122.50756,37.78214],[-122.50761,37.78205],[-122.50761,37.78195],[-122.50757,37.78186],[-122.50751,37.78178],[-122.50741,37.78173],[-122.5071,37.78159],[-122.507,37.78156],[-122.50689,37.78153],[-122.50671,37.78153],[-122.50657,37.78154],[-122.50646,37.78158],[-122.50635,37.7816],[-122.50602,37.7816],[-122.50594,37.78159],[-122.50586,37.78154],[-122.5058,37.78147],[-122.50571,37.78143],[-122.50561,37.78141],[-122.50441,37.78133],[-122.50429,37.7813],[-122.50423,37.78125],[-122.50417,37.78113],[-122.50415,37.78099],[-122.50406,37.77977],[-122.50407,37.77971],[-122.50499,37.77978],[-122.50515,37.7798],[-122.50623,37.7799],[-122.50731,37.77999],[-122.50742,37.77997],[-122.50785,37.77996],[-122.50838,37.77993],[-122.50944,37.77986],[-122.5094,37.77909],[-122.50942,37.77905]]}, {
-//     style: {
-//         color: '#7a128fff',
-//         weight: 4,
-//         opacity: 0.8
-//     }
-// }).bindPopup("Route 38 - 1").addTo(map);
-
-// L.geoJSON({"type":"LineString","coordinates":[[-122.39527,37.7899],[-122.39569,37.78965],[-122.3967,37.79047],[-122.39817,37.79162],[-122.39828,37.79172],[-122.39916,37.79102],[-122.39949,37.79075],[-122.40008,37.79031],[-122.40049,37.78999],[-122.40139,37.78927],[-122.40208,37.78873],[-122.40245,37.78844],[-122.40292,37.78809],[-122.4035,37.78797],[-122.40366,37.78793],[-122.40505,37.78777],[-122.40658,37.78757],[-122.4066,37.78757],[-122.40824,37.78736],[-122.40839,37.78733],[-122.40989,37.78715],[-122.41153,37.78694],[-122.41167,37.78692],[-122.41235,37.78684],[-122.41317,37.78673],[-122.41333,37.7867],[-122.41482,37.78652],[-122.41498,37.78649],[-122.41646,37.78632],[-122.4181,37.78611],[-122.41826,37.78607],[-122.41975,37.7859],[-122.42141,37.78569],[-122.42158,37.78566],[-122.42304,37.78549],[-122.42356,37.78542],[-122.42383,37.78539],[-122.42415,37.78539],[-122.42445,37.7854],[-122.42457,37.78541],[-122.4247,37.78534],[-122.42508,37.78529],[-122.42645,37.78516],[-122.42781,37.78497],[-122.428,37.78496],[-122.42963,37.78476],[-122.43103,37.78459],[-122.43122,37.78457],[-122.43293,37.78436],[-122.43306,37.78434],[-122.43376,37.78427],[-122.43457,37.78416],[-122.43775,37.78372],[-122.43786,37.78372],[-122.43805,37.78367],[-122.43833,37.78356],[-122.43865,37.78344],[-122.439,37.78337],[-122.4393,37.78332],[-122.43937,37.78331],[-122.43949,37.78331],[-122.44115,37.78313],[-122.44281,37.78289],[-122.44297,37.78287],[-122.44572,37.78252],[-122.4467,37.78247],[-122.44752,37.78243],[-122.44813,37.78237],[-122.44996,37.78213],[-122.4501,37.78212],[-122.45113,37.78199],[-122.45216,37.78186],[-122.45304,37.78173],[-122.45318,37.78172],[-122.45419,37.7816],[-122.45529,37.78146],[-122.45554,37.78144],[-122.45565,37.78142],[-122.45631,37.78139],[-122.45645,37.78137],[-122.45664,37.78137],[-122.45775,37.78132],[-122.45887,37.78126],[-122.45893,37.78125],[-122.46001,37.78122],[-122.46107,37.78117],[-122.46128,37.78114],[-122.46215,37.78112],[-122.46322,37.78108],[-122.4641,37.78103],[-122.46429,37.78102],[-122.46537,37.78097],[-122.46644,37.78093],[-122.4675,37.78088],[-122.46762,37.78087],[-122.46858,37.78083],[-122.46964,37.78077],[-122.47073,37.78073],[-122.47179,37.78069],[-122.47232,37.78066],[-122.47278,37.78063],[-122.47286,37.78063],[-122.474,37.78058],[-122.4751,37.78053],[-122.47602,37.78047],[-122.47618,37.78048],[-122.47725,37.78044],[-122.47832,37.78039],[-122.4794,37.78034],[-122.47958,37.78032],[-122.48046,37.78028],[-122.48153,37.78023],[-122.48173,37.78021],[-122.4826,37.78019],[-122.48368,37.78015],[-122.4846,37.7801],[-122.48475,37.7801],[-122.48582,37.78004],[-122.48689,37.78],[-122.48778,37.77994],[-122.48796,37.77995],[-122.48903,37.7799],[-122.48995,37.77983],[-122.49011,37.77984],[-122.49118,37.7798],[-122.49224,37.77975],[-122.49331,37.77969],[-122.49342,37.77968],[-122.49439,37.77965],[-122.49545,37.7796],[-122.49638,37.77955],[-122.49654,37.77956],[-122.4976,37.77951],[-122.49868,37.77946],[-122.49974,37.77941],[-122.50065,37.77935],[-122.50082,37.77936],[-122.50094,37.77943],[-122.5019,37.77952],[-122.50283,37.77959],[-122.50298,37.77961],[-122.50407,37.77971],[-122.50499,37.77978],[-122.50515,37.7798],[-122.50623,37.7799],[-122.50731,37.77999],[-122.50742,37.77997],[-122.50785,37.77996],[-122.50838,37.77993],[-122.50944,37.77986],[-122.5094,37.77909],[-122.50942,37.77905]]}, {
-//     style: {
-//         color: '#d71212ff',
-//         weight: 4,
-//         opacity: 0.8
-//     }
-// }).bindPopup("Route 38 - 2").addTo(map);
-
-// L.geoJSON({"type":"LineString","coordinates": [[-122.39527,37.7899],[-122.39569,37.78965],[-122.3967,37.79047],[-122.39817,37.79162],[-122.39828,37.79172],[-122.39916,37.79102],[-122.39949,37.79075],[-122.40008,37.79031],[-122.40049,37.78999],[-122.40139,37.78927],[-122.40208,37.78873],[-122.40245,37.78844],[-122.40292,37.78809],[-122.4035,37.78797],[-122.40366,37.78793],[-122.40505,37.78777],[-122.40658,37.78757],[-122.4066,37.78757],[-122.40824,37.78736],[-122.40839,37.78733],[-122.40989,37.78715],[-122.41153,37.78694],[-122.41167,37.78692],[-122.41235,37.78684],[-122.41317,37.78673],[-122.41333,37.7867],[-122.41482,37.78652],[-122.41498,37.78649],[-122.41646,37.78632],[-122.4181,37.78611],[-122.41826,37.78607],[-122.41975,37.7859],[-122.42141,37.78569],[-122.42158,37.78566],[-122.42304,37.78549],[-122.42356,37.78542],[-122.42383,37.78539],[-122.42415,37.78539],[-122.42445,37.7854],[-122.42457,37.78541],[-122.4247,37.78534],[-122.42508,37.78529],[-122.42645,37.78516],[-122.42781,37.78497],[-122.428,37.78496],[-122.42963,37.78476],[-122.43103,37.78459],[-122.43122,37.78457],[-122.43293,37.78436],[-122.43306,37.78434],[-122.43376,37.78427],[-122.43457,37.78416],[-122.43775,37.78372],[-122.43786,37.78372],[-122.43805,37.78367],[-122.43833,37.78356],[-122.43865,37.78344],[-122.439,37.78337],[-122.4393,37.78332],[-122.43937,37.78331],[-122.43949,37.78331],[-122.44115,37.78313],[-122.44281,37.78289],[-122.44297,37.78287],[-122.44572,37.78252],[-122.4467,37.78247],[-122.44752,37.78243],[-122.44813,37.78237],[-122.44996,37.78213],[-122.4501,37.78212],[-122.45113,37.78199],[-122.45216,37.78186],[-122.45304,37.78173],[-122.45318,37.78172],[-122.45419,37.7816],[-122.45529,37.78146],[-122.45554,37.78144],[-122.45565,37.78142],[-122.45631,37.78139],[-122.45645,37.78137],[-122.45664,37.78137],[-122.45775,37.78132],[-122.45887,37.78126],[-122.45893,37.78125],[-122.46001,37.78122],[-122.46107,37.78117],[-122.46128,37.78114],[-122.46215,37.78112],[-122.46322,37.78108],[-122.4641,37.78103],[-122.46429,37.78102],[-122.46537,37.78097],[-122.46644,37.78093],[-122.4675,37.78088],[-122.46762,37.78087],[-122.46858,37.78083],[-122.46964,37.78077],[-122.47073,37.78073],[-122.47179,37.78069],[-122.47232,37.78066],[-122.47278,37.78063],[-122.47286,37.78063],[-122.474,37.78058],[-122.4751,37.78053],[-122.47602,37.78047],[-122.47618,37.78048],[-122.47725,37.78044],[-122.47832,37.78039],[-122.4794,37.78034],[-122.47958,37.78032],[-122.48046,37.78028],[-122.48153,37.78023],[-122.48173,37.78021],[-122.4826,37.78019],[-122.48368,37.78015],[-122.4846,37.7801],[-122.48475,37.7801],[-122.48582,37.78004],[-122.48689,37.78],[-122.48778,37.77994],[-122.48796,37.77995],[-122.48903,37.7799],[-122.48995,37.77983],[-122.49011,37.77984],[-122.49118,37.7798],[-122.49224,37.77975],[-122.49331,37.77969],[-122.49342,37.77968],[-122.49439,37.77965],[-122.49545,37.7796],[-122.49638,37.77955],[-122.49654,37.77956],[-122.4976,37.77951],[-122.49868,37.77946],[-122.49974,37.77941],[-122.50065,37.77935],[-122.50082,37.77936],[-122.50094,37.77943],[-122.5019,37.77952],[-122.50283,37.77959],[-122.50298,37.77961],[-122.50308,37.78106],[-122.5031,37.78118],[-122.50314,37.78133],[-122.50321,37.7814],[-122.50336,37.78144],[-122.50359,37.78149],[-122.50374,37.78153],[-122.504,37.78168],[-122.50403,37.78179]]}, {
-//     style: {
-//         color: '#2d07e9ff',
-//         weight: 4,
-//         opacity: 0.8
-//     }
-// }).bindPopup("Route 38 - 3").addTo(map);
-
-// L.geoJSON({"type":"LineString","coordinates": [[-122.39527,37.7899],[-122.39569,37.78965],[-122.3967,37.79047],[-122.39817,37.79162],[-122.39828,37.79172],[-122.39916,37.79102],[-122.39949,37.79075],[-122.40008,37.79031],[-122.40049,37.78999],[-122.40139,37.78927],[-122.40208,37.78873],[-122.40245,37.78844],[-122.40292,37.78809],[-122.4035,37.78797],[-122.40366,37.78793],[-122.40505,37.78777],[-122.40658,37.78757],[-122.4066,37.78757],[-122.40824,37.78736],[-122.40839,37.78733],[-122.40989,37.78715],[-122.41153,37.78694],[-122.41167,37.78692],[-122.41235,37.78684],[-122.41317,37.78673],[-122.41333,37.7867],[-122.41482,37.78652],[-122.41498,37.78649],[-122.41646,37.78632],[-122.4181,37.78611],[-122.41826,37.78607],[-122.41975,37.7859],[-122.42141,37.78569],[-122.42158,37.78566],[-122.42304,37.78549],[-122.42356,37.78542],[-122.42383,37.78539],[-122.42415,37.78539],[-122.42445,37.7854],[-122.42457,37.78541],[-122.4247,37.78534],[-122.42508,37.78529],[-122.42645,37.78516],[-122.42781,37.78497],[-122.428,37.78496],[-122.42963,37.78476],[-122.43103,37.78459],[-122.43122,37.78457],[-122.43293,37.78436],[-122.43306,37.78434],[-122.43376,37.78427],[-122.43457,37.78416],[-122.43775,37.78372],[-122.43786,37.78372],[-122.43805,37.78367],[-122.43833,37.78356],[-122.43865,37.78344],[-122.439,37.78337],[-122.4393,37.78332],[-122.43937,37.78331],[-122.43949,37.78331],[-122.44115,37.78313],[-122.44281,37.78289],[-122.44297,37.78287],[-122.44572,37.78252],[-122.4467,37.78247],[-122.44752,37.78243],[-122.44813,37.78237],[-122.44996,37.78213],[-122.4501,37.78212],[-122.45113,37.78199],[-122.45216,37.78186],[-122.45304,37.78173],[-122.45318,37.78172],[-122.45419,37.7816],[-122.45529,37.78146],[-122.45554,37.78144],[-122.45565,37.78142],[-122.45631,37.78139],[-122.45645,37.78137],[-122.45664,37.78137],[-122.45775,37.78132],[-122.45887,37.78126],[-122.45893,37.78125],[-122.46001,37.78122],[-122.46107,37.78117],[-122.46128,37.78114],[-122.46215,37.78112],[-122.46322,37.78108],[-122.4641,37.78103],[-122.46429,37.78102],[-122.46537,37.78097],[-122.46644,37.78093],[-122.4675,37.78088],[-122.46762,37.78087],[-122.46858,37.78083],[-122.46964,37.78077],[-122.47073,37.78073],[-122.47179,37.78069],[-122.47232,37.78066],[-122.47278,37.78063],[-122.47286,37.78063],[-122.474,37.78058],[-122.4751,37.78053],[-122.47602,37.78047],[-122.47618,37.78048],[-122.47725,37.78044],[-122.47832,37.78039],[-122.4794,37.78034],[-122.47958,37.78032],[-122.48046,37.78028],[-122.48153,37.78023],[-122.48173,37.78021],[-122.4826,37.78019],[-122.48368,37.78015],[-122.4846,37.7801],[-122.48475,37.7801],[-122.48582,37.78004],[-122.48689,37.78],[-122.48778,37.77994],[-122.48796,37.77995],[-122.48903,37.7799],[-122.48995,37.77983],[-122.49011,37.77984],[-122.49118,37.7798],[-122.49224,37.77975],[-122.49331,37.77969],[-122.4933,37.77955],[-122.49317,37.77784],[-122.49318,37.77778],[-122.49305,37.77598],[-122.49306,37.77591],[-122.49197,37.77596],[-122.49211,37.77783],[-122.49224,37.77975]]}, {
-//     style: {
-//         color: '#ff0ba2ff',
-//         weight: 4,
-//         opacity: 0.8
-//     }
-// }).bindPopup("Route N - 4").addTo(map);
-
-// ===== VEHICLE DATA =====
-let vehicleMarkers = [];
-
-// used to dynamically determine the vehicles color during mapping
-function getOccupancyColor(vehicle) {
-    switch (vehicle.occupancy) {
-      case 0:
-        return "lightblue";
-      case 1:
-        return "lightgreen";
-      case 2:
-        return "yellow";
-      case 3:
-        return "lightcoral";
-      default:
-        return "lightgray";  // fallback for undefined or unexpected values
+    // ===== FUNCTIONS =====
+    function getOccupancyColor(vehicle) {
+        const colors = {
+            0: "lightblue",
+            1: "lightgreen",
+            2: "yellow",
+            3: "lightcoral"
+        };
+        return colors[vehicle.occupancy] || "lightgray";
     }
-}
-// fetches vehicle json data from API and puts it on map
-function updateVehicles() {
-    // removes markers (in vehicleMarkers list) from map
-    vehicleMarkers.forEach(marker => map.removeLayer(marker));
-    // clears vehicleMarkers, so it only contains current markers
-    vehicleMarkers = [];
-    // clears routes to display
-    routeCounts = {};
-    // grab json object from API
-    fetch("https://iowa-opponents-sessions-bike.trycloudflare.com/vehicles/current", {
-        // tell auto-fetch it can skip ngrok's verification header
-        headers: {
-            "ngrok-skip-browser-warning": "true"
-        }
-    // then commands wait for the previous function call to return before running
-    }).then(response => response.json())
-      .then(data => {
-        // get timestamp for page freshness update
-        curr_time = data[0].timestamp;
-        const date = new Date(curr_time)
-        // Update the html route list
-        let header_html = `
-            <h2 style="text-align: center; margin-bottom: 0.5em;">
-                SFMTA MUNI Buses - updated @ ${date.toLocaleString()}
-            </h2>
-        `;
-        const headerContainer = document.querySelector('.header');
-        headerContainer.innerHTML = header_html;
 
-        // now vehicle is a json object as defined when pushed to API
-        data.forEach(vehicle => {
-            if (!vehicle.route_id) return;
-
-            // PLACE HOLDER FOR FILTERING LOGIC
-            if (route_filtered && route_filtered_list.length > 0) {
-                if (!route_filtered_list.includes(String(vehicle.route_id).toUpperCase())) {
-                    return; // Skip this vehicle
-                }
-            }
-
-            // keep track of count of vehicle per route
-            if (routeCounts[vehicle.route_id]) {
-                routeCounts[vehicle.route_id].count++;
-            } else {
-                routeCounts[vehicle.route_id] = {
-                    count: 1,
-                    name: vehicle.route_name,
-                    color: vehicle.route_color
-                };
-            }
-
-            // get vehicle color
-            const color = getOccupancyColor(vehicle);
-
-            // define appearance of marker
-            const vehicle_icon = L.divIcon({
-                className: 'vehicle-label',
-                html: `<div style="background-color:${color}; padding: 2px 4px; border-radius: 10px;">${vehicle.route_id}</div>`,
-                iconSize: null
-            });
-
-            // define marker and add to map
-            const marker = L.marker([vehicle.lat, vehicle.lon], { icon: vehicle_icon }).addTo(map);
+    function updateVehicles() {
+        vehicleMarkers.forEach(marker => map.removeLayer(marker));
+        vehicleMarkers = [];
+        routeCounts = {};
+        
+        fetch("https://northwest-ask-farmer-improving.trycloudflare.com/vehicles/current", {
+            headers: { "ngrok-skip-browser-warning": "true" }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.length === 0) return;
             
-            // add vehicle marker to vehicleMarkers
-            vehicleMarkers.push(marker)
-
-            // count active busses (within filter) and set on html page
-            num_active_vehicles = vehicleMarkers.length;
-            document.getElementById('bus-count').textContent = num_active_vehicles;
-        });
-        num_active_routes = Object.keys(routeCounts).length;
-        document.getElementById('route-count').textContent = num_active_routes;
-
-        // Update the html route list
-        let html = '';
-        Object.entries(routeCounts).forEach(([route, data]) => {
-            html += `
-                <div class="route-card">
-                    <div class="route-id-col">
-                        <div class="route-id" style="background: linear-gradient(rgba(255,255,255,0.4), rgba(255,255,255,0.4)), #${data.color};">
-                            ${route}
-                        </div>
+            const date = new Date(data[0].timestamp);
+            document.getElementById('update-time').textContent = 
+                `Updated ${date.toLocaleTimeString()}`;
+            
+            data.forEach(vehicle => {
+                if (!vehicle.route_id) return;
+                
+                if (route_filtered && route_filtered_list.length > 0) {
+                    if (!route_filtered_list.includes(String(vehicle.route_id).toUpperCase())) {
+                        return;
+                    }
+                }
+                
+                if (routeCounts[vehicle.route_id]) {
+                    routeCounts[vehicle.route_id].count++;
+                } else {
+                    routeCounts[vehicle.route_id] = {
+                        count: 1,
+                        name: vehicle.route_long_name || vehicle.route_short_name || vehicle.route_id,
+                        color: vehicle.route_color || 'cccccc',
+                        route_type: vehicle.route_type || 3
+                    };
+                }
+                
+                const color = getOccupancyColor(vehicle);
+                const vehicle_icon = L.divIcon({
+                    className: 'vehicle-label',
+                    html: `<div style="background-color:${color}; padding: 2px 5px; border-radius: 10px; font-weight: 600; font-size: 10px;">${vehicle.route_id}</div>`,
+                    iconSize: null
+                });
+                
+                const marker = L.marker([vehicle.lat, vehicle.lon], { icon: vehicle_icon }).addTo(map);
+                
+                // Add tooltip with bus information
+                const occupancyText = ['Empty', 'Few Riders', 'Several Riders', 'Many Riders'][vehicle.occupancy] || 'Unknown';
+                marker.bindTooltip(`
+                    <div style="text-align: center;">
+                        <strong>${vehicle.route_id} - ${vehicle.route_name}</strong><br>
+                        Occupancy: ${occupancyText}
                     </div>
-                    <div class="route-stats-col">
-                        <div class="route-detail">
-                            ${data.name}
+                `, {
+                    direction: 'top',
+                    offset: [0, -10],
+                    opacity: 0.95
+                });
+                
+                vehicleMarkers.push(marker);
+            });
+            
+            document.getElementById('bus-count').textContent = vehicleMarkers.length;
+            document.getElementById('route-count').textContent = Object.keys(routeCounts).length;
+            
+            let html = '';
+            Object.entries(routeCounts)
+                .sort((a, b) => {
+                    const aNum = parseInt(a[0]) || 999;
+                    const bNum = parseInt(b[0]) || 999;
+                    return aNum - bNum;
+                })
+                .forEach(([route, data]) => {
+                    html += `
+                        <div class="route-card">
+                            <div class="route-id" style="background: linear-gradient(135deg, rgba(255,255,255,0.4), rgba(255,255,255,0.1)), #${data.color};">
+                                ${route}
+                            </div>
+                            <div class="route-info">
+                                <div class="route-name">${data.name}</div>
+                                <div class="route-count">${data.count} vehicle${data.count > 1 ? 's' : ''}</div>
+                            </div>
                         </div>
-                        <div class="route-detail">
-                            ${data.count} vehicles
-                        </div>
-                    </div>
-                </div>
-            `
-        });
-        const routeListContainer = document.querySelector('.route-list');
-        routeListContainer.innerHTML = html;
-    }).catch(error => console.error("Error fetching data:", error));
-    
-    
-}
+                    `;
+                });
+            document.querySelector('.route-list').innerHTML = html;
+        })
+        .catch(error => console.error("Error fetching data:", error));
+    }
 
-// ===== FILTERS =====
-function applyRouteFilter() {
-    // has access to element with id 'rid' from form
-    // trim whitespace and make route IDs case insensitive
-    const route_ids_str = document.getElementById('rid').value.trim().toUpperCase();
+    window.applyRouteFilter = applyRouteFilter;
+    window.clearFilters = clearFilters;
+    
+    function applyRouteFilter() {
+        console.log('Applying route filter');
+        const route_ids_str = document.getElementById('rid').value.trim().toUpperCase();
+        
+        if (!route_ids_str) {
+            route_filtered = false;
+            route_filtered_list = [];
+        } else {
+            const new_route_filtered_list = route_ids_str.split(",")
+                .map(raw_id => raw_id.trim())
+                .filter(route_id => route_id !== "");
+            
+            if (new_route_filtered_list.length > 0) {
+                route_filtered = true;
+                route_filtered_list = new_route_filtered_list;
+            }
+        }
+        updateVehicles();
+        if (showingStops) {
+            showStops();
+        }
+    }
 
-    // if no routes in filter
-    if (!route_ids_str) {
+    function clearFilters() {
+        console.log('Clearing filters');
         route_filtered = false;
         route_filtered_list = [];
-    } else {
-        const new_route_filtered_list = route_ids_str.split(",")
-        .map(raw_id => raw_id.trim())
-        .filter(route_id => route_id != "");
+        document.getElementById('rid').value = '';
+        hideStops();
+        updateVehicles();
+    }
 
-        if (new_route_filtered_list.length > 0) {
-            route_filtered = true;
-            route_filtered_list = new_route_filtered_list;
-            console.log('Filtering enabled for routes:', route_filtered_list);
+    function filterByRoute(routeId) {
+        console.log('Filtering by route:', routeId);
+        route_filtered = true;
+        route_filtered_list = [routeId];
+        document.getElementById('rid').value = routeId;
+        updateVehicles();
+        showStops();
+    }
+
+    function toggleStops() {
+        console.log('Toggling stops, current state:', showingStops);
+        if (showingStops) {
+            hideStops();
+        } else {
+            showStops();
         }
     }
-    // update map immediately
-    updateVehicles();
-}
 
-function applyTypeFilter() {
-    // has access to element with id 'rid' from form
-    // trim whitespace and make route IDs case insensitive
-    const route_ids_str = document.getElementById('rid').value.trim().toUpperCase();
+    function showStops() {
+        console.log('showStops called');
+        hideStops(); // Clear existing stops first
+        
+        const routesToShow = route_filtered_list.length > 0 
+            ? route_filtered_list.join(',') 
+            : null;
+        
+        console.log('Routes to show stops for:', routesToShow);
+        
+        if (!routesToShow) {
+            alert('Please select or filter to a route first before showing stops');
+            return;
+        }
+        
+        fetch(`https://determining-undertake-insider-typing.trycloudflare.com/stops?route_ids=${routesToShow}`, {
+            headers: { "ngrok-skip-browser-warning": "true" }
+        })
+        .then(response => response.json())
+        .then(stops => {
+            console.log('Fetched stops:', stops.length);
+            
+            if (stops.length === 0) {
+                alert(`No stops found for route(s): ${routesToShow}. The stop_times data may not be loaded yet.`);
+                return;
+            }
+            
+            stops.forEach(stop => {
+                const stopIcon = L.divIcon({
+                    className: 'stop-marker',
+                    html: `<div style="background: white; border: 2px solid #6366f1; border-radius: 50%; width: 10px; height: 10px;"></div>`,
+                    iconSize: [10, 10]
+                });
+                
+                const marker = L.marker([stop.lat, stop.lon], { icon: stopIcon }).addTo(map);
+                
+                marker.bindPopup(`
+                    <div style="min-width: 180px;">
+                        <h3 style="margin: 0 0 8px 0; color: #1a202c; font-size: 0.95rem;">${stop.name}</h3>
+                        <div style="font-size: 0.85rem; color: #6b7280;">
+                            <strong>Stop ID:</strong> ${stop.stop_id}<br>
+                            <strong>Location:</strong> ${stop.lat.toFixed(5)}, ${stop.lon.toFixed(5)}
+                        </div>
+                    </div>
+                `);
+                
+                stopMarkers.push(marker);
+            });
+            
+            showingStops = true;
+            updateStopButtonText();
+        })
+        .catch(error => {
+            console.error("Error fetching stops:", error);
+            alert('Error loading stops. Check console for details.');
+        });
+    }
 
-    // if no routes in filter
-    if (!route_ids_str) {
-        type_filtered = false;
-        type_filtered_list = [];
-    } else {
-        const new_type_filtered_list = route_ids_str.split(",")
-        .map(raw_id => raw_id.trim())
-        .filter(route_id => route_id != "");
+    function hideStops() {
+        stopMarkers.forEach(marker => map.removeLayer(marker));
+        stopMarkers = [];
+        showingStops = false;
+        updateStopButtonText();
+    }
 
-        if (new_filtered_list.length > 0) {
-            filtered = true;
-            type_filtered_list = new_type_filtered_list;
-            console.log('Filtering enabled for routes:', type_filtered_list);
+    function updateStopButtonText() {
+        const btn = document.getElementById('toggle-stops-btn');
+        if (btn) {
+            btn.textContent = showingStops ? 'Hide Stops' : 'Show Stops';
         }
     }
-    // update map immediately
+
+    // ===== POLLING =====
+    let pollInterval;
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            clearInterval(pollInterval);
+        } else {
+            updateVehicles();
+            pollInterval = setInterval(updateVehicles, 30000);
+        }
+    });
+
+    // ===== BUTTON EVENT LISTENERS =====
+    document.getElementById('apply-btn').addEventListener('click', applyRouteFilter);
+    document.getElementById('clear-btn').addEventListener('click', clearFilters);
+    document.getElementById('toggle-stops-btn').addEventListener('click', toggleStops);
+    // document.getElementById('llm-send').addEventListener('click', sendLLMMessage);
+    // document.getElementById('llm-input').addEventListener('keypress', function(e) {
+    //     if (e.key === 'Enter' && !e.shiftKey) {
+    //         e.preventDefault();
+    //         sendLLMMessage();
+    //     }
+    // });
+
+    function sendLLMMessage() {
+        const input = document.getElementById('llm-input');
+        const chatArea = document.getElementById('llm-chat');
+        const message = input.value.trim();
+        
+        if (!message) return;
+        
+        // Clear placeholder if it's the first message
+        if (chatArea.children.length === 1 && chatArea.children[0].style.color === 'rgb(107, 114, 128)') {
+            chatArea.innerHTML = '';
+        }
+        
+        // Add user message to chat
+        const userMsg = document.createElement('div');
+        userMsg.style.cssText = 'background: #e0e7ff; padding: 10px 12px; border-radius: 8px; margin-bottom: 10px; font-size: 0.875rem; animation: fadeIn 0.3s;';
+        userMsg.innerHTML = `<div style="font-weight: 600; margin-bottom: 4px; color: #4338ca;">You</div><div>${message}</div>`;
+        chatArea.appendChild(userMsg);
+        
+        // Clear input
+        input.value = '';
+        
+        // Show typing indicator
+        const typingMsg = document.createElement('div');
+        typingMsg.id = 'typing-indicator';
+        typingMsg.style.cssText = 'background: #f3f4f6; padding: 10px 12px; border-radius: 8px; margin-bottom: 10px; font-size: 0.875rem; color: #6b7280;';
+        typingMsg.innerHTML = `<div style="font-weight: 600; margin-bottom: 4px;">Assistant</div><div>Thinking...</div>`;
+        chatArea.appendChild(typingMsg);
+        chatArea.scrollTop = chatArea.scrollHeight;
+        
+        // TODO: Replace this with your actual LLM API call
+        // Example: Call Claude API, OpenAI, or your backend
+        setTimeout(() => {
+            // Remove typing indicator
+            const typing = document.getElementById('typing-indicator');
+            if (typing) typing.remove();
+            
+            // Add bot response
+            const botMsg = document.createElement('div');
+            botMsg.style.cssText = 'background: #f3f4f6; padding: 10px 12px; border-radius: 8px; margin-bottom: 10px; font-size: 0.875rem; animation: fadeIn 0.3s;';
+            
+            // Example response - replace with actual LLM API response
+            let response = generateMockResponse(message);
+            
+            botMsg.innerHTML = `<div style="font-weight: 600; margin-bottom: 4px; color: #059669;">Assistant</div><div>${response}</div>`;
+            chatArea.appendChild(botMsg);
+            
+            // Scroll to bottom
+            chatArea.scrollTop = chatArea.scrollHeight;
+        }, 1000);
+    }
+    
+    function generateMockResponse(message) {
+        // This is a placeholder - replace with actual LLM API call
+        const lowerMsg = message.toLowerCase();
+        
+        if (lowerMsg.includes('route') || lowerMsg.includes('line')) {
+            return `There are ${document.getElementById('route-count').textContent} active routes right now. You can filter by route using the search box above, or click any route card to see its vehicles and stops.`;
+        } else if (lowerMsg.includes('stop')) {
+            return `To see stops for a route, first select or filter to a specific route, then click the "Show Stops" button. You can click any stop marker to see its details.`;
+        } else if (lowerMsg.includes('bus') || lowerMsg.includes('vehicle')) {
+            return `There are currently ${document.getElementById('bus-count').textContent} active buses. Click any bus icon on the map to see its speed, direction, and next stop.`;
+        } else if (lowerMsg.includes('how') || lowerMsg.includes('help')) {
+            return `I can help you with:<br>• Finding routes and stops<br>• Real-time bus locations<br>• Next stops and arrival info<br>• Route filtering and navigation<br><br>Try asking about specific routes or stops!`;
+        } else {
+            return `I'm a demo assistant. To integrate a real LLM:<br><br>1. Add your API key (Claude, OpenAI, etc.)<br>2. Replace the generateMockResponse() function<br>3. Send queries with context about current routes, stops, and vehicles<br><br>Your question: "${message}"`;
+        }
+    }
+
     updateVehicles();
-}
-
-function clearFilters() {
-    route_filtered = false;
-    route_filtered_list = [];
-    document.getElementById('rid').value = '';
-    updateVehicles();
-}
-
-// ===== POLLING =====
-let pollInterval;
-
-document.addEventListener("visibilitychange", () => {
-if (document.hidden) {
-    clearInterval(pollInterval);
-} else {
-    updateVehicles();  // optional immediate update
     pollInterval = setInterval(updateVehicles, 30000);
-}
 });
-
-// Start polling on load
-updateVehicles();
-pollInterval = setInterval(updateVehicles, 30000);
