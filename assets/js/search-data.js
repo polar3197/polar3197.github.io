@@ -37,6 +37,13 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/map/";
           },
+        },{id: "nav-map",
+          title: "map",
+          description: "",
+          section: "Navigation",
+          handler: () => {
+            window.location.href = "/map/";
+          },
         },{id: "post-youth-is-wasted-time",
       
         title: "Youth is Wasted Time",
