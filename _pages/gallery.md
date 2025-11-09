@@ -34,7 +34,7 @@ nav_order: 2
   </div>
 
   <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/10.png' | relative_url }}" alt="rich spirit" style="width: 320px;"/>
+    <img src="{{ '/assets/img/paintings/10.jpeg' | relative_url }}" alt="rich spirit" style="width: 320px;"/>
     <p class="caption">rich spirit (plywood)</p>
   </div>
 
