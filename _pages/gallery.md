@@ -9,34 +9,70 @@ nav_order: 2
 <div class="gallery">
 
   <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/tp-1.png' | relative_url }}" alt="tp-1" style="width: 300px;"/>
+    <img src="{{ '/assets/img/paintings/1.jpeg' | relative_url }}" alt="tp-1" style="width: 300px;"/>
     <p class="caption">tp-1 (pine)</p>
   </div>
 
   <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/tp-2.png' | relative_url }}" alt="tp-2" style="width: 300px;"/>
+    <img src="{{ '/assets/img/paintings/8.jpeg' | relative_url }}" alt="tp-2" style="width: 300px;"/>
     <p class="caption">tp-2 (pine)</p>
   </div>
 
   <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/tp-3-2.png' | relative_url }}" alt="tp-3" style="width: 300px;"/>
+    <img src="{{ '/assets/img/paintings/3.jpeg' | relative_url }}" alt="tp-3" style="width: 300px;"/>
     <p class="caption">tp-3 (pine)</p>
   </div>
 
   <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/tp-4.png' | relative_url }}" alt="tp-4" style="width: 300px;"/>
-    <p class="caption">tp-4 (pine)</p>
+    <img src="{{ '/assets/img/paintings/4.jpeg' | relative_url }}" alt="tp-4" style="width: 300px;"/>
+    <p class="caption">tp-4 (plywood)</p>
   </div>
 
   <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/tp-5.png' | relative_url }}" alt="tp-5" style="width: 300px;"/>
-    <p class="caption">tp-5 (plywood)</p>
+    <img src="{{ '/assets/img/paintings/5.jpeg' | relative_url }}" alt="tp-5" style="width: 300px;"/>
+    <p class="caption">tp-5 (pine)</p>
   </div>
 
   <div class="gallery-item">
-    <img src="{{ '/assets/img/paintings/rich-spirit.png' | relative_url }}" alt="rich spirit" style="width: 320px;"/>
+    <img src="{{ '/assets/img/paintings/10.png' | relative_url }}" alt="rich spirit" style="width: 320px;"/>
     <p class="caption">rich spirit (plywood)</p>
   </div>
+
+  <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/6.jpeg' | relative_url }}" alt="rich spirit" style="width: 320px;"/>
+    <p class="caption">?? (plywood)</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/7.jpeg' | relative_url }}" alt="rich spirit" style="width: 320px;"/>
+    <p class="caption">?? (plywood)</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/2.jpg' | relative_url }}" alt="rich spirit" style="width: 320px;"/>
+    <p class="caption">?? (plywood)</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/9.jpeg' | relative_url }}" alt="rich spirit" style="width: 320px;"/>
+    <p class="caption">?? (plywood)</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/11.jpeg' | relative_url }}" alt="rich spirit" style="width: 320px;"/>
+    <p class="caption">?? (plywood)</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/12.png' | relative_url }}" alt="rich spirit" style="width: 320px;"/>
+    <p class="caption">?? (plywood)</p>
+  </div>
+
+  <div class="gallery-item">
+    <img src="{{ '/assets/img/paintings/13.jpeg' | relative_url }}" alt="rich spirit" style="width: 320px;"/>
+    <p class="caption">rich spirit (plywood)</p>
+  </div>
+  6,7,9,11,12,13
 
   <div class="gallery-item">
     <img src="{{ '/assets/img/paintings/garber-2.png' | relative_url }}" alt="garber-2" style="width: 320px;"/>
