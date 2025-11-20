@@ -30,8 +30,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/creative/";
           },
-        },{id: "nav-map",
-          title: "map",
+        },{id: "nav-sf-muni-live-tracker",
+          title: "SF MUNI Live Tracker",
           description: "",
           section: "Navigation",
           handler: () => {
