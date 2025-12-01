@@ -1,0 +1,28 @@
+---
+layout: base
+---
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: 'en' }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: site.title }}</title>
+  
+  {% include head.liquid %}
+  
+  <style>
+    /* Override all default layout styles for map */
+    body { margin: 0; padding: 0; overflow: hidden; }
+    main { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+    .container { padding: 0 !important; margin: 0 !important; max-width: none !important; }
+    footer { display: none !important; }
+  </style>
+</head>
+<body>
+  {% include header.liquid %}
+  
+  <main style="padding: 0; margin: 0; width: 100vw; height: calc(100vh - 60px);">
+    {{ content }}
+  </main>
+</body>
+</html>
