@@ -3,7 +3,7 @@ layout: page
 title: gallery
 permalink: /gallery/
 nav: true
-nav_order: 2
+nav_order: 4
 ---
 
 <div class="gallery">

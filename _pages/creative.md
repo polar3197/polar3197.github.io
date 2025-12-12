@@ -2,7 +2,7 @@
 layout: default
 title: creative writing
 permalink: /creative/
-nav: true
+nav: false
 nav_order: 3
 category: creative
 ---
