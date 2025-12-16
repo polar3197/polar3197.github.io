@@ -30,7 +30,18 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/gallery/";
           },
-        },{id: "post-youth-is-wasted-time",
+        },{id: "post-onboarding-with-fibonacci-web-studio",
+      
+        title: "Onboarding with Fibonacci Web Studio",
+      
+      description: "",
+      section: "Posts",
+      handler: () => {
+        
+          window.location.href = "/blog/2025/fibo/";
+        
+      },
+    },{id: "post-youth-is-wasted-time",
       
         title: "Youth is Wasted Time",
       
