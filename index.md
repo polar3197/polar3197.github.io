@@ -1,23 +1,15 @@
 ---
 ---
+{% comment %}The bio text lives in _includes/bio.md (plain Markdown, editable in admin mode).{% endcomment %}
+{% capture bio %}{% include bio.md %}{% endcapture %}
 <div class="intro">
-<div class="bio" markdown="1">
-
-Hi, I'm Charlie. I'm a painter and an engineer.
-
-I spent four months at a three-person AI startup before it was acquired.
-
-Now I scale its AI services and polish the UX inside the larger company.
-
-I'm promoting and iterating on a social media app building a connective tissue between artists in the Bay Area.
-
-I'm also three years into writing a novel.
-
-<p class="links">
-  <a href="https://github.com/polar3197" target="_blank" rel="noopener">github ↗</a>
-  <a href="https://www.linkedin.com/in/charlie-w-cooper/" target="_blank" rel="noopener">linkedin ↗</a>
-</p>
-
-</div>
-<img class="portrait" src="/assets/img/profile.jpg" alt="Charlie Cooper">
+  <div class="bio">
+    {{ bio | markdownify }}
+    <p class="links">
+      <a href="https://github.com/polar3197" target="_blank" rel="noopener">github ↗</a>
+      <a href="https://www.linkedin.com/in/charlie-w-cooper/" target="_blank" rel="noopener">linkedin ↗</a>
+      <button class="edit" type="button" data-edit="_includes/bio.md">edit</button>
+    </p>
+  </div>
+  <img class="portrait" src="/assets/img/profile.jpg" alt="Charlie Cooper">
 </div>

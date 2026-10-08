@@ -13,6 +13,7 @@
   <div class="journal__view" data-journal-view="list">
     <a class="journal__back" href="#{{ p.slug }}">← back</a>
     <h2 class="journal__heading">{{ p.title }} · progress journal</h2>
+    <p class="admin-actions"><button class="edit" type="button" data-new-entry="{{ p.slug }}">+ new entry</button></p>
     <ol class="journal__list">
       {% for e in entries %}
       <li><a class="journal__item" href="#{{ p.slug }}/journal/{{ e.slug }}"><time class="meta" datetime="{{ e.date | date_to_xmlschema }}">{{ e.date | date: "%b %-d, %Y" }}</time><span>{{ e.title }}</span></a></li>
@@ -24,6 +25,7 @@
     <a class="journal__back" href="#{{ p.slug }}/journal">← back</a>
     <time class="meta" datetime="{{ e.date | date_to_xmlschema }}">{{ e.date | date: "%b %-d, %Y" }}</time>
     <h2 class="journal__heading">{{ e.title }}</h2>
+    <p class="admin-actions"><button class="edit" type="button" data-edit="{{ e.path }}">edit</button></p>
     {{ e.content }}
   </article>
   {% endfor %}

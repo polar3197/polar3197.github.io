@@ -10,5 +10,6 @@
     <cite class="label__title">{{ p.title }}</cite>
     {% if p.dimensions %}<span class="meta">{{ p.dimensions }}</span>{% endif %}
     {% if p.location %}<span class="meta">{{ p.location }}</span>{% endif %}
+    <span class="admin-actions"><button class="edit" type="button" data-edit="_data/paintings.yml" data-edit-find="file: {{ p.file }}">edit</button></span>
   </figcaption>
 </figure>

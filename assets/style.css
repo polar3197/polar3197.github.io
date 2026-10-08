@@ -315,6 +315,72 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .label__title { font-weight: 500; }
 cite.label__title { font-weight: normal; }   /* artwork titles: italic (cite default), regular weight */
 
+/* Admin: edit buttons appear only in admin mode (see assets/admin.js) */
+.admin-actions { display: none; gap: var(--space-2); }
+.is-admin .admin-actions { display: flex; }
+.edit { display: none; }
+.is-admin .edit { display: inline; }
+
+.edit,
+.editor__button {
+  font-size: var(--text-small);
+  color: var(--color-muted);
+  transition: color var(--duration-fast) var(--ease);
+}
+
+.edit:hover,
+.editor__button:hover { color: var(--color-text); }
+
+.command,
+.editor {
+  padding: var(--space-2);
+  border: 1px solid var(--color-guide);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.command::backdrop,
+.editor::backdrop { background: rgb(0 0 0 / 0.08); }   /* (placeholder) */
+
+.command { width: min(24rem, 90vw); margin-top: 20vh; }
+
+.command__input,
+.editor__title {
+  width: 100%;
+  box-sizing: border-box;
+  border: 0;
+  padding: 0;
+  background: none;
+  font: inherit;
+  color: inherit;
+  outline: none;
+}
+
+.command__hint:empty { display: none; }
+.command__hint { margin-top: var(--space-1); }
+
+.editor { width: min(var(--column-width), 92vw); }
+.editor__form { display: grid; gap: var(--space-1); }
+.editor__path { margin: 0; }
+.editor__title { padding-block: var(--space-1); border-bottom: 1px solid var(--color-guide); }
+
+.editor__text {
+  height: 60vh;
+  box-sizing: border-box;
+  padding: var(--space-1);
+  border: 1px solid var(--color-guide);
+  border-radius: var(--radius);
+  background: none;
+  color: inherit;
+  font: var(--text-small) / 1.6 var(--font-mono);
+  resize: vertical;
+  outline: none;
+}
+
+.editor__bar { display: flex; align-items: center; gap: var(--space-2); }
+.editor__status { flex: 1; }
+
 /* ---------- Motion ---------- */
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { transition-duration: 0ms !important; }

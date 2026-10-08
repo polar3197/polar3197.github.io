@@ -1,0 +1,23 @@
+{% comment %}
+  Admin UI (behaviour in assets/admin.js). "/" opens the command box; "admin" asks for the
+  password (checked server-side on Vercel). In admin mode, .edit buttons appear on content.
+{% endcomment %}
+<dialog class="command" aria-label="Command">
+  <form class="command__form">
+    <input class="command__input" name="command" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="type a command" aria-label="Command">
+    <p class="meta command__hint" aria-live="polite"></p>
+  </form>
+</dialog>
+
+<dialog class="editor" aria-label="Edit content">
+  <form class="editor__form">
+    <p class="meta editor__path"></p>
+    <input class="editor__title" name="title" placeholder="title" aria-label="Entry title" hidden>
+    <textarea class="editor__text" name="content" aria-label="Content"></textarea>
+    <div class="editor__bar">
+      <span class="meta editor__status" aria-live="polite"></span>
+      <button class="editor__button" type="button" data-editor="cancel">cancel</button>
+      <button class="editor__button" type="submit">save</button>
+    </div>
+  </form>
+</dialog>

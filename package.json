@@ -1,0 +1,5 @@
+{
+  "private": true,
+  "type": "module",
+  "description": "Only for the Vercel functions in api/ (admin editing). The site itself is Jekyll."
+}

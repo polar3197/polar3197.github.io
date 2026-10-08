@@ -21,5 +21,9 @@
     <span>{{ p.description }}</span>
     <span class="meta">{{ p.tags | join: " · " }}</span>
     {% if entries.size > 0 %}<a class="label__journal" href="#{{ p.slug }}/journal">progress journal →</a>{% endif %}
+    <span class="admin-actions">
+      <button class="edit" type="button" data-edit="_data/projects.yml" data-edit-find="slug: {{ p.slug }}">edit</button>
+      <button class="edit" type="button" data-new-entry="{{ p.slug }}">+ journal entry</button>
+    </span>
   </figcaption>
 </figure>

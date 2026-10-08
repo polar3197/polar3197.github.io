@@ -15,7 +15,9 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
   const loadPosition = () => { try { return Number(sessionStorage.getItem(storageKey)) || 0; } catch { return 0; } };
   const savePosition = () => { try { sessionStorage.setItem(storageKey, target); } catch {} };
 
-  let target = clamp(loadPosition());  // where we're heading, so quick repeat presses each count
+  // Start on the slide named in the URL hash (e.g. /projects/#sec-tagger), else where this visitor left off.
+  const linked = [...track.children].findIndex((slide) => slide.dataset.slug && slide.dataset.slug === location.hash.slice(1).split("/")[0]);
+  let target = linked >= 0 ? linked : clamp(loadPosition());  // where we're heading, so quick repeat presses each count
 
   const updateControls = () => {
     prev.disabled = target === 0;
