@@ -2,7 +2,8 @@
 
 Personal site, built by GitHub Pages (Jekyll). Pushing to `main` publishes it.
 
-- **New blog post:** add `_posts/YYYY-MM-DD-slug.md` with `title` and `description` front matter.
-- **New painting:** drop a resized JPEG into `assets/img/paintings/`.
-- **Books / projects:** edit `_data/books.yml` / `_data/projects.yml`.
+- **Content:** `_data/projects.yml` and `_data/paintings.yml` (painting images live in `assets/img/paintings/`). Nav links + their keyboard shortcuts: `_data/nav.yml`.
+- **Styles:** all colors, widths, spacing and motion are tokens at the top of `assets/style.css`.
+- **Components** (`_includes/`): `nav.html`, `carousel.html` (used by projects and paintings, with `project-slide.html` / `painting-slide.html`), `slot.html` (wireframe placeholder).
+- **Behaviour:** `assets/shortcuts.js` (j/k/l page shortcuts, loaded early), `assets/site.js` (carousel: h / ; keys, position bar, remembered position).
 - **Preview locally:** `jekyll serve`, then open http://localhost:4000

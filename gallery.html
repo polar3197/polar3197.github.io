@@ -1,9 +1,0 @@
----
-title: Gallery
-permalink: /gallery/
----
-<h1>Gallery</h1>
-{% comment %}Every image in assets/img/paintings/ shows up here automatically.{% endcomment %}
-{% for f in site.static_files %}{% if f.path contains "/assets/img/paintings/" %}
-<img src="{{ f.path }}" alt="Painting" loading="lazy">
-{% endif %}{% endfor %}

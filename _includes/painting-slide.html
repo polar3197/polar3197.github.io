@@ -1,0 +1,14 @@
+{% comment %}
+  Carousel slide for one painting (see carousel.html). Label: title, dimensions, location.
+{% endcomment %}
+{% assign p = include.item %}
+<figure class="slide" aria-roledescription="slide" aria-label="{{ include.index }} of {{ include.total }}">
+  <div class="slide__frame">
+    <img src="/assets/img/paintings/{{ p.file }}" alt="{{ p.title }}" loading="lazy" decoding="async">
+  </div>
+  <figcaption class="label">
+    <cite class="label__title">{{ p.title }}</cite>
+    <span class="meta">{{ p.dimensions }}</span>
+    <span class="meta">{{ p.location }}</span>
+  </figcaption>
+</figure>

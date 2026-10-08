@@ -1,0 +1,10 @@
+# Top navigation, in order. Add/rename pages here only. `key` is the keyboard shortcut.
+- label: me
+  url: /
+  key: j
+- label: projects
+  url: /projects/
+  key: k
+- label: paintings
+  url: /paintings/
+  key: l

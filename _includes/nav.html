@@ -1,0 +1,7 @@
+<nav class="nav">
+  {% for item in site.data.nav %}
+  <a class="nav__link" href="{{ item.url }}" data-shortcut="{{ item.key }}" aria-keyshortcuts="{{ item.key }}"{% if page.url == item.url %} aria-current="page"{% endif %}>
+    {{ item.label }} <span class="nav__hint">(<kbd class="kbd">{{ item.key }}</kbd>)</span>
+  </a>
+  {% endfor %}
+</nav>

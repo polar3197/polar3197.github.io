@@ -1,0 +1,7 @@
+{% comment %}
+  Placeholder outline marking where content will land.
+  Usage: {% include slot.html label="bio" %} — fills remaining height; optional height="12rem"
+{% endcomment %}
+<div class="slot"{% if include.height %} style="--slot-height: {{ include.height }}"{% endif %}>
+  <span class="slot__label">{{ include.label }}</span>
+</div>

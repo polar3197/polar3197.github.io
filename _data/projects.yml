@@ -1,10 +1,8 @@
-- title: Live MUNI Vehicle Map
-  description: A real-time map of all public transportation vehicles in SF's MUNI network. Data collection and tiered-storage.
-  image: /assets/img/projects/muni-map.jpg
-  tags: [React, React Leaflet, HTML, CSS]
-  link: https://github.com/polar3197/muni-ui
-- title: MUNI Vehicles Data Pipeline
-  description: Automated 24/7 fetching of vehicle attributes. Database partitioning, weekly export to S3 for tiered storage of historical data for future analytics.
-  image: /assets/img/projects/pipeline.jpg
-  tags: [GTFS, PostgreSQL, SQLAlchemy, FastAPI, S3]
-  link: https://github.com/polar3197/muni
+# Projects, in display order (shown in the same carousel as paintings). `image` and `link` are optional.
+# (MUNI map + pipeline removed until there's a good live demo; images kept in assets/img/projects/.)
+- title: writing
+  description: An AI-enhanced text editor for organizing and navigating manuscripts of large creative works.
+  tags: [Next.js, TypeScript, ProseMirror]
+- title: paint club
+  description: A social media app for artists.
+  tags: [React Native, Expo, FastAPI, PostgreSQL]

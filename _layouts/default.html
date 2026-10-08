@@ -5,20 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title }}</title>
   <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/shortcuts.js"></script>
+  <script src="/assets/site.js" defer></script>
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="/">Charlie Cooper</a>
-      <a href="/projects/">Projects</a>
-      <a href="/blog/">Blog</a>
-      <a href="/gallery/">Gallery</a>
-      <a href="/books/">Books</a>
-      <a href="/assets/charlie-cooper-resume.pdf">Resume</a>
-    </nav>
-  </header>
-  <main>
-    {{ content }}
-  </main>
+  <div class="column">
+    <header>{% include nav.html %}</header>
+    <main class="content">
+      {{ content }}
+    </main>
+  </div>
 </body>
 </html>

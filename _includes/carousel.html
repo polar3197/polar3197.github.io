@@ -1,0 +1,31 @@
+{% comment %}
+  One-at-a-time horizontal carousel: a full-width segment bar (one segment per item), a fixed-height
+  frame per slide with its label beneath (so labels never move), and prev/next arrows outside the strip.
+  Keys: h = previous, ; = next. Behaviour lives in assets/site.js.
+
+  Usage: {% include carousel.html items=site.data.paintings slide="painting-slide.html" name="Paintings" %}
+  The slide include receives item, index and total.
+{% endcomment %}
+<section class="carousel" aria-roledescription="carousel" aria-label="{{ include.name }}">
+  <div class="carousel__segments" style="--count: {{ include.items.size }}">
+    {% for item in include.items %}
+    <button class="carousel__segment" type="button" tabindex="-1" data-carousel-segment="{{ forloop.index0 }}" aria-label="Go to {{ forloop.index }} of {{ forloop.length }}"></button>
+    {% endfor %}
+    <span class="carousel__indicator" aria-hidden="true"></span>
+  </div>
+  <div class="carousel__stage">
+    <button class="carousel__arrow" type="button" tabindex="-1" data-carousel="prev" aria-label="Previous" aria-keyshortcuts="h">
+      <span aria-hidden="true">←</span>
+      <span class="carousel__hint">(<kbd class="kbd">h</kbd>)</span>
+    </button>
+    <div class="carousel__track">
+      {% for item in include.items %}
+        {% include {{ include.slide }} item=item index=forloop.index total=forloop.length %}
+      {% endfor %}
+    </div>
+    <button class="carousel__arrow" type="button" tabindex="-1" data-carousel="next" aria-label="Next" aria-keyshortcuts=";">
+      <span aria-hidden="true">→</span>
+      <span class="carousel__hint">(<kbd class="kbd">;</kbd>)</span>
+    </button>
+  </div>
+</section>
