@@ -22,6 +22,7 @@
   --portrait-width: 16rem;    /* (placeholder) profile photo on the "me" page */
 
   --slide-height: min(28rem, 60svh);  /* (placeholder) fixed image box, keeps labels in one place */
+  --slide-height-compact: min(14rem, 28svh);  /* (placeholder) shorter box for projects, so their text fits */
   --segment-height: 3px;      /* (placeholder) carousel position bar */
   --ease-spring: cubic-bezier(0.34, 1.2, 0.64, 1);   /* (placeholder) gentle overshoot for the bar */
 
@@ -99,10 +100,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 /* Nav */
 .nav {
-  /* spans the full column width: equal gaps between links, half a gap at each end */
-  display: flex;
-  justify-content: space-around;
+  /* spans the full column width: first link flush left, last flush right, middle centred */
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
 }
+
+.nav__item:first-child { justify-self: start; }
+.nav__item:last-child  { justify-self: end; }
 
 .nav__link {
   color: var(--color-muted);
@@ -114,10 +118,36 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 .nav__hint { color: var(--color-muted); }
 
-/* Portrait: profile photo on the "me" page */
+/* Name: sits directly above the first nav link, left edges aligned, without affecting nav spacing */
+.nav__item { position: relative; }
+
+.site-name {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: var(--space-1);
+  white-space: nowrap;
+}
+
+/* Links: row of outbound links under the bio */
+.links { display: flex; gap: var(--space-3); }
+
+.links a {
+  color: var(--color-muted);
+  transition: color var(--duration-fast) var(--ease);
+}
+
+.links a:hover { color: var(--color-text); }
+
+/* Bio: text on the "me" page, wraps around the portrait */
+.bio { display: flow-root; }                 /* contains the floated portrait */
+.bio p:first-of-type { margin-top: 0; }      /* first line level with the top of the photo */
+
+/* Portrait: profile photo on the "me" page, top right of the content with the bio wrapping around it */
 .portrait {
-  width: var(--portrait-width);
-  margin-inline: auto;
+  float: right;
+  width: min(var(--portrait-width), 45%);   /* stays beside the text on phones too */
+  margin: 0 0 var(--space-2) var(--space-3);
   border-radius: var(--radius);
 }
 
@@ -133,6 +163,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 
 /* Carousel: one item per view (paintings, projects) */
+.carousel--compact { --slide-height: var(--slide-height-compact); }
 /* Stage: arrows sit outside the strip, so slides clip before reaching them */
 .carousel__stage {
   display: grid;

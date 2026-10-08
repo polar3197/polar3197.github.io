@@ -1,65 +1,50 @@
-# Paintings, in display order. Fill in title / dimensions / location; file is in assets/img/paintings/.
-- file: 25a6d76a-9617-4ed9-9aba-874a47293fbe.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: 83684204-2e7b-4d72-9fc9-fa23034d4f8e.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: b855b421-5e6a-47bb-a850-b75d10b785bb.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: img_7212.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: img_7213.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: img_7214.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: img_7215.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: img_7216.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: img_7217.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: img_7218.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: img_7219.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: img_7220.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: img_7369.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: img_7370.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: img_7947.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
-- file: img_8014.jpg
-  title: Untitled
-  dimensions: "— × — in"
-  location: Location
+# Paintings, in display order. Images live in assets/img/paintings/.
+# Titles, dimensions (height × width, inches) and locations come from paintingclub.art; dimensions/location are optional.
+- file: looking-up.jpg
+  title: "looking up"
+  dimensions: "44 × 32 in"
+  location: "san francisco"
+- file: rainy-night-in-berkeley.jpg
+  title: "rainy night in berkeley"
+  dimensions: "40 × 30 in"
+  location: "berkeley"
+- file: corner-store.jpg
+  title: "corner store"
+  dimensions: "16 × 16 in"
+  location: "santa cruz"
+- file: mission-dolores-basilica.jpg
+  title: "mission dolores basilica"
+  dimensions: "20 × 13 in"
+  location: "san francisco"
+- file: morning-coffee-no2.jpg
+  title: "morning coffee no2"
+  dimensions: "5 × 5 in"
+  location: "berkeley"
+- file: gg-bridge.jpg
+  title: "gg bridge"
+  dimensions: "6 × 6 in"
+  location: "frisco"
+- file: bottle-service.jpg
+  title: "bottle service"
+  dimensions: "5 × 5 in"
+  location: "san francisco"
+- file: oakland.jpg
+  title: "oakland"
+  location: "alameda"
+- file: james.jpg
+  title: "james"
+- file: first-day-of-summer.jpg
+  title: "first day of summer"
+  dimensions: "24 × 16 in"
+  location: "palm st, sc"
+- file: china-beach.jpg
+  title: "china beach"
+  location: "china beach, sf"
+- file: banister.jpg
+  title: "banister"
+  dimensions: "60 × 36 in"
+  location: "castro"
+- file: late-afternoon.jpg
+  title: "late afternoon"
+  dimensions: "5 × 5 in"
+  location: "santa cruz"

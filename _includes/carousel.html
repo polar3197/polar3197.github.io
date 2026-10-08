@@ -4,9 +4,10 @@
   Keys: h = previous, ; = next. Behaviour lives in assets/site.js.
 
   Usage: {% include carousel.html items=site.data.paintings slide="painting-slide.html" name="Paintings" %}
+  Optional compact=true: shorter image frame, for slides with longer text (projects).
   The slide include receives item, index and total.
 {% endcomment %}
-<section class="carousel" aria-roledescription="carousel" aria-label="{{ include.name }}">
+<section class="carousel{% if include.compact %} carousel--compact{% endif %}" aria-roledescription="carousel" aria-label="{{ include.name }}">
   <div class="carousel__segments" style="--count: {{ include.items.size }}">
     {% for item in include.items %}
     <button class="carousel__segment" type="button" tabindex="-1" data-carousel-segment="{{ forloop.index0 }}" aria-label="Go to {{ forloop.index }} of {{ forloop.length }}"></button>

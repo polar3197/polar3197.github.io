@@ -1,5 +1,5 @@
 {% comment %}
-  Carousel slide for one painting (see carousel.html). Label: title, dimensions, location.
+  Carousel slide for one painting (see carousel.html). Label: title, then dimensions and location when known.
 {% endcomment %}
 {% assign p = include.item %}
 <figure class="slide" aria-roledescription="slide" aria-label="{{ include.index }} of {{ include.total }}">
@@ -8,7 +8,7 @@
   </div>
   <figcaption class="label">
     <cite class="label__title">{{ p.title }}</cite>
-    <span class="meta">{{ p.dimensions }}</span>
-    <span class="meta">{{ p.location }}</span>
+    {% if p.dimensions %}<span class="meta">{{ p.dimensions }}</span>{% endif %}
+    {% if p.location %}<span class="meta">{{ p.location }}</span>{% endif %}
   </figcaption>
 </figure>
