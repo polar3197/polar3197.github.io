@@ -139,17 +139,19 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 .links a:hover { color: var(--color-text); }
 
-/* Bio: text on the "me" page, wraps around the portrait */
-.bio { display: flow-root; }                 /* contains the floated portrait */
-.bio p:first-of-type { margin-top: 0; }      /* first line level with the top of the photo */
+/* Bio: paragraphs from the top, links pushed to the bottom */
+.bio { display: flex; flex-direction: column; }
+.bio p { margin: 0 0 1em; }
+.bio .links { margin: auto 0 0; }
 
-/* Portrait: profile photo on the "me" page, top right of the content with the bio wrapping around it */
-.portrait {
-  float: right;
-  width: min(var(--portrait-width), 45%);   /* stays beside the text on phones too */
-  margin: 0 0 var(--space-2) var(--space-3);
-  border-radius: var(--radius);
+/* Intro ("me" page): bio on the left, portrait on the right; links sit level with the photo's bottom edge */
+.intro {
+  display: grid;
+  grid-template-columns: 1fr min(var(--portrait-width), 45%);   /* photo stays beside the text on phones too */
+  gap: var(--space-3);
 }
+
+.portrait { border-radius: var(--radius); }
 
 /* Slot: wireframe placeholder */
 .slot {

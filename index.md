@@ -1,8 +1,7 @@
 ---
 ---
+<div class="intro">
 <div class="bio" markdown="1">
-
-<img class="portrait" src="/assets/img/profile.jpg" alt="Charlie Cooper">
 
 Hi, I'm Charlie. I'm a painter and an engineer.
 
@@ -15,4 +14,6 @@ I'm promoting and iterating on a social media app building a connective tissue b
   <a href="https://www.linkedin.com/in/charlie-w-cooper/" target="_blank" rel="noopener">linkedin ↗</a>
 </p>
 
+</div>
+<img class="portrait" src="/assets/img/profile.jpg" alt="Charlie Cooper">
 </div>
