@@ -1,0 +1,11 @@
+title: Charlie Cooper
+markdown: kramdown
+kramdown:
+  input: GFM
+permalink: /blog/:title/
+exclude: [README.md]
+defaults:
+  - scope: { path: "" }
+    values: { layout: default }
+  - scope: { type: posts }
+    values: { layout: post }

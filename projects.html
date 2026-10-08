@@ -1,0 +1,13 @@
+---
+title: Projects
+permalink: /projects/
+---
+<h1>Projects</h1>
+{% for p in site.data.projects %}
+<section>
+  <h2><a href="{{ p.link }}">{{ p.title }}</a></h2>
+  <img src="{{ p.image }}" alt="{{ p.title }}" loading="lazy">
+  <p>{{ p.description }}</p>
+  <p>{{ p.tags | join: ", " }}</p>
+</section>
+{% endfor %}

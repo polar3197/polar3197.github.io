@@ -1,0 +1,17 @@
+- title: The Letters of Vincent van Gogh
+  author: Vincent van Gogh
+  cover: /assets/img/books/tlvv.jpg
+  current: true
+  summary: Collected letters of a fastidiously observed life by an artist struggling to justify his artistic compulsion.
+- title: As I Lay Dying
+  author: William Faulkner
+  cover: /assets/img/books/aild.jpg
+  summary: Stream of consciousness, magical, southern, gothic tragedy.
+- title: Magic Mountain
+  author: Thomas Mann
+  cover: /assets/img/books/tmm.jpg
+  summary: Humorous narrative about time, death, coming of age, the history of western philosophy, and its culmination in World War I.
+- title: Cutting for Stone
+  author: Abraham Verghese
+  cover: /assets/img/books/cfs.jpg
+  summary: Amazingly detailed account of twins, born orphans in Ethiopia, the country's civil war, and thorough medical operations.

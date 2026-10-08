@@ -1,0 +1,13 @@
+---
+title: Books
+permalink: /books/
+---
+<h1>Books</h1>
+{% for b in site.data.books %}
+<section>
+  <img src="{{ b.cover }}" alt="Cover of {{ b.title }}" loading="lazy" width="120">
+  <h2><cite>{{ b.title }}</cite>, {{ b.author }}</h2>
+  {% if b.current %}<p>Currently reading</p>{% endif %}
+  <p>{{ b.summary }}</p>
+</section>
+{% endfor %}
