@@ -23,6 +23,9 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
     segments.forEach((segment, index) => segment.setAttribute("aria-current", index === target));
     carousel.style.setProperty("--index", target);
     savePosition();
+    // Slides with a slug (projects) keep the URL hash on the current one, so links and reloads land there.
+    const slug = track.children[target]?.dataset.slug;
+    if (slug && !carousel.classList.contains("is-journal-open")) history.replaceState(null, "", `#${slug}`);
   };
   const goTo = (index) => {
     target = clamp(index);
@@ -50,9 +53,38 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
   updateControls();
   requestAnimationFrame(() => requestAnimationFrame(() => carousel.classList.add("is-ready")));
 
+  carousel.goTo = goTo;  // used by the journal router below
+
   document.addEventListener("keydown", (event) => {
-    if (!isPlainKeypress(event)) return;
+    if (!isPlainKeypress(event) || carousel.classList.contains("is-journal-open")) return;
     if (event.key === "h") goTo(target - 1);
     if (event.key === ";") goTo(target + 1);
   });
 });
+
+// Progress journals (projects page). The URL hash picks the view:
+//   #<slug> → that project in the carousel · #<slug>/journal → entry list · #<slug>/journal/<entry> → one entry
+const journals = [...document.querySelectorAll("[data-journal]")];
+
+if (journals.length) {
+  const carousel = document.querySelector(".carousel");
+  const slugs = [...carousel.querySelectorAll(".slide")].map((slide) => slide.dataset.slug);
+
+  const route = () => {
+    const [slug, section, entry] = decodeURIComponent(location.hash.slice(1)).split("/");
+    const journal = section === "journal" && journals.find((j) => j.dataset.journal === slug);
+
+    if (slugs.includes(slug)) carousel.goTo(slugs.indexOf(slug));
+    carousel.classList.toggle("is-journal-open", Boolean(journal));
+    journals.forEach((j) => { j.hidden = j !== journal; });
+    if (!journal) return;
+
+    const views = [...journal.querySelectorAll("[data-journal-view]")];
+    const view = views.find((v) => v.dataset.journalView === entry) || views[0];
+    views.forEach((v) => { v.hidden = v !== view; });
+    scrollTo(0, 0);
+  };
+
+  addEventListener("hashchange", route);
+  route();
+}

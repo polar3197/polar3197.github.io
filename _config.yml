@@ -2,7 +2,10 @@ title: Charlie Cooper
 markdown: kramdown
 kramdown:
   input: GFM
-exclude: [README.md]
+exclude: [README.md, api, vercel.json, package.json, package-lock.json, node_modules, Gemfile, Gemfile.lock, vendor]
+collections:
+  journal:
+    output: false   # entries render inside the projects page (see _includes/journals.html)
 defaults:
   - scope: { path: "" }
     values: { layout: default }

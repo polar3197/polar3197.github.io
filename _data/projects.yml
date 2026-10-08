@@ -1,13 +1,21 @@
 # Projects, in display order (shown in the same carousel as paintings). `image` and `link` are optional.
+# `slug` links a project to its progress-journal entries (_journal/*.md with `project: <slug>`) and to URLs like /projects/#<slug>.
 # (MUNI and writing are off for now; MUNI's images are kept in assets/img/projects/.)
 - title: llm extraction evals
+  slug: llm-extraction-evals
   description: An evaluation harness for LLMs extracting structured data from securities-litigation filings, built for Stanford Securities Litigation Analytics. A validation set sampled from ~25k human-labeled filings, stratified by event type, and a recall-weighted F-β score (β = 1.5), since a human reviewer can drop a false positive faster than find a miss. Models compared on accuracy against cost.
   tags: [Python, LLM evals]
 - title: paint club
+  slug: paint-club
   description: A social app for a ~40-member Bay Area art club, live on the App Store. I built and run the whole stack — a React Native iOS app shipped with over-the-air updates, a React web app, and a FastAPI and PostgreSQL backend in Docker, self-hosted on a Raspberry Pi behind Cloudflare.
   tags: [React Native, Expo, FastAPI, PostgreSQL, Docker]
   link: https://paintingclub.art
 - title: sae interp
+  slug: sae-interp
   description: With three Berkeley collaborators, how the vision encoder of Microsoft's Florence-2 represents race, gender and age. Linear probes recover race from its activations at 62% accuracy across seven groups (chance is 14%); a patch-level sparse autoencoder then breaks those activations into interpretable features, filtered for the ones tied to each group. Results being finalized.
   tags: [PyTorch, sparse autoencoders, interpretability, FairFace]
   link: https://github.com/polar3197/sae_interp
+- title: sec filing tagger
+  slug: sec-tagger
+  description: In progress. Teaching a small model to tag SEC financial statements with their official XBRL accounting concepts, scored against the tags companies actually filed and optimized with DSPy and GEPA.
+  tags: [Python, DSPy, GEPA, XBRL]
