@@ -350,6 +350,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .journal__row .meta { font-variant-numeric: tabular-nums; }
 
 .journal__body { padding-bottom: var(--space-2); }
+.slide:has(.journal.is-open) { padding-bottom: 40svh; }   /* extra scroll room while a journal is open */
 .journal__body > :first-child { margin-top: 0; }
 
 /* Slide label: title, then detail lines (painting: dimensions, location · project: description, tags) */
