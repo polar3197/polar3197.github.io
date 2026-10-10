@@ -76,8 +76,9 @@ if (journals.length) {
     const [slug, section, entry] = decodeURIComponent(location.hash.slice(1)).split("/");
     const journal = section === "journal" && journals.find((j) => j.dataset.journal === slug);
 
-    if (slugs.includes(slug)) carousel.goTo(slugs.indexOf(slug));
+    // Mark the journal open first, so the carousel doesn't rewrite the hash back to "#<slug>".
     carousel.classList.toggle("is-journal-open", Boolean(journal));
+    if (slugs.includes(slug)) carousel.goTo(slugs.indexOf(slug));
     journals.forEach((j) => { j.hidden = j !== journal; });
     if (!journal) return;
 
