@@ -1,9 +1,10 @@
 {% comment %}
-  Carousel slide for one project (see carousel.html). Label: title (linked if `link`), description, tags.
+  Carousel slide for one project (see carousel.html). Label: title (linked if `link`), description, tags,
+  and a progress-journal dropdown (journal.html) when the project has entries.
   No `image` yet → the frame shows a wireframe slot so the label still sits in the same place.
 {% endcomment %}
 {% assign p = include.item %}
-{% assign entries = site.journal | where: "project", p.slug %}
+{% assign entries = site.journal | where: "project", p.slug | sort: "date" | reverse %}
 <figure class="slide" data-slug="{{ p.slug }}" aria-roledescription="slide" aria-label="{{ include.index }} of {{ include.total }}">
   <div class="slide__frame">
     {% if p.image %}
@@ -20,7 +21,7 @@
     {% endif %}
     <span>{{ p.description }}</span>
     <span class="meta">{{ p.tags | join: " · " }}</span>
-    {% if entries.size > 0 %}<a class="label__journal" href="#{{ p.slug }}/journal">progress journal →</a>{% endif %}
+    {% if entries.size > 0 %}{% include journal.html project=p entries=entries %}{% endif %}
     <span class="admin-actions">
       <button class="edit" type="button" data-edit="_data/projects.yml" data-edit-find="slug: {{ p.slug }}">edit</button>
       <button class="edit" type="button" data-new-entry="{{ p.slug }}">+ journal entry</button>

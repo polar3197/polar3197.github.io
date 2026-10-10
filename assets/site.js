@@ -27,7 +27,7 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
     savePosition();
     // Slides with a slug (projects) keep the URL hash on the current one, so links and reloads land there.
     const slug = track.children[target]?.dataset.slug;
-    if (slug && !carousel.classList.contains("is-journal-open")) history.replaceState(null, "", `#${slug}`);
+    if (slug && location.hash.slice(1).split("/")[0] !== slug) history.replaceState(null, "", `#${slug}`);
   };
   const goTo = (index) => {
     target = clamp(index);
@@ -58,34 +58,63 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
   carousel.goTo = goTo;  // used by the journal router below
 
   document.addEventListener("keydown", (event) => {
-    if (!isPlainKeypress(event) || carousel.classList.contains("is-journal-open")) return;
+    if (!isPlainKeypress(event)) return;
     if (event.key === "h") goTo(target - 1);
     if (event.key === ";") goTo(target + 1);
   });
 });
 
-// Progress journals (projects page). The URL hash picks the view:
-//   #<slug> → that project in the carousel · #<slug>/journal → entry list · #<slug>/journal/<entry> → one entry
+// Dropdowns (progress journals): a toggle smoothly opens the panel below it, and the opened
+// content is centred in view. The hash mirrors what's open so it can be linked:
+//   #<slug>/journal → that project's entry list · #<slug>/journal/<entry> → one entry open
 const journals = [...document.querySelectorAll("[data-journal]")];
 
 if (journals.length) {
-  const carousel = document.querySelector(".carousel");
-  const slugs = [...carousel.querySelectorAll(".slide")].map((slide) => slide.dataset.slug);
+  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const openDuration = reducedMotion ? 0 : parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--duration-slow")) || 0;
 
+  const setOpen = (dropdown, open) => {
+    dropdown.classList.toggle("is-open", open);
+    dropdown.querySelector(":scope > .dropdown__toggle").setAttribute("aria-expanded", open);
+    // While a journal is open, give the page room below so opened content can scroll to the centre.
+    document.documentElement.classList.toggle("has-open-journal", journals.some((j) => j.classList.contains("is-open")));
+  };
+
+  // After the panel finishes opening, bring it to the middle of the screen (or its top, if it's tall).
+  // Scrolls only the page: scrollIntoView would also nudge the carousel's horizontal track.
+  const center = (element) => setTimeout(() => {
+    const box = element.getBoundingClientRect();
+    const offset = box.height > innerHeight * 0.8 ? 32 : (innerHeight - box.height) / 2;
+    scrollTo({ top: scrollY + box.top - offset, behavior: reducedMotion ? "auto" : "smooth" });
+  }, openDuration);
+
+  const hashFor = (journal) => {
+    const slug = journal.dataset.journal;
+    if (!journal.classList.contains("is-open")) return `#${slug}`;
+    const entry = journal.querySelector(".journal__entry.is-open");
+    return entry ? `#${slug}/journal/${entry.dataset.entry}` : `#${slug}/journal`;
+  };
+
+  document.addEventListener("click", (event) => {
+    const toggle = event.target.closest(".journal .dropdown__toggle");
+    if (!toggle) return;
+    const dropdown = toggle.closest(".dropdown");
+    const journal = toggle.closest(".journal");
+    const opening = !dropdown.classList.contains("is-open");
+    setOpen(dropdown, opening);
+    if (opening) center(dropdown);
+    history.replaceState(null, "", hashFor(journal));
+  });
+
+  // Open whatever the URL points at (on load, and when a link changes the hash).
   const route = () => {
-    const [slug, section, entry] = decodeURIComponent(location.hash.slice(1)).split("/");
+    const [slug, section, entrySlug] = decodeURIComponent(location.hash.slice(1)).split("/");
     const journal = section === "journal" && journals.find((j) => j.dataset.journal === slug);
-
-    // Mark the journal open first, so the carousel doesn't rewrite the hash back to "#<slug>".
-    carousel.classList.toggle("is-journal-open", Boolean(journal));
-    if (slugs.includes(slug)) carousel.goTo(slugs.indexOf(slug));
-    journals.forEach((j) => { j.hidden = j !== journal; });
     if (!journal) return;
-
-    const views = [...journal.querySelectorAll("[data-journal-view]")];
-    const view = views.find((v) => v.dataset.journalView === entry) || views[0];
-    views.forEach((v) => { v.hidden = v !== view; });
-    scrollTo(0, 0);
+    setOpen(journal, true);
+    const entry = entrySlug && [...journal.querySelectorAll(".journal__entry")].find((e) => e.dataset.entry === entrySlug);
+    if (entry) setOpen(entry, true);
+    center(entry || journal);
   };
 
   addEventListener("hashchange", route);

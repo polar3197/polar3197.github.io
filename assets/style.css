@@ -270,40 +270,61 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 .carousel__hint { font-size: var(--text-small); }
 
-/* Progress journal: replaces the carousel's slide area while open */
-.carousel.is-journal-open .carousel__stage { display: none; }
+/* Dropdown: smooth open/close by animating the panel's row from 0fr to 1fr */
+.dropdown__panel {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows var(--duration-slow) var(--ease);
+}
 
-.label__journal {
-  margin-top: var(--space-1);
+.dropdown.is-open > .dropdown__panel { grid-template-rows: 1fr; }
+
+.dropdown__inner {
+  min-height: 0;
+  overflow: hidden;
+  visibility: hidden;                                         /* closed content can't be tabbed into */
+  transition: visibility 0s var(--duration-slow);
+}
+
+.dropdown.is-open > .dropdown__panel > .dropdown__inner { visibility: visible; transition: none; }
+
+.dropdown__cue {
+  display: inline-block;
+  transition: rotate var(--duration-slow) var(--ease);
+}
+
+.dropdown.is-open > .dropdown__toggle .dropdown__cue { rotate: 180deg; }
+
+/* Progress journal (a dropdown under the project description) */
+.label__journal,
+.journal__row {
   color: var(--color-muted);
   transition: color var(--duration-fast) var(--ease);
 }
 
-.journal__back {
-  color: var(--color-muted);
-  transition: color var(--duration-fast) var(--ease);
-}
+.label__journal { margin-top: var(--space-1); text-align: left; }
 
 .label__journal:hover,
-.journal__back:hover,
-.journal__item:hover { color: var(--color-text); }
+.journal__row:hover,
+.dropdown.is-open > .journal__row { color: var(--color-text); }
 
-.journal__heading { margin: var(--space-2) 0; font-size: var(--text-base); font-weight: 500; }
+.journal__list { list-style: none; margin: var(--space-1) 0 0; padding: 0; }
 
-.journal__list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--space-1); }
-
-.journal__item {
+.journal__row {
   display: grid;
-  grid-template-columns: 7rem 1fr;   /* date column, title column */
+  grid-template-columns: 1fr auto;   /* title left, date right */
   gap: var(--space-2);
   align-items: baseline;
-  transition: color var(--duration-fast) var(--ease);
+  width: 100%;
+  padding-block: var(--space-1);
+  text-align: left;
 }
 
-.journal__item .meta { font-variant-numeric: tabular-nums; }
+.journal__row .meta { font-variant-numeric: tabular-nums; }
 
-.journal__entry > time { display: block; margin-top: var(--space-2); }
-.journal__entry .journal__heading { margin-top: var(--space-1); }
+.journal__body { padding-bottom: var(--space-2); }
+.has-open-journal .content { padding-bottom: 50svh; }   /* room to centre opened entries near the page bottom */
+.journal__body > :first-child { margin-top: 0; }
 
 /* Slide label: title, then detail lines (painting: dimensions, location · project: description, tags) */
 .label {
