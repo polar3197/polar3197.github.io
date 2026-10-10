@@ -1,5 +1,5 @@
 // Admin mode. "/" opens a command box: "admin" asks for the password (checked by /api/login on
-// Vercel), "logout" ends the session. In admin mode, edit buttons appear on written content;
+// Vercel), "admin-off" (or "logout" / "exit") ends the session. In admin mode, edit buttons appear on written content;
 // saving commits the source file to GitHub through /api/save, and Vercel redeploys in ~a minute.
 // (isPlainKeypress comes from shortcuts.js.)
 const root = document.documentElement;
@@ -74,13 +74,14 @@ command.querySelector("form").addEventListener("submit", async (event) => {
 
   switch (value.toLowerCase()) {
     case "admin":
-      if (isAdmin()) { commandHint.textContent = "Already in admin mode. (logout to leave)"; return; }
+      if (isAdmin()) { commandHint.textContent = "Already in admin mode. (admin-off to leave)"; return; }
       awaitingPassword = true;
       commandInput.type = "password";
       commandInput.placeholder = "password";
       commandInput.value = "";
       commandHint.textContent = "";
       return;
+    case "admin-off":
     case "logout":
     case "exit":
       await api("logout", { method: "POST" });
