@@ -64,29 +64,16 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
   });
 });
 
-// Dropdowns (progress journals): a toggle smoothly opens the panel below it, and the opened
-// content is centred in view. The hash mirrors what's open so it can be linked:
+// Dropdowns (progress journals): a toggle smoothly opens the panel below it.
+// The hash mirrors what's open so it can be linked:
 //   #<slug>/journal → that project's entry list · #<slug>/journal/<entry> → one entry open
 const journals = [...document.querySelectorAll("[data-journal]")];
 
 if (journals.length) {
-  const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const openDuration = reducedMotion ? 0 : parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--duration-slow")) || 0;
-
   const setOpen = (dropdown, open) => {
     dropdown.classList.toggle("is-open", open);
     dropdown.querySelector(":scope > .dropdown__toggle").setAttribute("aria-expanded", open);
-    // While a journal is open, give the page room below so opened content can scroll to the centre.
-    document.documentElement.classList.toggle("has-open-journal", journals.some((j) => j.classList.contains("is-open")));
   };
-
-  // After the panel finishes opening, bring it to the middle of the screen (or its top, if it's tall).
-  // Scrolls only the page: scrollIntoView would also nudge the carousel's horizontal track.
-  const center = (element) => setTimeout(() => {
-    const box = element.getBoundingClientRect();
-    const offset = box.height > innerHeight * 0.8 ? 32 : (innerHeight - box.height) / 2;
-    scrollTo({ top: scrollY + box.top - offset, behavior: reducedMotion ? "auto" : "smooth" });
-  }, openDuration);
 
   const hashFor = (journal) => {
     const slug = journal.dataset.journal;
@@ -100,9 +87,7 @@ if (journals.length) {
     if (!toggle) return;
     const dropdown = toggle.closest(".dropdown");
     const journal = toggle.closest(".journal");
-    const opening = !dropdown.classList.contains("is-open");
-    setOpen(dropdown, opening);
-    if (opening) center(dropdown);
+    setOpen(dropdown, !dropdown.classList.contains("is-open"));
     history.replaceState(null, "", hashFor(journal));
   });
 
@@ -114,7 +99,6 @@ if (journals.length) {
     setOpen(journal, true);
     const entry = entrySlug && [...journal.querySelectorAll(".journal__entry")].find((e) => e.dataset.entry === entrySlug);
     if (entry) setOpen(entry, true);
-    center(entry || journal);
   };
 
   addEventListener("hashchange", route);

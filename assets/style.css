@@ -302,7 +302,13 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
   transition: color var(--duration-fast) var(--ease);
 }
 
-.label__journal { margin-top: var(--space-1); text-align: left; }
+.label__journal {
+  width: 100%;
+  margin-top: var(--space-1);
+  padding-bottom: var(--space-1);
+  border-bottom: 1px solid var(--color-guide);   /* thin line under "progress journal" */
+  text-align: left;
+}
 
 .label__journal:hover,
 .journal__row:hover,
@@ -323,7 +329,6 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .journal__row .meta { font-variant-numeric: tabular-nums; }
 
 .journal__body { padding-bottom: var(--space-2); }
-.has-open-journal .content { padding-bottom: 50svh; }   /* room to centre opened entries near the page bottom */
 .journal__body > :first-child { margin-top: 0; }
 
 /* Slide label: title, then detail lines (painting: dimensions, location · project: description, tags) */

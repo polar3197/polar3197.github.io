@@ -1,7 +1,7 @@
 {% comment %}
-  A project's progress journal, as a dropdown under its description: the toggle opens a list of
-  entries (title left, date right); each row opens its entry right below it. Opened content is
-  centred in view. Deep links still work: #<slug>/journal and #<slug>/journal/<entry>.
+  A project's progress journal, as a dropdown under its description: the toggle (with a thin
+  line under it) opens a list of entries (title left, date right); each row opens its entry
+  right below it. Deep links still work: #<slug>/journal and #<slug>/journal/<entry>.
   Usage (inside a project slide): {% include journal.html project=p entries=entries %}
   Behaviour lives in assets/site.js ("Dropdowns").
 {% endcomment %}
