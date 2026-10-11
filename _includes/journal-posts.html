@@ -1,0 +1,19 @@
+{% comment %}
+  Full-page journal posts for every project. One is shown at a time, in place of the carousel's
+  slides and arrows (the position bar stays), when the URL is #<slug>/journal/<entry>.
+  "← back" returns to that project with its journal list open. Behaviour lives in assets/site.js.
+{% endcomment %}
+<div class="carousel__posts">
+  {% for p in site.data.projects %}
+  {% assign entries = site.journal | where: "project", p.slug %}
+  {% for e in entries %}
+  <article class="post" data-post="{{ p.slug }}/{{ e.slug }}" hidden>
+    <a class="post__back" href="#{{ p.slug }}/journal">← back</a>
+    <time class="meta" datetime="{{ e.date | date_to_xmlschema }}">{{ e.date | date: "%b %-d, %Y" }} · {{ p.title }}</time>
+    <h2 class="post__title">{{ e.title }}</h2>
+    <div class="post__body">{{ e.content }}</div>
+    <p class="admin-actions"><button class="edit" type="button" data-edit="{{ e.path }}">edit</button></p>
+  </article>
+  {% endfor %}
+  {% endfor %}
+</div>

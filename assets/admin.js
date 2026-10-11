@@ -11,6 +11,7 @@ const editorPath = editor.querySelector(".editor__path");
 const editorTitle = editor.querySelector(".editor__title");
 const editorText = editor.querySelector(".editor__text");
 const editorStatus = editor.querySelector(".editor__status");
+const note = document.querySelector(".admin-note");
 
 // Remember (per browser) that admin was used, so ordinary visitors never call the session API.
 const hint = {
@@ -94,20 +95,39 @@ command.querySelector("form").addEventListener("submit", async (event) => {
 });
 
 // ---------- Editor ----------
-let current = null; // { path, sha } for an existing file, or { project, isNew: true }
+let current = null;      // { path, sha } for an existing file, or { project, isNew: true }
+let loadedText = "";     // what the editor started with, to detect unsaved changes
+let discardArmed = false; // first cancel/Esc with unsaved text only warns; the second discards
+let pageBefore = null;   // this page's HTML when the editor opened, to tell when the edit is live
+
+const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+const fetchPage = () =>
+  fetch(`${location.pathname}?fresh=${Date.now()}`, { cache: "no-store" }).then((r) => r.text()).catch(() => null);
+
+const isDirty = () =>
+  editor.open && (editorText.value !== loadedText || (current?.isNew && editorTitle.value.trim() !== ""));
+
+function prepare(pathLabel, isNew) {
+  editorPath.textContent = pathLabel;
+  editorTitle.hidden = !isNew;
+  editorTitle.value = "";
+  editorText.value = "";
+  loadedText = "";
+  discardArmed = false;
+  editorStatus.textContent = "";
+  fetchPage().then((html) => { pageBefore = html; });
+  editor.showModal();
+}
 
 async function openEditor(path, find) {
   current = { path, sha: null };
-  editorPath.textContent = path;
-  editorTitle.hidden = true;
-  editorText.value = "";
+  prepare(path, false);
   editorStatus.textContent = "loading…";
-  editor.showModal();
 
   const file = await api(`file?path=${encodeURIComponent(path)}`);
   if (!file.ok) { editorStatus.textContent = file.error; if (file.status === 401) setAdmin(false); return; }
   current.sha = file.sha;
-  editorText.value = file.content;
+  editorText.value = loadedText = file.content;
   editorStatus.textContent = "";
 
   // Put the cursor on the item that was clicked (e.g. one project in projects.yml).
@@ -122,12 +142,7 @@ async function openEditor(path, find) {
 
 function openNewEntry(project) {
   current = { project, isNew: true, sha: null };
-  editorPath.textContent = `new journal entry · ${project}`;
-  editorTitle.hidden = false;
-  editorTitle.value = "";
-  editorText.value = "";
-  editorStatus.textContent = "";
-  editor.showModal();
+  prepare(`new journal entry · ${project}`, true);
   editorTitle.focus();
 }
 
@@ -137,26 +152,65 @@ const today = () => {
   return [d.getFullYear(), d.getMonth() + 1, d.getDate()].map((n) => String(n).padStart(2, "0")).join("-");
 };
 
+// Closing with unsaved text: the first cancel/Esc warns, the second discards.
+function requestClose(event) {
+  if (isDirty() && !discardArmed) {
+    event?.preventDefault();
+    discardArmed = true;
+    editorStatus.textContent = "Unsaved changes. Cancel again to discard them.";
+    return;
+  }
+  editor.close();
+}
+
+editor.querySelector("[data-editor=cancel]").addEventListener("click", () => requestClose());
+editor.addEventListener("cancel", (event) => { if (isDirty() && !discardArmed) requestClose(event); });
+editor.addEventListener("input", () => { discardArmed = false; });
+addEventListener("beforeunload", (event) => { if (isDirty()) event.preventDefault(); });
+
+// After a save: keep a note on screen, and reload once the rebuilt page is live.
+async function showPublishing(destinationHash) {
+  note.hidden = false;
+  note.textContent = "saved · publishing…";
+  const before = pageBefore ?? (await fetchPage());
+  const started = Date.now();
+  while (Date.now() - started < 3 * 60 * 1000) {
+    await sleep(5000);
+    const html = await fetchPage();
+    if (html && before && html !== before) {
+      note.textContent = "published · reloading…";
+      if (destinationHash) location.hash = destinationHash;
+      location.reload();
+      return;
+    }
+  }
+  note.textContent = "saved · still publishing. Refresh in a minute.";
+}
+
 editor.querySelector("form").addEventListener("submit", async (event) => {
   event.preventDefault();
   let { path } = current;
   let content = editorText.value;
+  let destinationHash = null;
 
   if (current.isNew) {
     const title = editorTitle.value.trim();
     if (!title) { editorStatus.textContent = "Add a title first."; return; }
-    path = `_journal/${today()}-${slugify(title)}.md`;
+    const slug = slugify(title);
+    path = `_journal/${today()}-${slug}.md`;
     content = `---\nproject: ${current.project}\ntitle: ${JSON.stringify(title)}\n---\n\n${content.trim()}\n`;
+    destinationHash = `#${current.project}/journal/${slug}`;  // open the new post once it's live
   }
 
   editorStatus.textContent = "saving…";
   const result = await api("save", { method: "POST", body: { path, content, sha: current.sha } });
   if (!result.ok) { editorStatus.textContent = result.error; if (result.status === 401) setAdmin(false); return; }
-  editorStatus.textContent = "Saved. Live in about a minute.";
-  setTimeout(() => editor.close(), 1500);
-});
 
-editor.querySelector("[data-editor=cancel]").addEventListener("click", () => editor.close());
+  loadedText = editorText.value;   // nothing unsaved now
+  if (current.isNew) editorTitle.value = "";
+  editor.close();
+  showPublishing(destinationHash);
+});
 
 document.addEventListener("click", (event) => {
   const edit = event.target.closest("[data-edit]");

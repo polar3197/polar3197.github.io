@@ -1,9 +1,9 @@
 {% comment %}
   A project's progress journal, as a dropdown under its description: the toggle (with a thin
-  line under it) opens a list of entries (title left, date right); each row opens its entry
-  right below it. Deep links still work: #<slug>/journal and #<slug>/journal/<entry>.
+  line under it) opens a list of entries (title left, date right). Each row opens that post in
+  the full content area (journal-posts.html), below the carousel's position bar.
+  Links: #<slug>/journal opens the list, #<slug>/journal/<entry> opens a post.
   Usage (inside a project slide): {% include journal.html project=p entries=entries %}
-  Behaviour lives in assets/site.js ("Dropdowns").
 {% endcomment %}
 {% assign p = include.project %}
 <div class="dropdown journal" data-journal="{{ p.slug }}">
@@ -14,19 +14,11 @@
     <div class="dropdown__inner">
       <ol class="journal__list">
         {% for e in include.entries %}
-        <li class="dropdown journal__entry" data-entry="{{ e.slug }}">
-          <button class="dropdown__toggle journal__row" type="button" aria-expanded="false" aria-controls="entry-{{ p.slug }}-{{ forloop.index }}">
+        <li>
+          <a class="journal__row" href="#{{ p.slug }}/journal/{{ e.slug }}">
             <span class="journal__title">{{ e.title }}</span>
             <time class="meta" datetime="{{ e.date | date_to_xmlschema }}">{{ e.date | date: "%b %-d, %Y" }}</time>
-          </button>
-          <div class="dropdown__panel" id="entry-{{ p.slug }}-{{ forloop.index }}">
-            <div class="dropdown__inner">
-              <div class="journal__body">
-                {{ e.content }}
-                <p class="admin-actions"><button class="edit" type="button" data-edit="{{ e.path }}">edit</button></p>
-              </div>
-            </div>
-          </div>
+          </a>
         </li>
         {% endfor %}
       </ol>

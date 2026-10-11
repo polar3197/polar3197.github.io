@@ -332,8 +332,7 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 }
 
 .label__journal:hover,
-.journal__row:hover,
-.dropdown.is-open > .journal__row { color: var(--color-text); }
+.journal__row:hover { color: var(--color-text); }
 
 .journal__list { list-style: none; margin: var(--space-1) 0 0; padding: 0; }
 
@@ -349,9 +348,38 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 
 .journal__row .meta { font-variant-numeric: tabular-nums; }
 
-.journal__body { padding-bottom: var(--space-2); }
 .slide:has(.journal.is-open) { padding-bottom: 40svh; }   /* extra scroll room while a journal is open */
-.journal__body > :first-child { margin-top: 0; }
+
+/* Journal post: replaces the slides and arrows (the position bar stays) */
+.carousel__posts { display: none; }
+
+.carousel.is-post-open .carousel__stage { display: none; }
+
+.carousel.is-post-open .carousel__posts {
+  display: block;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;                   /* long posts scroll here; the page itself doesn't */
+  overscroll-behavior: contain;
+  scrollbar-width: none;
+}
+
+.carousel__posts::-webkit-scrollbar { display: none; }
+
+.post { padding-bottom: var(--space-4); }
+
+.post__back {
+  display: inline-block;
+  margin-bottom: var(--space-2);
+  color: var(--color-muted);
+  transition: color var(--duration-fast) var(--ease);
+}
+
+.post__back:hover { color: var(--color-text); }
+
+.post > time { display: block; }
+
+.post__title { margin: var(--space-1) 0 var(--space-2); font-size: var(--text-base); font-weight: 500; }
 
 /* Slide label: title, then detail lines (painting: dimensions, location · project: description, tags) */
 .label {
@@ -392,6 +420,21 @@ cite.label__title { font-weight: normal; }   /* artwork titles: italic (cite def
 .editor::backdrop { background: rgb(0 0 0 / 0.08); }   /* (placeholder) */
 
 .command { width: min(24rem, 90vw); margin-top: 20vh; }
+
+/* "saved · publishing…" note after an edit, until the page reloads */
+.admin-note {
+  position: fixed;
+  left: 50%;
+  bottom: var(--space-2);
+  translate: -50% 0;
+  margin: 0;
+  padding: var(--space-1) var(--space-2);
+  border: 1px solid var(--color-guide);
+  border-radius: var(--radius);
+  background: var(--color-bg);
+}
+
+.admin-note[hidden] { display: none; }
 
 .command__input,
 .editor__title {

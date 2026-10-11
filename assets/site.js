@@ -58,48 +58,60 @@ document.querySelectorAll(".carousel").forEach((carousel) => {
   carousel.goTo = goTo;  // used by the journal router below
 
   document.addEventListener("keydown", (event) => {
-    if (!isPlainKeypress(event)) return;
+    if (!isPlainKeypress(event) || carousel.classList.contains("is-post-open")) return;
     if (event.key === "h") goTo(target - 1);
     if (event.key === ";") goTo(target + 1);
   });
 });
 
-// Dropdowns (progress journals): a toggle smoothly opens the panel below it.
-// The hash mirrors what's open so it can be linked:
-//   #<slug>/journal → that project's entry list · #<slug>/journal/<entry> → one entry open
+// Progress journals (projects page). The journal list is a dropdown under each project's
+// description; a row opens that post in the full content area, in place of the slides and arrows
+// (the position bar stays). The URL hash picks the view, so views can be linked and Back works:
+//   #<slug> → the project · #<slug>/journal → its list open · #<slug>/journal/<entry> → that post
 const journals = [...document.querySelectorAll("[data-journal]")];
 
 if (journals.length) {
+  const carousel = document.querySelector(".carousel");
+  const posts = [...carousel.querySelectorAll("[data-post]")];
+  const postArea = carousel.querySelector(".carousel__posts");
+  const slugs = [...carousel.querySelectorAll(".slide")].map((slide) => slide.dataset.slug);
+
   const setOpen = (dropdown, open) => {
     dropdown.classList.toggle("is-open", open);
     dropdown.querySelector(":scope > .dropdown__toggle").setAttribute("aria-expanded", open);
   };
 
-  const hashFor = (journal) => {
-    const slug = journal.dataset.journal;
-    if (!journal.classList.contains("is-open")) return `#${slug}`;
-    const entry = journal.querySelector(".journal__entry.is-open");
-    return entry ? `#${slug}/journal/${entry.dataset.entry}` : `#${slug}/journal`;
-  };
-
+  // Toggling a list keeps the hash in step without adding history entries.
   document.addEventListener("click", (event) => {
-    const toggle = event.target.closest(".journal .dropdown__toggle");
+    const toggle = event.target.closest(".journal > .dropdown__toggle");
     if (!toggle) return;
-    const dropdown = toggle.closest(".dropdown");
     const journal = toggle.closest(".journal");
-    setOpen(dropdown, !dropdown.classList.contains("is-open"));
-    history.replaceState(null, "", hashFor(journal));
+    const open = !journal.classList.contains("is-open");
+    setOpen(journal, open);
+    history.replaceState(null, "", `#${journal.dataset.journal}${open ? "/journal" : ""}`);
   });
 
-  // Open whatever the URL points at (on load, and when a link changes the hash).
   const route = () => {
-    const [slug, section, entrySlug] = decodeURIComponent(location.hash.slice(1)).split("/");
+    const [slug, section, entry] = decodeURIComponent(location.hash.slice(1)).split("/");
+    const post = section === "journal" && entry && posts.find((p) => p.dataset.post === `${slug}/${entry}`);
+
+    carousel.classList.toggle("is-post-open", Boolean(post));
+    posts.forEach((p) => { p.hidden = p !== post; });
+    if (post) postArea.scrollTop = 0;
+
+    if (slugs.includes(slug)) carousel.goTo(slugs.indexOf(slug));
     const journal = section === "journal" && journals.find((j) => j.dataset.journal === slug);
-    if (!journal) return;
-    setOpen(journal, true);
-    const entry = entrySlug && [...journal.querySelectorAll(".journal__entry")].find((e) => e.dataset.entry === entrySlug);
-    if (entry) setOpen(entry, true);
+    if (journal) setOpen(journal, true);
   };
+
+  // Picking a project on the position bar while a post is open goes back to the slides. (The
+  // carousel has already set the hash to that project, so no hashchange fires; route directly.)
+  carousel.querySelectorAll("[data-carousel-segment]").forEach((segment, index) =>
+    segment.addEventListener("click", () => {
+      if (!carousel.classList.contains("is-post-open")) return;
+      history.replaceState(null, "", `#${slugs[index]}`);
+      route();
+    }));
 
   addEventListener("hashchange", route);
   route();

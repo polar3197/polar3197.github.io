@@ -6,6 +6,7 @@
   Usage: {% include carousel.html items=site.data.paintings slide="painting-slide.html" name="Paintings" %}
   Optional compact=true: shorter image frame, for slides with longer text (projects).
   The slide include receives item, index and total.
+  Optional extra="file.html": included after the slides, inside the carousel (projects use it for journal posts).
 {% endcomment %}
 <section class="carousel{% if include.compact %} carousel--compact{% endif %}" aria-roledescription="carousel" aria-label="{{ include.name }}">
   <div class="carousel__segments" style="--count: {{ include.items.size }}">
@@ -29,4 +30,5 @@
       <span class="carousel__hint">(<kbd class="kbd">;</kbd>)</span>
     </button>
   </div>
+  {% if include.extra %}{% include {{ include.extra }} %}{% endif %}
 </section>
