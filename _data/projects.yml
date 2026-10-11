@@ -5,7 +5,7 @@
   slug: buni
   description: A live San Francisco Muni tracker for iPhone. A collector on a Raspberry Pi archives every 511 vehicle-position feed (every 65 seconds), and an API serves live buses, routes and stops as GeoJSON to an Expo and MapLibre app. Next — gradient-boosted trees to predict travel times on each route segment.
   tags: [Expo, MapLibre, Python, GTFS-realtime, Docker]
-  image: /assets/img/projects/buni.jpg
+  image: /assets/img/projects/buni-web.jpg
 - title: llm extraction evals
   slug: llm-extraction-evals
   description: An evaluation harness for LLMs extracting structured data from securities-litigation filings, built for Stanford Securities Litigation Analytics. A validation set sampled from ~25k human-labeled filings, stratified by event type, and a recall-weighted F-β score (β = 1.5), since a human reviewer can drop a false positive faster than find a miss. Models compared on accuracy against cost.
