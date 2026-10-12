@@ -1,8 +1,8 @@
 ---
 project: sec-tagger
-title: "driving question"
+title: "driving questions"
 ---
 
-how good is dspy and gepa? 
-
-can it help small/opensource models outperform larger frontier models on rote doc processing tasks?
+1. how good are dspy and gepa? 
+2. is it worth hiding the prompt?
+3. can it help small/opensource models outperform larger frontier models on rote doc processing tasks?
