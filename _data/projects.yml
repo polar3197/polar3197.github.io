@@ -1,7 +1,7 @@
 # Projects, in display order (shown in the same carousel as paintings). `image` and `link` are optional.
 # `slug` links a project to its progress-journal entries (_journal/*.md with `project: <slug>`) and to URLs like /projects/#<slug>.
 # (writing is off for now. muni-map.jpg / pipeline.jpg in assets/img/projects/ are from the old MUNI project.)
-- title: buni
+- title: 🅱️uni
   slug: buni
   description: A live San Francisco Muni tracker for iPhone. A collector on a Raspberry Pi archives every 511 vehicle-position feed (every 65 seconds), and an API serves live buses, routes and stops as GeoJSON to an Expo and MapLibre app. Next — gradient-boosted trees to predict travel times on each route segment.
   tags: [Expo, MapLibre, Python, GTFS-realtime, Docker]
