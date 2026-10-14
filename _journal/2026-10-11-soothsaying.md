@@ -1,31 +1,11 @@
 ---
 project: buni
-title: "soothsaying"
+title: "real arrival predictions"
 ---
 
-**what's a transit map without arrival time prediction?**
+what is a transit app without accurate vehicle arrival times?
 
-## plan
+the published static schedule is weak. i have a plan for predictions using 5 years of historical data on arrival times from 511's api.
 
-it's a good excuse for me to dig up my CS189 notes and brush up on decision trees, random forests and gradient boosting.
-
-i have very rich data on historical arrival times of buses; if I build a decision tree on that data to classify travel time between stops (referring to these as route segments), then I will achieve two things:
-
-1. give people estimates of when their bus is arriving that differs from the 511-published static schedule,
-
-2. be able to plot extrapolated vehicle locations in-between API polls with more accuracy than physics + route-snapping estimates.
-
-**measurable outcomes:**
-
-1. how do my predictions of arrival time compare to the ones 511 publishes? how do those compare to the actual arrival times?
-- compare pure accuracy across routes and time of day between the two guesses and the ground truth
-
-2. how do position extrapolation improve from pure physics + route-snapping?
-- run a small experiment after both are built. pause all polling and use the api to grab live real positions every second 
-- compare these real results to the positions of each extrapolation method
-
-## experiment
-
-## findings
-
-## application to the map
+i aim to predict the time it takes a vehicle to travel a single segment of its route. the method I will be testing is decision trees, specifically XGBoost and LightGBM. What the problem then boils down to is defining a function, $$/phi$$, s.t.
+$$travel_time_{(s_1, s_2)} = /phi(s_1, s_2, d, t, r)$$
