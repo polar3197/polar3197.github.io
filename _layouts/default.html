@@ -7,6 +7,14 @@
   <link rel="stylesheet" href="/assets/style.css">
   <script src="/assets/shortcuts.js"></script>
   <script src="/assets/site.js" defer></script>
+  <!-- math: kramdown turns $$...$$ into \(...\) inline and \[...\] display; KaTeX draws them -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/katex.min.js" defer></script>
+  <script src="https://cdn.jsdelivr.net/npm/katex@0.16.47/dist/contrib/auto-render.min.js" defer
+    onload="renderMathInElement(document.body, { delimiters: [
+      { left: '\\[', right: '\\]', display: true },
+      { left: '\\(', right: '\\)', display: false }
+    ] })"></script>
 </head>
 <body>
   <div class="column">
