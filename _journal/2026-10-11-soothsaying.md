@@ -1,6 +1,6 @@
 ---
 project: buni
-title: "real arrival predictions"
+title: "arrival predictions"
 ---
 
 what is a transit app without accurate vehicle arrival times?
